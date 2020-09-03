@@ -1,0 +1,19 @@
+- file: FrontPage.md
+  numbered: true
+
+- part: Introduction and Background
+  chapters:
+    - file: Part0/Introduction.md 
+
+- part: Mathematical Fluid Dynamics
+  chapters:
+  - file: Part1/ContinuumMechanics.md 
+  - file: Part1/NavierStokes.md 
+  - file: Part1/ThermalConvection.md
+  - file: Part1/MantleDynamics.md
+  - file: Part1/LithosphericDynamics.md
+
+# - part: Numerical Modeling 
+#   chapters:
+#   - file: Numerical1.md
+

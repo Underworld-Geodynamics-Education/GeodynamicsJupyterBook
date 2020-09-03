@@ -1,0 +1,20 @@
+# Book settings
+title: Geodynamics with Underworld
+author: Louis Moresi 
+logo: Diagrams/MundusSubterraneus.png
+exclude_patterns: [Notes/*]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
+
+
+latex:
+  latex_documents:
+    targetname: Geodynamics_with_Underworld.tex
+
+html:
+  home_page_in_navbar option: true
+
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+
