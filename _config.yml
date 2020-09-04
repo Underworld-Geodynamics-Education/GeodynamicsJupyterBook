@@ -17,4 +17,9 @@ sphinx:
     mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 
+repository:
+  url                       : https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook  # Online location of your book
+  branch                    : master  # Which branch of the repository should be used when creating links (optional)
 
+launch_buttons:
+  jupyterhub_url: "https://demon.underworldcloud.org"  # The URL for your JupyterHub. 
