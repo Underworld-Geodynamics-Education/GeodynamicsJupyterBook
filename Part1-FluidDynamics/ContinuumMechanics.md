@@ -66,17 +66,21 @@ $$\frac{d}{dt} \int_\Omega \rho \phi d\Omega =
                 \int_\Omega \frac{\partial \rho \phi}{\partial t} d\Omega$$
 
 That means we can write
-$$\int_{\Gamma} \mathbf{F} \cdot \mathbf{d}\boldsymbol{\Gamma}+ 
+$$
+\int_{\Gamma} \mathbf{F} \cdot \mathbf{d}\boldsymbol{\Gamma}+ 
         \int _{\Gamma} \rho \phi \mathbf{v} \cdot \mathbf{d}\boldsymbol{\Gamma}=
         \int_{\Omega} \nabla \cdot (\mathbf{F} + 
-        \rho \phi \mathbf{v}) d\Omega$$
+        \rho \phi \mathbf{v}) d\Omega
+$$
 
 and then rewrite the general conservation equation
 {eq}`eq:cons1` as 
 
-$$\int_{\Omega} \left[ \frac{d \rho \phi}{dt} + 
+$$
+\int_{\Omega} \left[ \frac{d \rho \phi}{dt} + 
             \nabla \cdot (\mathbf{F} + \rho \phi \mathbf{v}) 
-            -\rho H \right] d\Omega =0$$
+            -\rho H \right] d\Omega =0
+$$
 
 Now this conservation law has to work 
 no matter what shape we draw for the volume $\Omega$ and so

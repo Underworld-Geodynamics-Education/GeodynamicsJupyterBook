@@ -9,13 +9,17 @@
   chapters:
     - file: Part1-FluidDynamics/ContinuumMechanics.md 
     - file: Part1-FluidDynamics/NavierStokes.md 
-    - file: Part1-FluidDynamics/ThermalConvection.md
     - file: Part1-FluidDynamics/MantleDynamics.md
+    - file: Part1-FluidDynamics/ThermalConvection.md
     - file: Part1-FluidDynamics/LithosphericDynamics.md
 
-# - part: Numerical Modeling 
-#   chapters:
-#   - file: Numerical1.md
+- part: Numerical Modeling 
+  chapters:
+  - file: Part3-NumericalMethods/NumericalMethods1.md
+  - file: Part3-NumericalMethods/NumericalMethods2.md
+  - file: Part3-NumericalMethods/NumericalMethods3.md
+  - file: Part3-NumericalMethods/NumericalMethods4.md
+  - file: Part3-NumericalMethods/NumericalMethods5.md
 
 ## Using .gitignore
 ## Something for cloudstor (etc) ... big files not under version control
