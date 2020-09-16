@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thermal Convection &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dynamics of the Lithosphere" href="LithosphericDynamics.html" />
+    <link rel="prev" title="Non-dimensional equations &amp; dimensionless numbers" href="MantleDynamics.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part1-FluidDynamics/ThermalConvection.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#critical-rayleigh-number-for-a-layer">
+   Critical Rayleigh Number for a layer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boundary-layer-theory-boundary-rayleigh-number">
+   Boundary layer theory, Boundary Rayleigh Number
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#internal-heating">
+   Internal Heating
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convection-with-temperature-dependent-viscosity">
+     Convection with Temperature Dependent Viscosity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#non-linear-viscosity-and-localisation">
+     Non-linear Viscosity and localisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thermochemical-convection">
+     Thermochemical Convection
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="thermal-convection">
+<h1>Thermal Convection<a class="headerlink" href="#thermal-convection" title="Permalink to this headline">¶</a></h1>
+<p>Thermal convection describes the a process in which a fluid organizes
+itself into a structured flow pattern on a macroscopic scale to
+transport energy. Convection may be mechanically driven by stirring, but
+more commonly we refer to <em>natural convection</em> in which buoyancy due to
+a source of heat (and/or compositional variation) induces flow which
+transports and dissipates this anomalous buoyancy.</p>
+<p>The Earth’s interior, on a geological timescale is a highly viscous
+fluid which is heated from below by heat escaping from the core, and
+internally by the decay of radioactive elements. In this respect</p>
+<p>Description - what is involved …</p>
+<p>Goal is to understand finite
+amplitude convection with complicated rheology and realistic initial,
+boundary conditions.</p>
+<div class="section" id="critical-rayleigh-number-for-a-layer">
+<h2>Critical Rayleigh Number for a layer<a class="headerlink" href="#critical-rayleigh-number-for-a-layer" title="Permalink to this headline">¶</a></h2>
+<p>Does convection always occur in a layer heated from below ? In principle
+this would always provide a way to transport additional heat, but how
+much work would convection have to do in order to transport this extra
+heat ? One way to determine the answer is to consider small disturbances
+to a layer with otherwise uniform temperature and see under what
+conditions the perturbations grow (presumably into fully developed
+convection). This approach allows us to make <em>linear</em> approximations to
+the otherwise non-linear equations by dropping the small, high order
+non-linear terms.</p>
+<p>We solve the incompressible flow equations (stream function form,
+<a class="reference external" href="#eq:biharm">[eq:biharm]</a>{reference-type=”ref” reference=”eq:biharm”})
+and energy conservation equation in stream function form:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial T}{\partial t} +
+                 \left[     -\frac{\partial \psi}{\partial x_2}\frac{\partial T}{\partial x_1}
+                            +\frac  {\partial \psi}{\partial x_1}\frac{\partial T}{\partial x_2} \right]
+                        = \nabla^2 T\]</div>
+<p>By substituting throughout for a
+temperature which is a conductive profile with a small amplitude
+disturbance, <span class="math notranslate nohighlight">\(\theta \ll 1\)</span></p>
+<div class="math notranslate nohighlight">
+\[T = 1- x_2 + \theta\]</div>
+<p>Remember that the
+equations are non-dimensional so that the layer depth is one, and the
+temperature drop is one.</p>
+<p>The advection term</p>
+<div class="math notranslate nohighlight">
+\[-\frac{\partial \psi}{\partial x_2}\frac{\partial T}{\partial x_1}
+                            +\frac  {\partial \psi}{\partial x_1}\frac{\partial T}{\partial x_2} \rightarrow
+                    -\frac{\partial \psi}{\partial x_2}\frac{\partial \theta}{\partial x_1} -\frac{\partial \psi}{\partial x_1}
+                    +\frac  {\partial \theta}{\partial x_2}\frac{\partial \psi}{\partial x_1}\]</div>
+<p>is dominated by the <span class="math notranslate nohighlight">\(\partial \psi / \partial x_1\)</span> since all others are
+the product of small terms. (Since we also know that <span class="math notranslate nohighlight">\(\psi \sim \theta\)</span>
+from equation (<a class="reference external" href="#eq:biharm">[eq:biharm]</a>{reference-type=”ref”
+reference=”eq:biharm”})). Therefore the energy conservation equation
+becomes</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \theta}{\partial t} - \frac{\partial \psi}{\partial x_1} = \nabla^2 \theta\]</div>
+<p>which is linear.</p>
+<p>Boundary conditions for this problem are zero normal velocity on
+<span class="math notranslate nohighlight">\(x_2 = 0,1\)</span> which implies <span class="math notranslate nohighlight">\(\psi=0\)</span> at these boundaries. The form of the
+perturbation is such that <span class="math notranslate nohighlight">\(\theta =0\)</span> on <span class="math notranslate nohighlight">\(x_2 = 0,1\)</span>, and we allow free
+slip along these boundaries such that</p>
+<div class="math notranslate nohighlight">
+\[\sigma_{12} = \frac{\partial v_1}{\partial x_2} + \frac{\partial v_2}{\partial x_1} =0\]</div>
+<p>when <span class="math notranslate nohighlight">\(x_2 = 0,1\)</span> which implies <span class="math notranslate nohighlight">\(\nabla^2 \psi =0\)</span> there.</p>
+<p>Now introduce small harmonic perturbations to the driving terms and
+assuming a similar (i.e. harmonic) response in the flow. This takes the
+form</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+                    \theta &amp;= \Theta(x_2) \exp(\sigma t) \sin kx_1 \\
+                    \psi &amp;= \Psi(x_2) \exp(\sigma t) \cos kx_1
+                \end{split}\end{split}\]</div>
+<p>So that we can now separate variables.
+<span class="math notranslate nohighlight">\(\sigma\)</span> is unknown, however, if <span class="math notranslate nohighlight">\(\sigma &lt; 0\)</span> then the perturbations
+will decay, whereas if <span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span> they will grow.</p>
+<div class="figure align-default" id="critical-ra">
+<a class="reference internal image-reference" href="../_images/crit_ra.png"><img alt="../_images/crit_ra.png" src="../_images/crit_ra.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Critical Rayleigh Number determination. A plot of growth rates for
+harmonic perturbations as a function of wavenumber for different
+<span class="math notranslate nohighlight">\({\rm Ra}\)</span>. The critical value occurs when the maximum of the curve just
+touches the horizontal axis at
+zero.</span><a class="headerlink" href="#critical-ra" title="Permalink to this image">¶</a></p>
+</div>
+<p>Substituting for the perturbations into the biharmonic equation and the
+linearized energy conservation equation gives</p>
+<div class="math notranslate nohighlight">
+\[\left(\frac{d^2}{d{x_2}^2} -k^2 \right)^2 \Psi = -{\rm Ra} k \Theta 
+                \label{eq:psitheta1}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\sigma \Theta + k \Psi =    \left(\frac{d^2}{d{x_2}^2} -k^2 \right) \Theta\]</div>
+<p>Here we have shown and used the fact that</p>
+<div class="math notranslate nohighlight">
+\[\nabla^2 \equiv \left(\frac{\partial^2}{\partial {x_2}^2} -k^2 \right)
+                \label{eq:psitheta2}\]</div>
+<p>when a function is expanded in
+the form <span class="math notranslate nohighlight">\(\phi(x,z) = \Phi(z).\sin kx\)</span> – more generally, this is the
+fourier transform of the Laplacian operator.</p>
+<p>Eliminating <span class="math notranslate nohighlight">\(\Psi\)</span> between
+(<a class="reference external" href="#eq:psitheta1">[eq:psitheta1]</a>{reference-type=”ref”
+reference=”eq:psitheta1”}) and
+(<a class="reference external" href="#eq:psitheta2">[eq:psitheta2]</a>{reference-type=”ref”
+reference=”eq:psitheta2”}) gives</p>
+<div class="math notranslate nohighlight">
+\[\sigma \left(\frac{d^2}{d {x_2}^2 } - k^2 \right)^2 -{\rm Ra} k^2 \Theta = 
+                \left(\frac{d^2}{d {x_2}^2} -k^2 \right)^3 \Theta\]</div>
+<p>This
+has a solution</p>
+<div class="math notranslate nohighlight">
+\[\Theta = \Theta_0 \sin \pi z\]</div>
+<p>which satisfies all the
+stated boundary conditions and implies</p>
+<div class="math notranslate nohighlight">
+\[\sigma =  \frac{k^2 {\rm Ra}}{(\pi^2 + k^2)^2} -(\pi^2 + k^2)\]</div>
+<p>a real function of <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(\rm Ra\)</span>.</p>
+<p>For a given wavenumber, what is the lowest value of <span class="math notranslate nohighlight">\(\rm Ra\)</span> for which
+perturbations at that wavenumber will grow ?</p>
+<div class="math notranslate nohighlight">
+\[= \frac{(\pi^2 + k^2)^3}{k^2}\]</div>
+<p>The absolute minimum value of
+<span class="math notranslate nohighlight">\({\rm Ra}\)</span> which produces growing perturbations is found by
+differentiating <span class="math notranslate nohighlight">\({\rm Ra_0}\)</span> with respect to <span class="math notranslate nohighlight">\(k\)</span> and setting equal to
+zero to find the extremum.</p>
+<div class="math notranslate nohighlight">
+\[{\rm Ra_c} = \frac{27}{4} \pi^4 = 657.51\]</div>
+<p>for a wavenumber of</p>
+<div class="math notranslate nohighlight">
+\[k = \frac{\pi}{2^{1/2}} = 2.22\]</div>
+<p>corresponding to
+a wavelength of 2.828 times the depth of the layer.</p>
+<p>Different boundary conditions produce different values of the critical
+Rayleigh number. If no-slip conditions are used, for example, then the
+<span class="math notranslate nohighlight">\(\Theta\)</span> solution applied above does not satisfy the boundary
+conditions. In general, the critical Rayleigh number lies between about
+100 and 3000.</p>
+</div>
+<div class="section" id="boundary-layer-theory-boundary-rayleigh-number">
+<h2>Boundary layer theory, Boundary Rayleigh Number<a class="headerlink" href="#boundary-layer-theory-boundary-rayleigh-number" title="Permalink to this headline">¶</a></h2>
+<p>Having determined the conditions under which convection will develop, we
+next consider what can be calculated about fully developed convection –
+i.e. when perturbations grow well beyond the linearization used to study
+the onset of instability.</p>
+<p>Let’s consider fully developed convection with high Rayleigh number.
+From observations of real fluids in laboratory situations, it is well
+known how this looks. High Rayleigh number convection is dominated by
+the advection of heat. Diffusion is too slow to carry heat far into the
+fluid before the buoyancy anomaly becomes unstable. This leads to thin,
+horizontal “boundary layers” where diffusive heat transfer into and out
+of the fluid occurs. These are separated by approximately isothermal
+regions in the fluid interior. The horizontal boundary layers are
+connected by vertical boundary layers which take the form of sheets or
+cylindrical plumes depending on a number of things including the
+Rayleigh number. For the time being we consider only the sheet like
+downwellings since that allows us to continue working in 2D.</p>
+<div class="figure align-default" id="boundary-layer-theory-1">
+<a class="reference internal image-reference" href="../_images/blt.png"><img alt="../_images/blt.png" src="../_images/blt.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Boundary Layer Theory in
+its simplest form</span><a class="headerlink" href="#boundary-layer-theory-1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Boundary layer analysis is a highly sophisticated field, and is used in
+a broad range of situations where differences in scales between
+different physical effects produce narrow accommodation zones where the
+‘weaker’ term dominates (e.g viscosity in ‘invicid’ flow around an
+obstacle).</p>
+<p>Here we first make a wild stab at an approximate theory describing the
+heat flow from a layer with a given Rayleigh number. The convective flow
+is shown in Figure <a class="reference external" href="#fig:blt1">1</a>{reference-type=”ref”
+reference=”fig:blt1”} together with our rough sketch of what actually
+happens.</p>
+<p>Assuming the simplified flow pattern of the sketch, steady state, and
+replacing all derivatives by crude differences we obtain (using a
+vorticity form)</p>
+<div class="math notranslate nohighlight">
+\[\kappa \nabla^2 T = (\mathbf{v} \cdot \nabla) T
+                    \mbox{\hspace{1cm}} \longrightarrow \mbox{\hspace{1cm}} 
+                \frac{v \Delta T}{d} \sim \frac{\Delta T \kappa}{\delta^2}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\nabla^2 \omega = \frac{g \rho \alpha}{\eta} \frac{\partial T}{\partial x}
+                    \mbox{\hspace{1cm}} \longrightarrow \mbox{\hspace{1cm}} 
+                \frac{\omega}{\delta ^2}    \sim  \frac{g \rho \alpha \Delta T}{\eta \delta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega\sim v / d\)</span> from the local rotation interpretation of
+vorticity and the approximate rigid-body rotation of the core of the
+convection cell, and <span class="math notranslate nohighlight">\(v/d \sim \kappa / \delta^2\)</span>.</p>
+<p>This gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+            \frac{\delta}{d} &amp; \sim {\rm Ra}^{-1/3} \\
+            v &amp; \sim \frac{\kappa}{d} {\rm Ra}^{2/3} 
+        \end{aligned}\end{split}\]</div>
+<p>This theory balances diffusion of vorticity and temperature across and
+out of the boundary layer with advection of each quantity along the
+boundary layer to maintain a steady state.</p>
+<p>The Nusselt number is the ratio of advected heat transport to that
+purely conducted in the absence of fluid motion, or, using the above
+approximations,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}   
+                {\rm Nu}    &amp; \sim \frac{\rho C_p v \Delta T \delta}{(k \Delta T/d)d} \\
+                                &amp; \sim {\rm Ra}^{1/3}
+            \end{split}\end{split}\]</div>
+<p>This latter result being observed in experiments to be in reasonably
+good agreement with observation.</p>
+<p>If we define a boundary Rayleigh number</p>
+<div class="math notranslate nohighlight">
+\[{\rm Ra_b} = \frac{g \rho \alpha \Delta T \delta^3}{\kappa \eta}\]</div>
+<p>then the expression for <span class="math notranslate nohighlight">\(\delta\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[{\rm Ra_b} \sim 1\]</div>
+<p>so the
+boundary layer does not become more or less stable with increasing
+Rayleigh number (this is not universal – for internal heating the
+boundary layer becomes less stable at higher Rayleigh number).</p>
+<div class="figure align-default" id="boundary-layer-theory-2">
+<a class="reference internal image-reference" href="../_images/blt2.png"><img alt="../_images/blt2.png" src="../_images/blt2.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Boundary Layer Theory which accounts for the thickness variations
+along the boundary layer as it
+matures.</span><a class="headerlink" href="#boundary-layer-theory-2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Another wrinkle can be added to the boundary layer theory by trying to
+account for the variation in the boundary layer thickness as it moves
+along the horizontal boundary. This refinement in the theory can account
+for the form of this thickness, the potential energy change in rising or
+sinking plumes, and the aspect ratio of the convection (width to height
+of convection roll) by maximizing Nusselt number as a function of aspect
+ratio.</p>
+<p>Consider the boundary layer to be very thin above the upwelling plume
+(left side). As it moves to the right, it cools and the depth to any
+particular isotherm increases (this is clearly seen in the simulation).
+This can be treated exactly like a one dimensional problem if we work in
+the Lagrangian frame of reference attached to the boundary layer. That
+is, take the 1D half-space cooling model and replace the time with
+<span class="math notranslate nohighlight">\(x_1/v\)</span> (cf. the advection equation in which time and velocity / lengths
+are mixed).</p>
+<p>The standard solution is as follows. Assume a half-space at an intial
+temperature everywhere of <span class="math notranslate nohighlight">\(T_0\)</span> to which a boundary condition, <span class="math notranslate nohighlight">\(T=T_s\)</span>
+is applied at <span class="math notranslate nohighlight">\(t=0,x_2=0\)</span>.</p>
+<p>We solve for <span class="math notranslate nohighlight">\(T(x_2,t)\)</span> by first making a substitution,</p>
+<div class="math notranslate nohighlight">
+\[\theta = \frac{T-T_0}{T_s-T_0}\]</div>
+<p>which is a dimensionless temperature,
+into the standard diffusion equation to obtain</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \theta(x_2,t)}{\partial t} = \kappa \frac{\partial ^2 \theta(x_2,t)}{\partial {x_2}^2}
+            \label{eq:difftheta}\]</div>
+<p>The boundary conditions on <span class="math notranslate nohighlight">\(\theta\)</span> are simple:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+                &amp; \theta(x_2,0) = 0 \\
+                &amp; \theta(0,t) = 1   \\
+                &amp; \theta(\infty,0) = 0      
+            \end{aligned}\end{split}\]</div>
+<div class="figure align-default" id="cooling-half-space">
+<a class="reference internal image-reference" href="../_images/CoolingHalfSpaceSolutions1.png"><img alt="../_images/CoolingHalfSpaceSolutions1.png" src="../_images/CoolingHalfSpaceSolutions1.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Cooling half-space
+calculation</span><a class="headerlink" href="#cooling-half-space" title="Permalink to this image">¶</a></p>
+</div>
+<p>In place of <span class="math notranslate nohighlight">\(t,x_2\)</span>, we use the similarity transformation,</p>
+<div class="math notranslate nohighlight">
+\[\eta = \frac{x_2}{2\sqrt{\kappa t}}\]</div>
+<p>which is found (more or less)
+intuitively. Now we need to substitute</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+            \frac{\partial \theta}{\partial t} &amp; = -\frac{d \theta}{d\eta}(\eta/2t) \\
+            \frac{\partial^2 \theta}{\partial {x_2}^2} &amp; = \frac{1}{4\kappa t}\frac{d^2 \theta}{d \eta^2}
+        \end{aligned}\end{split}\]</div>
+<p>to transform
+(<a class="reference external" href="#eq:difftheta">[eq:difftheta]</a>{reference-type=”ref”
+reference=”eq:difftheta”}) into</p>
+<div class="math notranslate nohighlight">
+\[-\eta \frac{d \theta}{d\eta} = \frac{1}{2} \frac{d^2 \theta}{d \eta^2}
+            \label{eq:diffode}\]</div>
+<p>Boundary conditions transform to give</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+                &amp; \theta(\eta=\infty) = 0   \\
+                &amp; \theta(\eta=0) = 1    
+            \end{aligned}\end{split}\]</div>
+<p>Write <span class="math notranslate nohighlight">\(\phi = d\theta / d\eta\)</span> (for convenience only) to rewrite
+(<a class="reference external" href="#eq:diffode">[eq:diffode]</a>{reference-type=”ref”
+reference=”eq:diffode”}) as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+                -\eta \phi &amp;= \frac{1}{2} \frac{d \phi}{d \eta}     \\
+            \intertext{or}
+                -\eta d\eta &amp;= \frac{1}{2} \frac{d\phi}{\phi}   
+            \end{aligned}\end{split}\]</div>
+<p>This is a standard integral with solution</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+                &amp; -\eta^2 = \log_e \phi -\log_e c_1 \\
+            \intertext{such that}
+                &amp; \phi = c_1 \exp(-\eta^2) = \frac{d\theta}{d\eta}
+            \end{aligned}\end{split}\]</div>
+<p>This latter form is then integrated to give the solution:</p>
+<div class="math notranslate nohighlight">
+\[\theta = c_1 \int_0^\eta    \exp(-{\eta'}^2) d\eta' +1\]</div>
+<p>Boundary
+conditions give</p>
+<div class="math notranslate nohighlight">
+\[\theta = 1- \frac{2}{\sqrt{\pi}} \int_0^\eta\exp(-{\eta'}^2) d\eta'\]</div>
+<p>Which is the definition of the complementary error function
+(<span class="math notranslate nohighlight">\(\mbox{\rm erfc}(\eta)\)</span>).</p>
+<p>Undoing the remaining substitutions gives</p>
+<div class="math notranslate nohighlight">
+\[\frac{T-T_0}{T_s-T_0}   = \mbox{\rm erfc}\left(   \frac{x_2}{2\sqrt{\kappa t}} \right)\]</div>
+<p>In our original context of the cooling boundary layer, then, the
+<span class="math notranslate nohighlight">\(T_    s\)</span> is the surface temperature, <span class="math notranslate nohighlight">\(T_0\)</span> is the interior temperature
+of the convection cell (<span class="math notranslate nohighlight">\(\Delta T /2\)</span>) and <span class="math notranslate nohighlight">\(t \leftarrow x_1/v\)</span>. The
+thickness of the boundary layer is found by assuming it is defined by a
+characteristic isotherm (doesn’t much matter which). The progression of
+this isotherm is</p>
+<div class="math notranslate nohighlight">
+\[\delta \propto \sqrt{\kappa t}\]</div>
+<p>or, in the Eulerian
+frame</p>
+<div class="math notranslate nohighlight">
+\[\delta \propto \sqrt{\kappa x_1 / v}\]</div>
+</div>
+<div class="section" id="internal-heating">
+<h2>Internal Heating<a class="headerlink" href="#internal-heating" title="Permalink to this headline">¶</a></h2>
+<p>The definition of the Rayleigh number when the layer is significantly
+internally heated is</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}{\rm Ra} = \frac{g \rho^2 \alpha H d^5}{\eta \kappa k}$$ where $H$ is
+the rate of internal heat generation per unit mass.\\The rigorous definition of the Nusselt number is the heat flow through
+the upper surface divided by the average basal temperature. This allows
+a Nusselt number to be calculated for internally heated convection where
+the basal temperature is not known *a priori*\\Internally heated convection is a problem to simulate in the lab,
+directly, but the same effect is achieved by reducing the temperature of
+the upper surface as a function of time.\\## When Viscosity is Not Constant\\
+When viscosity is not constant, the equations are considerably
+complicated. It is no longer possible to form a pure biharmonic equation
+since $\eta(x,z)$ cannot be taken outside the differential operators.
+Nor can stream-function / vorticity formulations be used directly for
+the same reasons. Spectral methods --- the decomposition of the problem
+into a sum of independent problems in the wavenumber domain --- is no
+longer simple since the individual problems are coupled, not
+independent.\\The Rayleigh number is no longer uniquely defined for the system since
+the viscosity to which it refers must take some suitable average over
+the layer --- the nature of this average depends on the circumstances.\\The form of convection changes since boundary layers at the top and
+bottom of the system (cold v hot) are no longer symmetric with each
+other.\\The convecting system gains another control parameter which is a measure
+of the viscosity contrast as a function of temperature.\\## Applications and Discussion\\
+The application of realistic convection models to the Earth and other
+planets --- particularly Venus.\\The simplest computational and boundary layer solutions to the Stokes'
+convection equations made the simplifying assumption that the viscosity
+was constant. Despite the experimental evidence which suggests viscosity
+variations should dominate in the Earth, agreement with some important
+observations was remarkably good.\\The simulations were not able to produce plate-like motions at the
+surface (instead producing smoothly distributed deformation) but the
+average velocity, the heat flow and the observed pattern of subsidence
+of the ocean floor were well matched.\\### Mantle Rheology\\
+Experimental determination of the rheology of mantle materials gives\\$$\dot{\epsilon} \propto \sigma^n d^{-m} \exp\left( -\frac{E+PV}{RT} \right)\end{aligned}\end{align} \]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is a stress, <span class="math notranslate nohighlight">\(d\)</span> is grain size, <span class="math notranslate nohighlight">\(E\)</span> is an activation
+energy, <span class="math notranslate nohighlight">\(V\)</span> is an activation volume, and <span class="math notranslate nohighlight">\(T\)</span> is absolute temperature.
+(<span class="math notranslate nohighlight">\(R\)</span> is the universal gas constant).</p>
+<p>This translates to a viscosity</p>
+<div class="math notranslate nohighlight">
+\[\eta \propto \sigma^{1-n} d^m exp\left( \frac{E+PV}{RT} \right)\]</div>
+<p>In the mantle two forms of creep are possible, dislocation creep with
+<span class="math notranslate nohighlight">\(n ~ 3.0\)</span>, <span class="math notranslate nohighlight">\(m~0\)</span>, <span class="math notranslate nohighlight">\(E ~ 430-540 KJ/mol\)</span>, <span class="math notranslate nohighlight">\(V ~ 10 - 20 cm^3/mol\)</span>; and
+diffusion creep with <span class="math notranslate nohighlight">\(n ~ 1.0\)</span>, <span class="math notranslate nohighlight">\(m~2.5\)</span>, <span class="math notranslate nohighlight">\(E ~ 240-300 KJ/mol\)</span>,
+<span class="math notranslate nohighlight">\(V ~ 5-6 cm^3/mol\)</span>. This is for olivine — other minerals will produce
+different results, of course.</p>
+<div class="section" id="convection-with-temperature-dependent-viscosity">
+<h3>Convection with Temperature Dependent Viscosity<a class="headerlink" href="#convection-with-temperature-dependent-viscosity" title="Permalink to this headline">¶</a></h3>
+<p>More sophisticated models included the effect of temperature dependent
+viscosity as a step towards more realistic simulations. In fact, the
+opposite was observed: convection with temperature dependent viscosity
+is a much worse description of the oceanic lithosphere than constant
+viscosity convection. It may, however, describe Venus rather well.</p>
+<p>Theoretical studies of the asymptotic limit of convection in which the
+viscosity variation becomes very large (comparable to values determined
+for mantle rocks in laboratory experiments) find that the upper surface
+becomes entirely stagnant with little or no observable motion. Vigorous
+convection continues underneath the stagnant layer with very little
+surface manifestation.</p>
+<p>This theoretical work demonstrates that the numerical simulations are
+producing correct results, and suggests that we should look for physics
+beyond pure viscous flow in explaining plate motions.</p>
+</div>
+<div class="section" id="non-linear-viscosity-and-localisation">
+<h3>Non-linear Viscosity and localisation<a class="headerlink" href="#non-linear-viscosity-and-localisation" title="Permalink to this headline">¶</a></h3>
+<p>Realistic rheological laws show the viscosity may depend upon stress.
+This makes the problem non-linear since the stress clearly depends upon
+viscosity. In order to obtain a solution it is necessary to iterate
+velocity and viscosity until they no longer change.</p>
+<p>The obvious association of plate boundaries with earthquake activity
+suggests that relevant effects are to be found in the brittle nature of
+the cold plates. Brittle materials have a finite strength and if they
+are stressed beyond that point they break. This is a familiar enough
+property of everyday materials, but rocks in the lithosphere are
+non-uniform, subject to great confining pressures and high temperatures,
+and they deform over extremely long periods of time. This makes it
+difficult to know how to apply laboratory results for rock breakage
+experiments to simulations of the plates.</p>
+<p>An ideal, very general rheological model for the brittle lithosphere
+would incorporate the effects due to small-scale cracks, faults, ductile
+shear localization due to dynamic recrystalization, anisotropy (…
+kitchen sink). Needless to say, most attempts to date to account for the
+brittle nature of the plates have greatly simplified the picture. Some
+models have imposed weak zones which represent plate boundaries, others
+have included sharp discontinuities which represent the plate-bounding
+faults, still others have used continuum methods in which the yield
+properties of the lithosphere are known but not the geometry of any
+breaks. Of these approaches, the continuum approach is best able to
+demonstrate the spectrum of behaviours as convection in the mantle
+interacts with brittle lithospheric plates. For studying the evolution
+of individual plate boundaries methods which explicitly include
+discontinuities work best.</p>
+<p>The simplest possible continuum formulation includes a yield stress
+expressed as an non-linear effective viscosity.</p>
+<div class="math notranslate nohighlight">
+\[\eta_{\rm eff} = \frac{\tau_{\rm yield}}{\dot{\varepsilon}}\]</div>
+<p>This
+formulation can be incorporated very easily into the mantle dynamics
+modeling approach that we have outlined above as it involves making
+modifications only to the viscosity law. There may be some numerical
+difficulties, however, as the strongly non-linear rheology can lead to
+dramatic variations in the viscosity across relatively narrow zones.</p>
+</div>
+<div class="section" id="thermochemical-convection">
+<h3>Thermochemical Convection<a class="headerlink" href="#thermochemical-convection" title="Permalink to this headline">¶</a></h3>
+<p>The Rayleigh number is defined in terms of thermal buoyancy but other
+sources of buoyancy are possible in fluids.</p>
+<p>For example, in the oceans, dissolved salt makes water heavy. When hot
+salty water (e.g. the outflows of shallow seas such as the
+Mediterranean) mixes with cold less salty water, there is a complicated
+interaction.</p>
+<p>This is double diffusive convection and produces remarkable layerings
+etc since the diffusion coefficients of salt and heat are different by a
+factor of 100.</p>
+<p>In the mantle, bulk chemical differences due to subduction of crustal
+material can be treated in a similar manner. From the point of view of
+the diffusion equations, the diffusivity of bulk chemistry in the mantle
+is tiny (pure advection).</p>
+<p>Fluid flows with chemical v. thermal bouyancy are termed thermochemical
+convection problems.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part1-FluidDynamics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="MantleDynamics.html" title="previous page">Non-dimensional equations &amp; dimensionless numbers</a>
+    <a class='right-next' id="next-link" href="LithosphericDynamics.html" title="next page">Dynamics of the Lithosphere</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python data types &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Classes and objects" href="4-PythonClasses.html" />
+    <link rel="prev" title="ipython" href="2-IntroductionToIpython.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="../0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-IntroductionToJupyterNotebooks.html">
+     Jupyter Notebooks
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-IntroductionToIpython.html">
+     ipython
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Python data types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-PythonClasses.html">
+     Classes and objects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/Part2-Python/Introduction2Python/3-PythonDataTypes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Part2-Python/Introduction2Python/3-PythonDataTypes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/master?urlpath=tree/Part2-Python/Introduction2Python/3-PythonDataTypes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://demon.underworldcloud.org/hub/user-redirect/git-pull?repo=https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook&urlpath=tree/GeodynamicsJupyterBook/Part2-Python/Introduction2Python/3-PythonDataTypes.md&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#numbers">
+   Numbers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numbers-as-objects">
+     numbers as objects
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strings">
+   Strings
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuples-and-lists-and-sets">
+   tuples and lists and sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dictionaries">
+   Dictionaries
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="python-data-types">
+<h1>Python data types<a class="headerlink" href="#python-data-types" title="Permalink to this headline">¶</a></h1>
+<p>Python can be a little strange in providing lots of data types, dynamic type allocation, and some interconversion.</p>
+<div class="section" id="numbers">
+<h2>Numbers<a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h2>
+<p>Integers, Floating point numbers, and complex numbers are available automatically.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="nb">print</span> 
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Value of f is </span><span class="si">{}</span><span class="s2">, value of i is </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+<span class="nb">print</span> 
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Value of f is </span><span class="si">{:f}</span><span class="s2">, value of i is </span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## BUT !! </span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Value of f is </span><span class="si">{:d}</span><span class="s2">, value of i is </span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">+</span> <span class="mf">1.0</span><span class="n">j</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">c</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Value of c is </span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Value of c**2 is </span><span class="si">{:f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Notes: The <code class="docutils literal notranslate"><span class="pre">math</span></code> module needs to be imported before you can use it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cmath</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">cmath</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="numbers-as-objects">
+<h3>numbers as objects<a class="headerlink" href="#numbers-as-objects" title="Permalink to this headline">¶</a></h3>
+<p>Virtually everything in python is an object. This means that it is a <strong>thing</strong> that can have multiple copies made (all of which behave independently) and which knows how to <strong>do</strong> certain operations on itself.</p>
+<p>For example, a floating point number knows certain things that it can do as well as simply “being” a number:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span> <span class="p">)</span> <span class="c1"># Strange eh ?</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">conjugate</span><span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">conjugate</span><span class="p">())</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="fm">__truediv__</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="p">)</span> <span class="c1"># This looks odd, but it is the way that f / 2.0 is implemented underneath</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.0</span><span class="o">.</span><span class="fm">__truediv__</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>      <span class="p">)</span>  
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span> <span class="o">+</span> <span class="s1">&#39; world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2"> HellO </span><span class="se">\n</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2"> world</span><span class="se">\n</span><span class="s2">  </span><span class="se">\t\t</span><span class="s2"> !!!</span><span class="se">\n\n</span><span class="s2"> &quot;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ss</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;Hello World&quot;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>But one of the problems with strings as data structures is that they are immutable. To change anything, we need to make copies of the data</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="tuples-and-lists-and-sets">
+<h2>tuples and lists and sets<a class="headerlink" href="#tuples-and-lists-and-sets" title="Permalink to this headline">¶</a></h2>
+<p>Tuples are bundles of data in a structured form but they are not vectors … and they are immutable</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="mi">2</span> <span class="o">*</span> <span class="n">e</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Lists are more flexible than tuples, they can be assigned to, have items removed etc</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span>  <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
+<span class="n">ll</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+<span class="n">lll</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">]]</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ll</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">ll</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">lll</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">lll</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot; -- sub item 3 --&gt; &quot;</span><span class="p">,</span> <span class="n">lll</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">2.0</span><span class="o">*</span><span class="n">l</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">2.99</span>
+<span class="n">l</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ll</span> <span class="o">+=</span> <span class="s1">&#39;b&#39;</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ll</span><span class="p">)</span>
+<span class="n">ll</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>  <span class="c1"># removes the first one !</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">ll</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">+=</span> <span class="p">[</span><span class="mf">5.0</span><span class="p">]</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;1 - &quot;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;2 - &quot;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;3 - &quot;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="n">l</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;4 - &quot;</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Sets are special list-like collections of unique items. NOTE that the elements are not ordered (no such thing as <code class="docutils literal notranslate"><span class="pre">s[1]</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dictionaries">
+<h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h2>
+<p>These are very useful data collections where the information can be looked up by name instead of a numerical index. This will come in handy as a lightweight database and is commonly something we need to use when using modules to read in data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;item1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">],</span> <span class="s2">&quot;item2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]}</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;item1&quot;</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;item1&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Small Number&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;Tiny Number&quot;</span><span class="p">:</span><span class="mf">0.00000001</span><span class="p">,</span> <span class="s2">&quot;Big Number&quot;</span><span class="p">:</span> <span class="mf">100000000.0</span><span class="p">}</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">d1</span><span class="p">[</span><span class="s2">&quot;Small Number&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">d1</span><span class="p">[</span><span class="s2">&quot;Tiny Number&quot;</span><span class="p">])</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">d1</span><span class="p">[</span><span class="s2">&quot;Small Number&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">d1</span><span class="p">[</span><span class="s2">&quot;Big Number&quot;</span><span class="p">])</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="n">d1</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">d1</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{:&gt;15s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="s2">&quot; --&gt; &quot;</span><span class="p">,</span> <span class="n">d1</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>More useful is the fact that the dictionary can have as a key, anything that can be converted using the <code class="docutils literal notranslate"><span class="pre">hash</span></code> function into a unique number. Strings, obviously, work well but anything immutable can be hashed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hashfn</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="nb">hash</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">)),</span> <span class="s2">&quot; --&gt; &quot;</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">),</span> <span class="s2">&quot; --&gt;  unhashable type </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="nb">type</span><span class="p">(</span><span class="n">item</span><span class="p">))))</span>
+    <span class="k">return</span>
+
+
+<span class="n">hashfn</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="n">hashfn</span><span class="p">(</span><span class="s2">&quot;abd&quot;</span><span class="p">)</span>
+<span class="n">hashfn</span><span class="p">(</span><span class="s2">&quot;alphabeta&quot;</span><span class="p">)</span>
+<span class="n">hashfn</span><span class="p">(</span><span class="s2">&quot;abcdefghi&quot;</span><span class="p">)</span>
+
+<span class="n">hashfn</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+<span class="n">hashfn</span><span class="p">(</span><span class="mf">1.00000000000001</span><span class="p">)</span>
+<span class="n">hashfn</span><span class="p">(</span><span class="mf">2.1</span><span class="p">)</span>
+
+<span class="n">hashfn</span><span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">))</span>
+<span class="n">hashfn</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">))</span>
+
+<span class="n">hashfn</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="n">hashfn</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">)</span>  <span class="c1"># weird ones !! </span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<p><strong>Exercise</strong>: <em>Build a reverse lookup table</em></p>
+<p>Suppose you have this dictionary of phone numbers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">phone_book</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Achibald&quot;</span><span class="p">:</span>   <span class="p">(</span><span class="s2">&quot;04&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 4321&quot;</span><span class="p">),</span> 
+               <span class="s2">&quot;Barrington&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;08&quot;</span><span class="p">,</span> <span class="s2">&quot;1111 4444&quot;</span><span class="p">),</span>
+               <span class="s2">&quot;Chaotica&quot;</span> <span class="p">:</span>  <span class="p">(</span><span class="s2">&quot;07&quot;</span><span class="p">,</span> <span class="s2">&quot;5555 1234&quot;</span><span class="p">)</span> <span class="p">}</span>
+
+</pre></div>
+</div>
+<p>Can you construct a reverse phone book to look up who is calling from their phone number ?</p>
+<p><strong>Solution:</strong> Here is a possible solution for the simple version of the problem but this could still use some error checking (if you type in a wrong number)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Name: ( area code, number )</span>
+<span class="n">phone_book</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Achibald&quot;</span><span class="p">:</span>   <span class="p">(</span><span class="s2">&quot;04&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 4321&quot;</span><span class="p">),</span> 
+               <span class="s2">&quot;Barrington&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;08&quot;</span><span class="p">,</span> <span class="s2">&quot;1111 4444&quot;</span><span class="p">),</span>
+               <span class="s2">&quot;Chaotica&quot;</span> <span class="p">:</span>  <span class="p">(</span><span class="s2">&quot;07&quot;</span><span class="p">,</span> <span class="s2">&quot;5555 1234&quot;</span><span class="p">)</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newdict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">phone_book</span><span class="p">:</span>
+    <span class="n">newdict</span><span class="p">[</span><span class="n">phone_book</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span> <span class="o">=</span> <span class="n">key</span>
+<span class="n">newdict</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">letters_and_numbers</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">phone_book</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">timeit</span>
+
+<span class="p">{</span><span class="n">val</span><span class="p">:</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">phone_book</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">letter</span><span class="p">,</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">letters_and_numbers</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span> <span class="o">*</span> <span class="n">letter</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Name: ( area code, number )</span>
+<span class="n">phone_book</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Achibald&quot;</span><span class="p">:</span>   <span class="p">(</span><span class="s2">&quot;04&quot;</span><span class="p">,</span> <span class="s2">&quot;1234 4321&quot;</span><span class="p">),</span> 
+               <span class="s2">&quot;Barrington&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;08&quot;</span><span class="p">,</span> <span class="s2">&quot;1111 4444&quot;</span><span class="p">),</span>
+               <span class="s2">&quot;Chaotica&quot;</span> <span class="p">:</span>  <span class="p">(</span><span class="s2">&quot;07&quot;</span><span class="p">,</span> <span class="s2">&quot;5555 1234&quot;</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="n">reverse_phone_book</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">timeit</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">phone_book</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">reverse_phone_book</span><span class="p">[</span><span class="n">phone_book</span><span class="p">[</span><span class="n">key</span><span class="p">]]</span> <span class="o">=</span> <span class="n">key</span>
+
+    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">reverse_phone_book</span><span class="p">[(</span><span class="s1">&#39;07&#39;</span><span class="p">,</span><span class="s1">&#39;5555 1234&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part2-Python/Introduction2Python"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="2-IntroductionToIpython.html" title="previous page">ipython</a>
+    <a class='right-next' id="next-link" href="4-PythonClasses.html" title="next page">Classes and objects</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

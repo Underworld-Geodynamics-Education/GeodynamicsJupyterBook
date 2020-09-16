@@ -1,0 +1,1042 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Non-dimensional equations &amp; dimensionless numbers &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Thermal Convection" href="ThermalConvection.html" />
+    <link rel="prev" title="Navier-Stokes Equation" href="NavierStokes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part1-FluidDynamics/MantleDynamics.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-stream-function">
+   The stream function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorticity">
+   Vorticity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stream-function-vorticity-and-the-biharmonic-equation">
+   Stream-function, vorticity and the biharmonic equation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#poloidal-toroidal-velocity-decomposition">
+   Poloidal/Toroidal velocity decomposition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-solutions">
+   Sample solutions
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rayleigh-taylor-instability-diapirism">
+     Rayleigh-Taylor Instability &amp; Diapirism
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#post-glacial-rebound">
+     Post-Glacial Rebound
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase-changes-in-the-mantle">
+     Phase Changes in the mantle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kernels-for-surface-observables">
+     Kernels for Surface Observables
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#folding-of-layered-viscous-medium">
+   Folding of Layered (Viscous) Medium
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gravity-currents">
+   Gravity Currents
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="non-dimensional-equations-dimensionless-numbers">
+<h1>Non-dimensional equations &amp; dimensionless numbers<a class="headerlink" href="#non-dimensional-equations-dimensionless-numbers" title="Permalink to this headline">¶</a></h1>
+<p>Before too long it would be a good idea to get a feeling for the flavour
+of these equations which continual rearrangements will not do — it is
+necessary to examine some solutions.</p>
+<p>First of all it is a good idea to make some simplifications
+based on the kinds of problems we will want to attack. The first thing
+to do, as is often the case when developing a model, is to test whether
+any of the terms in the equations are negligibly small, or
+dominant. To do this, we are going to need to have some physical
+insight into the kinds of problems we are going to solve - for example,
+some terms may be negligible for slow moving flow but not if the flow is fast
+(but what does <em>‘fast’</em> really mean ?)</p>
+<p>One trick that is very common in fliud dynamics is to re-scale the
+equations using units that are in some way <em>natural</em> to the problem
+we are trying to solve. This helps us to answer the question that
+came up a moment ago: if a typical velocity is 1, then <em>‘slow’</em> is <span class="math notranslate nohighlight">\(v \ll 1\)</span>
+and <em>‘fast’</em> is when <span class="math notranslate nohighlight">\(v \gg 1\)</span>.</p>
+<p>Remember that even very rational systems of
+units like the SI system are still arbitrary and based on
+the scale of human experience: a metre is not far off the length of
+a step when we walk, a second is our heartbeat, carry a litre of water
+when you go walking.</p>
+<p>We don’t need to define and name a whole new system of units any time
+we start analysing a new problem, but <em>the fact that we could do this</em> suggests
+there is a way to consider the scale of a problem independenly to the
+underlying character of the way things balance each other as the system
+changes through time.</p>
+<p>What we can do is consider ‘typical values’ for the independent dimensions of
+a system (mass, length, time, temperature, that sort of thing) which
+can be used to rescale the standard units. For example, we might rescale all
+lengths by the
+size of the system we are studying, <span class="math notranslate nohighlight">\(d\)</span> (e.g. mantle thickness or depth of fluid in a
+lab tank), time according to the characteristic time for diffusion of
+heat over that distnace, and temperature by maximum temperature difference
+we observe at the start.</p>
+<div class="figure align-default" id="layer">
+<a class="reference internal image-reference" href="../_images/layer.png"><img alt="../_images/layer.png" src="../_images/layer.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Consider the fluid motions in a layer of arbitrary depth, <span class="math notranslate nohighlight">\(d\)</span>. The
+fluid is assumed to have constant properties such as viscosity, thermal
+expansivity, thermal diffusivity. Small fluctuations in density due to
+temperature driven flow. Additional heat is carried (advected) by the
+flow from the hot boundary to the cool one whenever the fluid is
+moving.</span><a class="headerlink" href="#layer" title="Permalink to this image">¶</a></p>
+</div>
+<p>Various scalings result, with the new variables indicated using a prime
+(<span class="math notranslate nohighlight">\('\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{llll}
+    x = d.x' &amp; \partial / \partial x =  (1/d) \partial / \partial x' &amp; \nabla = (1/d) \nabla '  \\
+    t = (d^2/\kappa) t'  &amp;  \partial / \partial t = (\kappa/d^2) \partial / \partial t' &amp; \\
+    T = \Delta T T' &amp; &amp; \\
+    v = (\kappa / d) v' &amp;&amp; \\
+    p= p_0 + (\eta \kappa / d^2) p'
+\end{array}
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nabla p_0 = - g \rho_0\)</span></p>
+<p>Substituting for all the existing terms in the Navier-Stokes equation
+(<a class="reference external" href="#eq:navstokes">[eq:navstokes]</a>{reference-type=”ref”
+reference=”eq:navstokes”}) using the equation of state for thermally
+induced variation in density
+(<a class="reference external" href="#eq:state">[eq:state]</a>{reference-type=”ref” reference=”eq:state”})
+gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\rho_0 \kappa}{d^2} \frac{D}{Dt'} \left( \frac{\kappa}{d} \mathbf{v}' \right) =
+                \frac{\eta}{d^2} \acute{\nabla}^2 \left( \frac{\kappa}{d} \mathbf{v}' \right)
+                - \frac{\eta \kappa}{d^3}  \acute{\nabla} p' + g \rho_0 \alpha \Delta T T' \hat{\mathbf{z}}
+\]</div>
+<p>Collecting everything together gives</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\rho_0 \kappa^2}{d^3} \frac{D\mathbf{v}'}{Dt'}  =
+                \frac{\eta \kappa}{d^3} \acute{\nabla}^2  \mathbf{v}' 
+                - \frac{\eta \kappa}{d^3}  \acute{\nabla} p' + g \rho_0 \alpha \Delta T T' \hat{\mathbf{z}}
+\]</div>
+<p>Divide throughout by <span class="math notranslate nohighlight">\(\eta \kappa / d^3\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    \frac{\rho \kappa}{\eta} \frac{D\mathbf{v}'}{Dt'}  &amp; =
+                     \acute{\nabla}^2  \mathbf{v}'  -  \acute{\nabla} p' + 
+                     \frac{g \rho_0 \alpha \Delta T d^3}{\kappa \eta} T' \hat{\mathbf{z}} \nonumber \\
+            \textrm{or}  \;\;\; 
+     \frac{1}{{\rm Pr}} \frac{D\mathbf{v}'}{Dt'} &amp; =
+                    \acute{\nabla}^2  \mathbf{v}'  -  \acute{\nabla} p' + {\rm Ra} T' \hat{\mathbf{z}}
+\end{aligned}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\rm Pr\)</span> is known as the Prandtl number, and <span class="math notranslate nohighlight">\(\rm Ra\)</span> is known as the
+Rayleigh number; both are non-dimensional numbers. By choosing to scale
+the equations (and this is still perfectly general as we haven’t forced
+any particular choice of scaling yet), we have condensed the different
+physical variable quantities into just two numbers. The benefit of this
+procedure is that it tells us how different quantities trade off against
+one another. For example, we see that if the density doubles, and the
+viscosity doubles, then the solution should remain unchanged.</p>
+<p>In fact, the main purpose of this particular exercise is about to be
+revealed. The value of mantle viscosity is believed to lie somewhere
+between <span class="math notranslate nohighlight">\(10^{19}\)</span> and <span class="math notranslate nohighlight">\(10^{23}\)</span> <span class="math notranslate nohighlight">\({\rm Pa . s}\)</span>, the thermal diffusivity
+is around <span class="math notranslate nohighlight">\(10^{-6}{\rm m}^2{\rm s}^{-1}\)</span>, and density around
+<span class="math notranslate nohighlight">\(3300 {\rm kg . m}^{-3}\)</span>. This gives a Prandtl number greater than
+<span class="math notranslate nohighlight">\(10^{20}\)</span>. Typical estimates for the Rayleigh number are between <span class="math notranslate nohighlight">\(10^6\)</span>
+and <span class="math notranslate nohighlight">\(10^8\)</span> depending on the supposed depth of convection, and the
+uncertain mantle viscosity.</p>
+<p>Obviously, the time-dependent term can be neglected for the mantle,
+since it is at least twenty orders of magnitude smaller than other terms
+in the equations. The benefit of this is that the nasty advection term
+for momentum is eliminated – flow in the mantle is at the opposite
+extreme to turbulent flow. The disadvantage is that the equations now
+become non-local: changes in the stress field are propogated instantly
+from point to point which can make the equations a lot harder to solve.
+This can be counter-intuitive but the consequences are important when
+considering the dynamic response of the Earth to changes in, for
+example, plate configurations.</p>
+<p>Incidentally, a third, independent dimensionless number can be derived
+for the thermally driven flow equations. This is the Nusselt number</p>
+<div class="math notranslate nohighlight">
+\[ {\rm Nu} = \frac{Q}{k\Delta T} \]</div>
+<p>and is the ratio of actual heat transported by fluid motions in the
+layer compared to that transported conductively in the absence of fluid
+motion.</p>
+<p>All other dimensionless quantities for this system can be expressed as
+some combination of the Nusselt, Rayleigh and Prandtl numbers. The
+Prandtl number is a property of the fluid itself – typical values are:
+air, <span class="math notranslate nohighlight">\(\sim\)</span>1; water, <span class="math notranslate nohighlight">\(\sim\)</span> 6; non-conducting fluids <span class="math notranslate nohighlight">\(10^3\)</span> or more;
+liquid metal, <span class="math notranslate nohighlight">\(\sim\)</span>0.1. Rayleigh number and Nusselt number are both
+properties of the chosen geometry.</p>
+<div class="section" id="the-stream-function">
+<h2>The stream function<a class="headerlink" href="#the-stream-function" title="Permalink to this headline">¶</a></h2>
+<p>For incompressible flows in two dimensions it can be very convenient to
+work with the stream-function – a scalar quantity which defines the
+flow everywhere.
+The stream function is the scalar quantity,<span class="math notranslate nohighlight">\(\psi\)</span>, which satisfies</p>
+<div class="math notranslate nohighlight">
+\[
+    v_1 = -\frac{\partial \psi}{\partial x_2} \mbox{\hspace{1cm}}
+                        v_2 = \frac{\partial \psi}{\partial x_1}
+                    \label{eq:strmfn}
+\]</div>
+<p>so that, automatically,</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{\partial v_1}{\partial x_1} + \frac{\partial v_2}{\partial x_2} = 0
+\]</div>
+<p>Importantly, computing the following</p>
+<div class="math notranslate nohighlight">
+\[
+(\mathbf{v} \cdot \nabla) \psi = 
+                        v_1 \frac{\partial \psi}{\partial x_1} +    
+                        v_2 \frac{\partial \psi}{\partial x_2} = 
+                        \frac{\partial \psi}{\partial x_2} \frac{\partial \psi}{\partial x_1} -
+                        \frac{\partial \psi}{\partial x_1} \frac{\partial \psi}{\partial x_2} = 0
+\]</div>
+<p>tells us that <span class="math notranslate nohighlight">\(\psi\)</span> does not change due to advection – in other words,
+contours of constant <span class="math notranslate nohighlight">\(\psi\)</span> are streamlines of the fluid.</p>
+<p>Provided we limit ourselves to the xy plane, it is possible to think of
+equation (<a class="reference external" href="#eq:strmfn">[eq:strmfn]</a>{reference-type=”ref”
+reference=”eq:strmfn”}) as</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v} = \nabla \times (\psi \hat{\mathbf{k}})
+\]</div>
+<p>This form can be used to write down the 2D axisymetric version of
+equation (<a class="reference external" href="#eq:strmfn">[eq:strmfn]</a>{reference-type=”ref”
+reference=”eq:strmfn”})</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+                    u_r = -\frac{1}{r}\frac{\partial \psi}{\partial \theta} &amp; &amp; 
+                    u_\theta = \frac{\partial \psi}{\partial r}
+\end{aligned}
+\]</div>
+<p>which automatically satisfies the
+incompressibility condition in plane polar coordinates
+$<span class="math notranslate nohighlight">\(
+\frac{1}{r}\frac{\partial}{\partial r}(ru_r) + \frac{1}{r}\frac{\partial u_\theta}{\partial \theta} = 0
+\)</span>$</p>
+</div>
+<div class="section" id="vorticity">
+<h2>Vorticity<a class="headerlink" href="#vorticity" title="Permalink to this headline">¶</a></h2>
+<p>Vorticity is defined by
+$<span class="math notranslate nohighlight">\(\boldsymbol{\omega} = \nabla \times \mathbf{v}\)</span>$</p>
+<p>In 2D, the vorticity can be regarded as a scalar as it has only one
+component which lies out of the plane of the flow.</p>
+<div class="math notranslate nohighlight">
+\[\omega = \frac{\partial v_2}{\partial x_1} -
+         \frac{\partial v_1}{\partial x_2}\]</div>
+<p>which is also exactly equal
+to twice the local measure of the spin in the fluid. Local here means
+that it applies to an infinitessimal region around the sample point but
+not to the fluid as a whole.</p>
+<p>This concept is most useful in the context of invicid flow where
+vorticity is conserved within the bulk of the fluid provided the fluid
+is subject to only conservative forces – that is ones which can be
+described as the gradient of a single-valued potential.</p>
+<p>In the context of viscous flow, the viscous effects acts cause diffusion
+of vorticity, and in our context, the fact that buoyancy forces result
+from to (irreversible) heat transport means that vorticity has sources.
+Taking the curl of the Navier-Stokes equation, and substituting for the
+vorticity where possible gives</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\rm Pr} \left( \frac{D \boldsymbol{\omega}}{D t} - 
+                (\boldsymbol{\omega} \cdot \nabla) \mathbf{v} \right) = 
+                    \eta \nabla ^2 \boldsymbol{\omega} + {\rm Ra} \frac{\partial T}{\partial x_1}
+\]</div>
+<p>The pressure drops out because
+<span class="math notranslate nohighlight">\(\nabla \times \nabla P = 0 \mbox{\hspace{0.5cm}} \forall P\)</span>.</p>
+</div>
+<div class="section" id="stream-function-vorticity-and-the-biharmonic-equation">
+<h2>Stream-function, vorticity and the biharmonic equation<a class="headerlink" href="#stream-function-vorticity-and-the-biharmonic-equation" title="Permalink to this headline">¶</a></h2>
+<p>In the context of highly viscous fluids in 2D, the vorticity equation is</p>
+<div class="math notranslate nohighlight">
+\[\nabla ^2 \omega = - Ra \frac{\partial T}{\partial x_1}
+\label{eq:vorteqn}
+\]</div>
+<p>and, by considering the curl of
+<span class="math notranslate nohighlight">\((-\partial \psi / \partial x_2, \partial \psi / \partial x_1, 0)\)</span> the
+stream function can be written</p>
+<div class="math notranslate nohighlight">
+\[\nabla ^2 \psi = \omega
+                \label{eq:psivort}
+\]</div>
+<p>This form is useful from a computational point of view because it is
+relatively easy to solve the Laplacian, and the code can be reused for
+each application of the operator. The Laplacian is also used for thermal
+diffusion – one subroutine for three different bits of physics which is
+elegant in itself if nothing else.</p>
+<p>The biharmonic operator is defined as</p>
+<div class="math notranslate nohighlight">
+\[\nabla^4 \equiv \nabla^2 ( \nabla ^2) \equiv 
+                    \left( \frac{\partial ^4}{\partial x_1^4} + 
+                    \frac{\partial ^2}{\partial x_1^2} \frac{\partial ^2}{\partial x_2^2} +
+                    \frac{\partial ^4}{\partial x_2^4} \right)\]</div>
+<p>The latter form being the representation in Cartesian coordinates.</p>
+<p>Using this form, it is easy to show that equations
+(<a class="reference external" href="#eq:vorteqn">[eq:vorteqn]</a>{reference-type=”ref”
+reference=”eq:vorteqn”}) and
+(<a class="reference external" href="#eq:psivort">[eq:psivort]</a>{reference-type=”ref”
+reference=”eq:psivort”}) can be combined to give</p>
+<div class="math notranslate nohighlight">
+\[\nabla^4 \psi = -{\rm Ra} \frac{\partial T}{\partial x_1}
+                \label{eq:biharm}
+\]</div>
+</div>
+<div class="section" id="poloidal-toroidal-velocity-decomposition">
+<h2>Poloidal/Toroidal velocity decomposition<a class="headerlink" href="#poloidal-toroidal-velocity-decomposition" title="Permalink to this headline">¶</a></h2>
+<p>The stream-function / vorticity form we have just used is a
+simplification of the more general case of the poloidal / toroidal
+velocity decomposition which turns out to be useful when we want to understand
+the balance of different contributions to the governing equation.</p>
+<p>We can make a Helmholtz decomposition of the velocity vector field:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{u} = \nabla \phi + \nabla \times \mathbf{A}\]</div>
+<p>Then for an incompressible flow, since <span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{u} = 0\)</span>,
+$<span class="math notranslate nohighlight">\(\mathbf{u} = \nabla \times \mathbf{A} \label{eq:curlA}\)</span>$</p>
+<p>Now suppose there is some direction (<span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span>) which we expect
+to be physically favoured in the solutions, we can rewrite
+<a class="reference external" href="#eq:curlA">[eq:curlA]</a>{reference-type=”ref” reference=”eq:curlA”} as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{u} = \textcolor[rgb]{0.7,0.0,0.0}{\nabla \times(\Psi \hat{\mathbf{z}})} + 
+                 \textcolor[rgb]{0.0,0.0,0.7}{ \nabla \times\nabla \times(\Phi \hat{\mathbf{z}})}
+    \label{eq:poltor}\]</div>
+<p>Where the first term on the right is the
+[Toroidal]{style=”color: 0.7,0.0,0.0”} part of the flow, and the second
+term is the [ Poloidal]{style=”color: 0.0,0.0,0.7”} part. Why is this
+useful ? Let’s substitute
+(<a class="reference external" href="#eq:poltor">[eq:poltor]</a>{reference-type=”ref”
+reference=”eq:poltor”}) into the Stokes’ equation for a constant
+viscosity fluid</p>
+<div class="math notranslate nohighlight">
+\[\eta \nabla^2 \mathbf{u} - \nabla p = g \rho \hat{\mathbf{z}} 
+    \label{eq:cvstokes}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span> is the vertical unit
+vector (defined by the direction of gravity) and is clearly the one
+identifiable special direction, then equate coefficients in the
+<span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span> direction, and using the following results:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{z}} \cdot \nabla \times \nabla^2 \mathbf{u} =
+        - \nabla^2 \nabla_h^2\Psi\]</div>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{z}} \cdot \nabla \times \nabla \times \nabla^2 \mathbf{u} = 
+          \nabla^2 \nabla^2 \nabla_h^2\Phi\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\nabla_h = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, 0 \right)\]</div>
+<p>is a gradient operator limited to the plane perpendicular to the special
+direction, <span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span>.</p>
+<p>If we first take the curl of
+(<a class="reference external" href="#eq:cvstokes">[eq:cvstokes]</a>{reference-type=”ref”
+reference=”eq:cvstokes”}), and look at the <span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span> direction,</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{z}} \cdot \eta \nabla \times \nabla^2 \mathbf{u} = 
+        -\eta \nabla^2 \nabla_h^2\Psi = 
+        \hat{\mathbf{z}} \cdot \left( g \nabla \times \left( \rho \hat{\mathbf{z}}\right)\right) = 0
+\]</div>
+<p>we see that there is no contribution of the toroidal velocity field to
+the force balance. This balance occurs entirely through the poloidal
+part of the velocity field. If we take the curl twice and, once again,
+look at the <span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span> direction:</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{z}} \cdot \eta \nabla \times \nabla \times \nabla^2 \mathbf{u} = 
+        \eta \nabla^2 \nabla^2 \nabla_h^2 \Phi = 
+        \hat{\mathbf{z}} \cdot g \nabla \times \nabla \times \left( \rho \hat{\mathbf{z}}\right) = 
+         \nabla_h^2 (\rho g)\]</div>
+<p>Which is the 3D equivalent of the biharmonic equation that we derived
+above.</p>
+<p>Note: if the viscosity varies in the <span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span> direction, then
+this same decoupling still applies: bouyancy forces do not drive any
+toroidal flow. Lateral variations in viscosity (perpendicular to
+<span class="math notranslate nohighlight">\(\hat{\mathbf{z}}\)</span>) couple the buoyancy to toroidal motion. This result
+is general in that it applies to the spherical geometry equally well
+assuming the radial direction (of gravity) to be special.</p>
+</div>
+<div class="section" id="sample-solutions">
+<h2>Sample solutions<a class="headerlink" href="#sample-solutions" title="Permalink to this headline">¶</a></h2>
+<p>A number of related solutions exist to problems such as unstable layering
+breaking down, buckling of viscous layers and rebound of topography when
+surface loading changes.</p>
+<div class="section" id="rayleigh-taylor-instability-diapirism">
+<h3>Rayleigh-Taylor Instability &amp; Diapirism<a class="headerlink" href="#rayleigh-taylor-instability-diapirism" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="rayleigh-taylor">
+<a class="reference internal image-reference" href="../_images/diapirs.png"><img alt="../_images/diapirs.png" src="../_images/diapirs.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Salt diapirs result when a buried layer of salt(a,b) becomes
+convectively unstable and rises through the overlying sediment layers
+(c,d). The idealized geometry for the Rayleigh-Taylor instability
+problem is outlined in the lower
+diagram</span><a class="headerlink" href="#rayleigh-taylor" title="Permalink to this image">¶</a></p>
+</div>
+<p>Diapirism is the buoyant upwelling of rock which is lighter than its
+surroundings. This can include mantle plumes and other purely thermal
+phenomena but it often applied to compositionally distinct rock masses
+such as melts infiltrating the crust (in the Archean) or salt rising
+through denser sediments.</p>
+<p>Salt layers may result from the evaporation of seawater. If subsequent
+sedimentation covers the salt, a gravitionally unstable configuration
+results with heavier material (sediments) on top of light material
+(salt). The rheology of salt is distinctly non-linear and also sensitive
+to temperature. Once buried, the increased temperature of the salt layer
+causes its viscosity to decrease to the point where instabilities can
+grow. Note, since there is always a strong density contrast between the
+two rock types, the critical Rayleigh number argument does not apply –
+this situation is always unstable, but instabilities can only grow at a
+reasonable rate once the salt has become weak.</p>
+<p>The geometry is outlined above in Figure (
+<a class="reference external" href="#fig:raytay">2</a>{reference-type=”ref” reference=”fig:raytay”}). We
+suppose initially that the surface is slightly perturbed with a form of</p>
+<div class="math notranslate nohighlight">
+\[w_m = w_{m0} \cos kx\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the wavenumber, <span class="math notranslate nohighlight">\(k=2\pi / \lambda\)</span>, <span class="math notranslate nohighlight">\(\lambda\)</span> being the
+wavelength of the disturbance. We assume that the magnitude of the
+disturbance is always much smaller than the wavelength.</p>
+<p>The problem is easiest to solve if we deal with the biharmonic equation
+for the stream function. Experience leads us to try to separate
+variables and look for solutions of the form</p>
+<div class="math notranslate nohighlight">
+\[\psi = \left( A \sin kx + B \cos kx \right ) Y(y)\]</div>
+<p>where the function <span class="math notranslate nohighlight">\(Y\)</span> is to be determined. The form we have chosen for
+<span class="math notranslate nohighlight">\(w_m\)</span> in fact means <span class="math notranslate nohighlight">\(A=1,B=0\)</span> which we can assume from now on to
+simplify the algebra.</p>
+<p>Substituting the trial solution for <span class="math notranslate nohighlight">\(\psi\)</span> into the biharmonic equation
+gives</p>
+<div class="math notranslate nohighlight">
+\[\frac{d^4 Y}{d y^4} -2k^2 \frac{d^2 Y}{dy^2} +k^4 Y = 0\]</div>
+<p>which has solutions of the form</p>
+<div class="math notranslate nohighlight">
+\[Y = A \exp(m y)\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is an arbitrary constant. Subtituting gives us an equation for <span class="math notranslate nohighlight">\(m\)</span></p>
+<div class="math notranslate nohighlight">
+\[m^4 - 2 k^2 m^2 + k^4 = (m^2 - k^2)^2 = 0
+            \label{eq:diapaux}$$ or $$m = \pm k\]</div>
+<p>Because we have degenerate eigenvalues (i.e. of the four possible
+solutions to the auxilliary equation
+(<a class="reference external" href="#eq:diapaux">[eq:diapaux]</a>{reference-type=”ref”
+reference=”eq:diapaux”}),
+two pairs are equal) we need to extend the
+form of the solution to</p>
+<div class="math notranslate nohighlight">
+\[Y = (By+A) \exp(m y)\]</div>
+<p>to give the general
+form of the solution in this situation to be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+            \psi &amp;= \sin kx \left( A e^{-ky} + B y e^{-ky} + C e^{ky} + D y e^{ky} \right)
+            \label{eq:biharmsoln1} \\
+        \mathrm{or, equivalently}
+            \psi &amp;= \sin kx \left( A_1 \cosh ky + B_1 \sinh ky + C_1 y \cosh ky + D_1 y \sinh ky  \right)
+            \label{eq:biharmsoln2} 
+\end{aligned}\end{split}\]</div>
+<p>This equation applies in each of the layers separately. We therefore
+need to find two sets of constants <span class="math notranslate nohighlight">\(\{A_1,B_1,C_1,D_1\}\)</span> and
+<span class="math notranslate nohighlight">\(\{A_2,B_2,C_3,D_4\}\)</span> by the application of suitable boundary
+conditions. These are known in terms of the velocities in each layer,
+<span class="math notranslate nohighlight">\(\mathbf{v}_1 = \mathbf{i} u_1 +\mathbf{j} v_1\)</span> and
+<span class="math notranslate nohighlight">\(\mathbf{v}_2 = \mathbf{i} u_2 +\mathbf{j} v_2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+                u_1 = v_1 &amp;= 0 \mathrm{\hspace{1cm} on \hspace{1cm}} y = -b \\
+                u_2 = v_2 &amp;= 0 \mathrm{\hspace{1cm} on \hspace{1cm}} y = b 
+\end{aligned}\end{split}\]</div>
+<p>together with a continuity condition across the interface (which we
+assume is imperceptibly deformed</p>
+<div class="math notranslate nohighlight">
+\[u_1 = u_2  \mathrm{\hspace{1cm} and \hspace{1cm}} 
+                v_1 = v_2 \mathrm{\hspace{1cm} on \hspace{1cm}} y = 0\]</div>
+<p>The shear stress (<span class="math notranslate nohighlight">\(\sigma_{xy}\)</span>) should also be continuous across the
+interface, which, if we assume equal viscosities, gives</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u_1}{\partial y} + \frac{\partial v_1}{\partial x} =
+    \frac{\partial u_2}{\partial y} + \frac{\partial v_2}{\partial x} \mathrm{\hspace{1cm} on \hspace{1cm}} y = 0
+\]</div>
+<p>and, to simplify matters, if the velocity is continuous across <span class="math notranslate nohighlight">\(y=0\)</span>
+then any velocity derivatives in the <span class="math notranslate nohighlight">\(x\)</span> direction evaluated at <span class="math notranslate nohighlight">\(y=0\)</span>
+will also be continuous (i.e.
+<span class="math notranslate nohighlight">\(\partial v_2 / \partial x = \partial v_1 / \partial x\)</span>).</p>
+<p>The expressions for velocity in terms of the solution
+(<a class="reference external" href="#eq:biharmsoln2">[eq:biharmsoln2]</a>{reference-type=”ref”
+reference=”eq:biharmsoln2”}) are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    u  = -\frac{\partial \psi}{\partial y} &amp; = -\sin kx \left( 
+                    (A_1 k + D_1 + C_1 k y) \sinh ky + (B_1 k + C_1 + D_1 ky) \cosh ky  \right) \\
+    v  = \frac{\partial \psi}{\partial x} &amp; = k \cos kx \left( 
+                    (A_1 +C_1 y)\cosh ky + (B_1 +D_1 y)  \sinh ky   \right)
+\end{aligned}\end{split}\]</div>
+<p>From here to the solution requires much tedious rearrangement, and the
+usual argument based on the arbitrary choice of wavenumber <span class="math notranslate nohighlight">\(k\)</span> but we
+finally arrive at</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gathered}
+            \psi_1 = A_1 \sin kx \cosh ky + \\
+                            A_1 \sin kx \left[  
+                                \frac{y}{k b^2} \tanh kb \sinh ky + 
+                                        \left( \frac{y}{b} \cosh ky    \frac{1}{kb} \sinh ky \right) \cdot 
+                                        \left( \frac{1}{kb} + 
+                                        \frac{1}{\sinh bk \cosh bk} \right) \right] \times \\
+                            \left[ \frac{1}{\sinh bk \cosh bk} - \frac{1}{(b^2k^2} \tanh bk \right] ^{-1}   
+            \label{eq:raytays1}             
+\end{gathered}\end{split}\]</div>
+<p>The stream function for the lower layer is
+found by replacing <span class="math notranslate nohighlight">\(y\)</span> with <span class="math notranslate nohighlight">\(-y\)</span> in this equation. This is already a
+relatively nasty expression, but we haven’t finished since the constant
+<span class="math notranslate nohighlight">\(A_1\)</span> remains. This occurs because we have so far considered the form of
+flows which satisfy all the boundary conditions but have not yet
+considered what drives the flow in each layer.</p>
+<p>To eliminate <span class="math notranslate nohighlight">\(A_1\)</span>, we have to consider the physical scales inherent in
+the problem itself. We are interested (primarily) in the behaviour of
+the interface which moves with a velocity <span class="math notranslate nohighlight">\(\partial w / \partial t\)</span>. As
+we are working with small deflections of the interface,</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial w}{\partial t} = \left. v \right|_{y=0}\]</div>
+<div class="figure align-default" id="rayleigh-taylor-2">
+<a class="reference internal image-reference" href="../_images/diapir2.png"><img alt="../_images/diapir2.png" src="../_images/diapir2.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The restoring force for a stable layering is proportional to the
+excess density when a fluid element is displaced across the
+boundary</span><a class="headerlink" href="#rayleigh-taylor-2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Consider what happens when the fluid above the interface is lighter than
+the fluid below – this situation is stable so we expect the layering to
+be preserved, and if the interface is disturbed the disturbance to
+decay. This implies that there must be a restoring force acting on an
+element of fluid which is somehow displaced across the boundary at <span class="math notranslate nohighlight">\(y=0\)</span>
+(Figure <a class="reference external" href="#fig:raytay2">3</a>{reference-type=”ref”
+reference=”fig:raytay2”}).</p>
+<p>This restoring force is due to the density difference between the
+displaced material and the layer in which it finds itself. The
+expression for the force is exactly that from Archimedes principle which
+explains how a boat can float (only in the opposite direction)</p>
+<div class="math notranslate nohighlight">
+\[\left. F_2 \right|_{y=0} = \delta x g w (\rho_2 - \rho_1)\]</div>
+<p>which can
+be expressed as a normal stress difference (assumed to apply, once
+again, at the boundary). The viscous component of the normal stress
+turns out to be zero – proven by evaluating <span class="math notranslate nohighlight">\(\partial v / \partial y\)</span>
+at <span class="math notranslate nohighlight">\(y=0\)</span> using the expression for <span class="math notranslate nohighlight">\(\phi\)</span> in equation
+(<a class="reference external" href="#eq:raytays1">[eq:raytays1]</a>{reference-type=”ref”
+reference=”eq:raytays1”}). Thus the restoring stress is purely pressure</p>
+<div class="math notranslate nohighlight">
+\[\left. P_2 \right|_{y=0} = g w (\rho_2 - \rho_1)\]</div>
+<p>The pressure in terms of the solution (so far) for <span class="math notranslate nohighlight">\(\psi\)</span> is found from
+the equation of motion in the horizontal direction (substituting the
+stream function formulation) and is then equated to the restoring
+pressure above.</p>
+<div class="math notranslate nohighlight">
+\[(\rho_1-\rho_2) g w = -\frac{4 \eta k A_1}{b} \cos kx 
+    \left(\frac{1}{kb} + \frac{1}{\sinh bk \cosh bk} \right) \cdot
+    \left(   \frac{1}{\sinh bk \cosh bk} - \frac{1}{(b^2k^2} \tanh bk \right)^{-1}
+\]</div>
+<p>which allows us to substitute for <span class="math notranslate nohighlight">\(A_1\)</span> in our expression for
+<span class="math notranslate nohighlight">\(\partial w / \partial t\)</span> above. Since <span class="math notranslate nohighlight">\(A_1\)</span> is independent of <span class="math notranslate nohighlight">\(t\)</span>, we
+can see that the solution for <span class="math notranslate nohighlight">\(w\)</span> will be of a growing or decaying
+exponential form with growth/decay constant coming from the argument
+above.</p>
+<div class="math notranslate nohighlight">
+\[w(t) = w_0 \exp((t-t_0)/\tau)\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\tau = \frac{4 \eta}{(\rho_1-\rho_2) g b} 
+        \left( \frac{1}{kb} + \frac{1}{\sinh bk \cosh bk} \right) \cdot
+        \left(   \frac{1}{k^2b^2} \tanh kb - \frac{1}{\sinh kb \cosh kb}     \right)^{-1}
+\]</div>
+<p>So, finally, an answer – the rate at which instabilities on the
+interface between two layers will grow (or shrink) which depends on
+viscosity, layer depth and density differences, together with the
+geometrical consideration of the layer thicknesses.</p>
+<p>A stable layering results from light fluid resting on heavy fluid; a
+heavy fluid resting on a light fluid is always unstable (no critical
+Rayleigh number applies) although the growth rate can be so small that
+no deformation occurs in practice. The growth rate is also dependent on
+wavenumber. There is a minimum in the growth time as a function of
+dimensional wavenumber which occurs at <span class="math notranslate nohighlight">\(k b = 2.4\)</span>, so instabilities
+close to this wavenumber are expected to grow first and dominate.</p>
+<p>Remember that this derivation is simplified for fluids of equal
+viscosity, and layers of identical depth. Remember also that the
+solution is for infinitessimal deformations of the interface. If the
+deformation grows then the approximations of small deformation no longer
+hold. This gives a clue as to how difficulties dealing with the
+advection term of the transport equations arise.</p>
+<p>At some point it becomes impossible to obtain meaningful results without
+computer simulation. However, plenty of further work has already been
+done on this area for non-linear fluids, temperature dependent viscosity
+&amp;c and the solutions are predictably long and tedious to read, much less
+solve. When the viscosity is not constant, the use of a stream function
+notation is not particularly helpful as the biharmonic form no longer
+appears.</p>
+<p>The methodology used here is instructive, as it can be used in a number
+of different applications to related areas. The equations are similar,
+the boundary conditions different.</p>
+</div>
+<div class="section" id="post-glacial-rebound">
+<h3>Post-Glacial Rebound<a class="headerlink" href="#post-glacial-rebound" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="post-glacial">
+<a class="reference internal image-reference" href="../_images/postglac.png"><img alt="../_images/postglac.png" src="../_images/postglac.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">The relaxation of the Earth’s surface after removal of an ice load.</span><a class="headerlink" href="#post-glacial" title="Permalink to this image">¶</a></p>
+</div>
+<p>In the postglacial rebound problem, consider a viscous half space with
+an imposed topography at <span class="math notranslate nohighlight">\(t=0\)</span>. The ice load is removed at <span class="math notranslate nohighlight">\(t=0\)</span> and the
+interface relaxes back to its original flat state.</p>
+<p>This can be studied one wavenumber at a time — computing a decay rate
+for each component of the topography. The intial loading is computed
+from the fourier transform of the ice bottom topography.</p>
+<p>The system is similar to that of the diapirs except that the loading is
+now applied to one surface rather than the interface between two fluids.</p>
+</div>
+<div class="section" id="phase-changes-in-the-mantle">
+<h3>Phase Changes in the mantle<a class="headerlink" href="#phase-changes-in-the-mantle" title="Permalink to this headline">¶</a></h3>
+<p>A different interface problem is that of mantle phase changes. Here a
+bouyancy anomaly results if the phase change boundary is distorted. This
+can result from advection normal to the boundary bringing cooler or
+warmer material across the boundary.</p>
+<p>The buoyancy balance argument used above can be recycled here to
+determine a scaling for the ability of plumes/downwellings to cross the
+phase boundary.</p>
+</div>
+<div class="section" id="kernels-for-surface-observables">
+<h3>Kernels for Surface Observables<a class="headerlink" href="#kernels-for-surface-observables" title="Permalink to this headline">¶</a></h3>
+<p>The solution method used for the Rayleigh Taylor problem can also be
+used in determining spectral Green’s functions for mantle flow in
+response to thermal perturbations. This is a particularly abstract
+application of the identical theory.</p>
+</div>
+</div>
+<div class="section" id="folding-of-layered-viscous-medium">
+<h2>Folding of Layered (Viscous) Medium<a class="headerlink" href="#folding-of-layered-viscous-medium" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="folding">
+<a class="reference internal image-reference" href="../_images/fold.png"><img alt="../_images/fold.png" src="../_images/fold.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Instability in a thin, viscous layer compressed from both ends.</span><a class="headerlink" href="#folding" title="Permalink to this image">¶</a></p>
+</div>
+<p>If a thin viscous layer is compressed from one end then it may develop
+buckling instabilities in which velocities grow perpendicular to the
+plane of the layer.</p>
+<p>If the layer is embedded between two semi-infinite layers of viscous
+fluid with viscosity much smaller than the viscosity of the layer, then
+Biot theory tells us the wavelength of the initial buckling instability,
+and the rate at which it grows.</p>
+<p>The fold geometry evolves as</p>
+<div class="math notranslate nohighlight">
+\[w=w_m \cos(kx) e^{\frac{t}{\tau_a}}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\tau_a = \frac{1}{\bar{P}}\left[ \frac{4 \eta_0}{k} + \frac{\eta_1 h^3}{3k^2} \right]\]</div>
+<p>and the fastest growing wavenumber is</p>
+<div class="math notranslate nohighlight">
+\[k = \frac{6}{h}\left( \frac{\eta_1}{\eta_0} \right)^{\frac{1}{3}}\]</div>
+<p>For large deformations we eventually must resort to numerical
+simulation.</p>
+</div>
+<div class="section" id="gravity-currents">
+<h2>Gravity Currents<a class="headerlink" href="#gravity-currents" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="gravity-current">
+<a class="reference internal image-reference" href="../_images/gravcurr.png"><img alt="../_images/gravcurr.png" src="../_images/gravcurr.png" style="width: 450px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">A gravity current is the spreading of a dense fluid under its own
+weight across a horizontal surface (or a buoyant fluid under a surface).
+Open the fridge door and the cold air falls out as a gravity current.</span><a class="headerlink" href="#gravity-current" title="Permalink to this image">¶</a></p>
+</div>
+<p>Gravity currents can occur when a viscous fluid flows under its own
+weight as shown in Figure <a class="reference external" href="#fig:gcurr1">6</a>{reference-type=”ref”
+reference=”fig:gcurr1”}.</p>
+<p>We assume that the fluid has constant viscosity, <span class="math notranslate nohighlight">\(\eta\)</span> and that the
+length of the current is considerably greater than its height. The fluid
+is embedded in a low viscosity medium of density <span class="math notranslate nohighlight">\(\rho-\Delta \rho\)</span>
+where <span class="math notranslate nohighlight">\(\rho\)</span> is the density of the fluid itself.</p>
+<p>The force balance is between buoyancy and viscosity. The assumptions of
+geometry allow us to simplify the Stokes equation by assuming horizontal
+pressure gradients due to the surface slope drive the flow.</p>
+<div class="math notranslate nohighlight">
+\[\nabla p = \eta\nabla^2 u \approx   g \Delta \rho \frac{\partial h}{\partial x}\]</div>
+<p>We assume near-zero shear stress at the top of the current to give</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial u}{\partial z} (x,h,t) = 0\]</div>
+<p>and zero velocity at the
+base of the current. Hence</p>
+<div class="math notranslate nohighlight">
+\[u(x,z,t) = -\frac{1}{2} \frac{g \Delta \rho}{\eta} \frac{\partial h}{\partial x}  z(2h-z)\]</div>
+<p>Continuity integrated over depth implies</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial h}{\partial t} + \frac{\partial }{\partial x} \int_0^h u dz = 0\]</div>
+<p>Combining these equations gives</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial h}{\partial t} -\frac{1}{3} \frac{g \Delta \rho}{\eta} 
+                     \frac{\partial }{\partial x}  \left( h^3 \frac{\partial h}{\partial x} \right) = 0\]</div>
+<p>Finally, a global constraint fixes the total amount of fluid at any
+given time</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{x_N(t)} h(x,t)dx = qt^\alpha\]</div>
+<p>The latter term
+being a fluid source at the origin, and <span class="math notranslate nohighlight">\(x_{N(t)}\)</span> the location of the
+front of the current. A similarity variable is the key to solving this problem:</p>
+<div class="math notranslate nohighlight">
+\[\nu = \left( \frac{1}{3} g\Delta \rho q^3 / \eta \right)^{-\frac{1}{5}} x t^{-(3\alpha +1) / 5}\]</div>
+<p>giving a solution of the form</p>
+<div class="math notranslate nohighlight">
+\[h(x,t) = \nu_N^{2/3} (3q^2 \eta / (g\Delta\rho))^{1/5} t^{(2\alpha -1) / 5} \phi(\nu/\nu_N)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\nu_N\)</span> is the value of <span class="math notranslate nohighlight">\(\nu\)</span> at <span class="math notranslate nohighlight">\(x=x_N(t)\)</span>. Substituting into the
+equation for <span class="math notranslate nohighlight">\(\partial h / \partial t\)</span> we find that <span class="math notranslate nohighlight">\(\phi(\nu/\nu_N)\)</span>
+satisfies</p>
+<div class="math notranslate nohighlight">
+\[\phi({\nu}/{\nu_N}) = \left[ \frac{3}{5}(3\alpha+1)\right]^{\frac{1}{3}}
+                \left(1-\frac{\nu}{\nu_N} \right)^{\frac{1}{3}} \left[
+                1 - \frac{3\alpha-4}{24(3\alpha+1)}\left(1-\frac{\nu}{\nu_N} \right) + O \left(1-\frac{\nu}{\nu_N} \right)^2
+                \right]\]</div>
+<p>Which has an analytic solution if <span class="math notranslate nohighlight">\(\alpha=0\)</span>
+(only constant sources or sinks)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split} 
+            \phi({\nu}/{\nu_N}) &amp;= \left( \frac{3}{10}\right)^{\frac{1}{3}} 
+            \left( 1-\left(\frac{\nu}{\nu_N}\right)^2 \right)^{\frac{1}{3}}  \\                     
+        \nu_N &amp;= \left[ \frac{1}{5} \left( \frac{3}{10}\right)^{\frac{1}{3}}  \pi^{\frac{1}{2}}
+    \Gamma (1/3) / \Gamma (5/6) \right]^{-\frac{3}{5}} = 1.411
+\end{split}
+\end{split}\]</div>
+<p>For all other values of <span class="math notranslate nohighlight">\(\alpha\)</span> numerical
+integration schemes must be used for <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+<p>It is also possible to obtain solutions if axisymmetric geometry is
+used.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part1-FluidDynamics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="NavierStokes.html" title="previous page">Navier-Stokes Equation</a>
+    <a class='right-next' id="next-link" href="ThermalConvection.html" title="next page">Thermal Convection</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

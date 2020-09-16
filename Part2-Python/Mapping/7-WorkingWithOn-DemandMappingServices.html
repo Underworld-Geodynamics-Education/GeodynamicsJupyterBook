@@ -1,0 +1,718 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On demand mapping services &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Global Plate Motions" href="8-GlobalPlateMotionsEtc.html" />
+    <link rel="prev" title="Cartopy and the Shuttle Radar Topography Map data" href="6-WorkingWithShuttleRadarTopography.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="0-Preliminaries.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-IntroductingCartopy.html">
+     Cartopy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-ImagesAndGeoTIFFs.html">
+     Handling images
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-WorkingWithRealData.html">
+     Australian magnetic intensity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="4-ContouringGlobalData.html">
+     How to use contours to view global data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="5-WorkingWithPointData.html">
+     Point Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="6-WorkingWithShuttleRadarTopography.html">
+     Cartopy and the Shuttle Radar Topography Map data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     On demand mapping services
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="8-GlobalPlateMotionsEtc.html">
+     Global Plate Motions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="9-HimalayaRegionMapsAndImages.html">
+     Himalaya Maps (1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="9a-HimalayaRegionMapsAndImages-Pt2.html">
+     Himalaya Maps (2)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="../../_sources/Part2-Python/Mapping/7-WorkingWithOn-DemandMappingServices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Part2-Python/Mapping/7-WorkingWithOn-DemandMappingServices.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/master?urlpath=tree/Part2-Python/Mapping/7-WorkingWithOn-DemandMappingServices.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://demon.underworldcloud.org/hub/user-redirect/git-pull?repo=https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook&urlpath=tree/GeodynamicsJupyterBook/Part2-Python/Mapping/7-WorkingWithOn-DemandMappingServices.md&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="on-demand-mapping-services">
+<h1>On demand mapping services<a class="headerlink" href="#on-demand-mapping-services" title="Permalink to this headline">¶</a></h1>
+<p>The most familiar mapping services are those we often use to navigate with our phones for example: google maps.
+The difference between google maps and many of the examples we have looked at so far is that we do not download data in advance, process it and then create a map. Instead we have access to data when we need it and a a <em>relevant</em> resolution. If we want to make a global map that is 1000 pixels across then Australia is probably just a few dozen pixels wide. If we instead decide to make a map to navigate across Melbourne, then a much higher resolution is needed <em>but only within the boundary of the map</em>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Cartopy</span></code> provides access to various of the online mapping services that will serve image data on demand in the form of small image tiles at a specified resolution. The tools automatically query the service and assemble the tiles to make the map but there are some tricks that we need to know before we can use them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pylab</span> <span class="n">inline</span>
+
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="kn">import</span> <span class="nn">cartopy.io.img_tiles</span> <span class="k">as</span> <span class="nn">cimgt</span>
+
+
+<span class="c1"># from matplotlib.transforms import offset_copy</span>
+
+<span class="kn">from</span> <span class="nn">cartopy.mpl.gridliner</span> <span class="kn">import</span> <span class="n">LONGITUDE_FORMATTER</span><span class="p">,</span> <span class="n">LATITUDE_FORMATTER</span>
+<span class="kn">import</span> <span class="nn">matplotlib.ticker</span> <span class="k">as</span> <span class="nn">mticker</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s pre-define some features that we can add to maps later. This can be especially helpful for satellite images where it can be hard to orient the images without some overlays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coastline</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="s1">&#39;coastline&#39;</span><span class="p">,</span> <span class="s1">&#39;10m&#39;</span><span class="p">,</span>
+                           <span class="n">edgecolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">),</span>
+                           <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+
+<span class="n">rivers</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="s1">&#39;rivers_lake_centerlines&#39;</span><span class="p">,</span> <span class="s1">&#39;10m&#39;</span><span class="p">,</span>
+                                        <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+
+
+<span class="n">coastline50</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="s1">&#39;coastline&#39;</span><span class="p">,</span> <span class="s1">&#39;50m&#39;</span><span class="p">,</span>
+                           <span class="n">edgecolor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">),</span>
+                           <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+
+<span class="n">rivers50</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="s1">&#39;rivers_lake_centerlines&#39;</span><span class="p">,</span> <span class="s1">&#39;50m&#39;</span><span class="p">,</span>
+                                        <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+
+
+<span class="n">lakes</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="s1">&#39;lakes&#39;</span><span class="p">,</span> <span class="s1">&#39;10m&#39;</span><span class="p">,</span>
+                                        <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+
+<span class="n">ocean</span> <span class="o">=</span> <span class="n">cfeature</span><span class="o">.</span><span class="n">NaturalEarthFeature</span><span class="p">(</span><span class="s1">&#39;physical&#39;</span><span class="p">,</span> <span class="s1">&#39;ocean&#39;</span><span class="p">,</span> <span class="s1">&#39;10m&#39;</span><span class="p">,</span>
+                           <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span>
+                           <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## The full list of available interfaces is found in the source code for this one:</span>
+<span class="c1">## https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.py</span>
+
+<span class="c1">## Continental US terrain images</span>
+<span class="n">stamen_Terrain</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">Stamen</span><span class="p">(</span><span class="s1">&#39;terrain-background&#39;</span><span class="p">)</span>
+<span class="n">stamen_TerrainPlus</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">Stamen</span><span class="p">(</span><span class="s1">&#39;terrain&#39;</span><span class="p">)</span>
+<span class="n">stamen_Artist</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">Stamen</span><span class="p">(</span><span class="s1">&#39;watercolor&#39;</span><span class="p">)</span>
+
+<span class="c1">## Mapquest satellite / streetmap images </span>
+<span class="n">map_quest_aerial</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">MapQuestOpenAerial</span><span class="p">()</span>
+<span class="n">map_quest_street</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">MapQuestOSM</span><span class="p">()</span>
+
+<span class="c1">## Open Street map</span>
+<span class="n">open_street_map</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">OSM</span><span class="p">()</span>
+
+<span class="c1">## Mapbox Satellite images </span>
+
+<span class="n">mapbox_satellite</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">MapboxTiles</span><span class="p">(</span><span class="n">map_id</span><span class="o">=</span><span class="s1">&#39;satellite&#39;</span><span class="p">,</span> 
+                                     <span class="n">access_token</span><span class="o">=</span><span class="s1">&#39;pk.eyJ1IjoibG91aXNtb3Jlc2kiLCJhIjoiY2pzeG1mZzFqMG5sZDQ0czF5YzY1NmZ4cSJ9.lpsUzmLasydBlS0IOqe5JA&#39;</span><span class="p">)</span>
+
+
+<span class="n">mapbox_streets</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">MapboxTiles</span><span class="p">(</span><span class="n">map_id</span><span class="o">=</span><span class="s1">&#39;streets&#39;</span><span class="p">,</span> 
+                                     <span class="n">access_token</span><span class="o">=</span><span class="s1">&#39;pk.eyJ1IjoibG91aXNtb3Jlc2kiLCJhIjoiY2pzeG1mZzFqMG5sZDQ0czF5YzY1NmZ4cSJ9.lpsUzmLasydBlS0IOqe5JA&#39;</span><span class="p">)</span>
+
+
+<span class="c1">## Google maps image tiles ()</span>
+<span class="n">google_maps_street</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">GoogleTiles</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;street&quot;</span><span class="p">)</span> 
+<span class="n">google_maps_satellite</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">GoogleTiles</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;satellite&quot;</span><span class="p">)</span> 
+<span class="n">google_maps_terrain</span> <span class="o">=</span> <span class="n">cimgt</span><span class="o">.</span><span class="n">GoogleTiles</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;terrain&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify a region of interest</span>
+
+<span class="n">lat0</span> <span class="o">=</span>  <span class="mi">32</span>  <span class="p">;</span> <span class="n">lat1</span> <span class="o">=</span> <span class="mi">37</span>
+<span class="n">lon0</span> <span class="o">=</span>  <span class="o">-</span><span class="mi">121</span><span class="p">;</span> <span class="n">lon1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">116</span>
+
+<span class="n">map_extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon0</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat0</span><span class="p">,</span> <span class="n">lat1</span><span class="p">]</span>
+
+<span class="n">map_tiles</span> <span class="o">=</span> <span class="n">mapbox_satellite</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="c1"># ax = plt.axes(projection=ccrs.PlateCarree(), extent=himalaya_extent)</span>
+
+<span class="c1"># Create a GeoAxes in the tile&#39;s projection.</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">map_tiles</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># Set the size of the map</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="c1"># Add the on-demand image - the second argument is the resolution and needs to be balanced with the </span>
+<span class="c1"># size of the area the map covers. </span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">map_tiles</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">coastline</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>  <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">rivers</span><span class="p">,</span>    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span>  <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify a region of interest</span>
+
+<span class="n">lat0</span> <span class="o">=</span>  <span class="mf">33.5</span>  <span class="p">;</span> <span class="n">lat1</span> <span class="o">=</span> <span class="mf">34.5</span>
+<span class="n">lon0</span> <span class="o">=</span>  <span class="o">-</span><span class="mi">119</span><span class="p">;</span> <span class="n">lon1</span> <span class="o">=</span> <span class="o">-</span><span class="mf">117.5</span>
+
+<span class="n">map_extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon0</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat0</span><span class="p">,</span> <span class="n">lat1</span><span class="p">]</span>
+
+<span class="n">map_tiles</span> <span class="o">=</span> <span class="n">stamen_Terrain</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="c1"># ax = plt.axes(projection=ccrs.PlateCarree(), extent=himalaya_extent)</span>
+
+<span class="c1"># Create a GeoAxes in the tile&#39;s projection.</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">map_tiles</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># Set the size of the map</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="c1"># Add the on-demand image - the second argument is the resolution and needs to be balanced with the </span>
+<span class="c1"># size of the area the map covers. </span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">map_tiles</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">coastline</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>  <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">rivers</span><span class="p">,</span>    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span>  <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;LaBasinTerrain-stamen.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify a region of interest</span>
+
+<span class="n">lat0</span> <span class="o">=</span>  <span class="o">-</span><span class="mi">45</span>  <span class="p">;</span> <span class="n">lat1</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">lon0</span> <span class="o">=</span>  <span class="mi">100</span>  <span class="p">;</span> <span class="n">lon1</span> <span class="o">=</span> <span class="mi">160</span>
+
+<span class="n">map_extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon0</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat0</span><span class="p">,</span> <span class="n">lat1</span><span class="p">]</span>
+
+<span class="n">map_tiles</span> <span class="o">=</span> <span class="n">stamen_Artist</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">map_tiles</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># Set the size of the map</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+
+<span class="c1"># Add the on-demand image - the second argument is the resolution and needs to be balanced with the </span>
+<span class="c1"># size of the area the map covers. </span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">map_tiles</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">coastline50</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>  <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;Black&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">rivers50</span><span class="p">,</span>    <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;Blue&quot;</span><span class="p">,</span>  <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Mapquest - Je ne t&#39;aime plus </span>
+
+<span class="n">lat0</span> <span class="o">=</span>   <span class="mi">48</span>  <span class="p">;</span> <span class="n">lat1</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">lon0</span> <span class="o">=</span>  <span class="o">-</span><span class="mi">15</span>  <span class="p">;</span> <span class="n">lon1</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">map_extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon0</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat0</span><span class="p">,</span> <span class="n">lat1</span><span class="p">]</span>
+
+
+<span class="n">fig</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="n">ax1</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">stamen_Terrain</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">stamen_TerrainPlus</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">stamen_Terrain</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">stamen_TerrainPlus</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lat0</span> <span class="o">=</span>   <span class="mi">48</span>  <span class="p">;</span> <span class="n">lat1</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">lon0</span> <span class="o">=</span>  <span class="o">-</span><span class="mi">15</span>  <span class="p">;</span> <span class="n">lon1</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">map_extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon0</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat0</span><span class="p">,</span> <span class="n">lat1</span><span class="p">]</span>
+
+<span class="n">fig</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="n">ax1</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">stamen_Terrain</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">google_maps_terrain</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">stamen_Terrain</span><span class="p">,</span>      <span class="mi">7</span><span class="p">,</span>  <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">stamen_Artist</span><span class="p">,</span>       <span class="mi">7</span><span class="p">,</span>  <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># To test what the influence of the resolution parameter is on the map that is returned ... </span>
+
+<span class="n">lat0</span> <span class="o">=</span>   <span class="mi">51</span>  <span class="p">;</span> <span class="n">lat1</span> <span class="o">=</span> <span class="mi">52</span>
+<span class="n">lon0</span> <span class="o">=</span>  <span class="o">-</span><span class="mi">1</span>  <span class="p">;</span> <span class="n">lon1</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">map_extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon0</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat0</span><span class="p">,</span> <span class="n">lat1</span><span class="p">]</span>
+
+
+<span class="n">maptype1</span> <span class="o">=</span> <span class="n">mapbox_satellite</span>
+<span class="n">maptype2</span> <span class="o">=</span> <span class="n">mapbox_streets</span>
+
+<span class="c1">## Could also try these ... </span>
+
+<span class="c1"># maptype1 = stamen_Terrain</span>
+<span class="c1"># maptype2 = stamen_TerrainPlus</span>
+
+
+
+<span class="n">fig</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="n">ax1</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">maptype1</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">maptype2</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax3</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">maptype1</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax4</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">maptype2</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">maptype1</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">maptype2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ax3</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">maptype1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">maptype2</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;ResolutionTest.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>See how well that worked by opening the <span class="xref myst">full-size image</span>.</p>
+<p>There really is a lot of detail available, but you can also see how long it takes to download and build the different resolutions. There is something of an art to finding the right balance.</p>
+<p>You may also find that very high resolution output results in memory errors. If so, restart the kernel and try again with a small image or lower dpi.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## For fun, this is the street where I grew up ... </span>
+
+<span class="n">lat0</span> <span class="o">=</span>   <span class="mf">51.585</span> <span class="p">;</span> <span class="n">lat1</span> <span class="o">=</span> <span class="mf">51.595</span>
+<span class="n">lon0</span> <span class="o">=</span>   <span class="mf">0.018</span>   <span class="p">;</span> <span class="n">lon1</span> <span class="o">=</span> <span class="mf">0.033</span>
+
+<span class="n">map_extent</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon0</span><span class="p">,</span> <span class="n">lon1</span><span class="p">,</span> <span class="n">lat0</span><span class="p">,</span> <span class="n">lat1</span><span class="p">]</span>
+
+
+<span class="n">figE18</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="n">ax1</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">google_maps_street</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax2</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">google_maps_satellite</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_extent</span><span class="p">(</span><span class="n">map_extent</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">google_maps_street</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span>      <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">add_image</span><span class="p">(</span><span class="n">google_maps_satellite</span>  <span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">figE18</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;LondonE18.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">900</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, open the <span class="xref myst">full-size image</span> to see how well that worked</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part2-Python/Mapping"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="6-WorkingWithShuttleRadarTopography.html" title="previous page">Cartopy and the Shuttle Radar Topography Map data</a>
+    <a class='right-next' id="next-link" href="8-GlobalPlateMotionsEtc.html" title="next page">Global Plate Motions</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

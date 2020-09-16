@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numerical models &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/master?urlpath=tree/Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://demon.underworldcloud.org/hub/user-redirect/git-pull?repo=https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook&urlpath=tree/GeodynamicsJupyterBook/Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/blob/master/Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-order-numerical-approximation">
+   First order numerical approximation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#higher-order-expansion">
+   Higher order expansion
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#second-order-runge-kutta">
+   Second Order Runge-Kutta
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="numerical-models">
+<h1>Numerical models<a class="headerlink" href="#numerical-models" title="Permalink to this headline">¶</a></h1>
+<p>We start with the numerical solution of a very simple differential
+equation. In fact we choose something simple enough that we already
+know the answer.</p>
+<p>\[
+\frac{d\theta}{dt} = - k \theta
+\]</p>
+<p>This is the equation which governs radioactive decay, in which case
+\(\theta \) is the amount of the radioactive isotope remaining and \(d\theta /  dt\)
+is the activity that we can measure. \(k \) is closely related to the half life.</p>
+<p>The solution to this equation is
+\[
+\theta(t) = \theta_0 e^{-kt}
+\]</p>
+<p>where \(\theta_0\) is the amount of the radioactive material remaining.
+The same equation also describes the cooling of, say, a cup of coffee. In this
+case we interpret \( \theta \) as the excess temperature (above room temperature).</p>
+<a class="reference internal image-reference" href="../../_images/theta_t1.png"><img alt="../../_images/theta_t1.png" src="../../_images/theta_t1.png" style="width: 66%;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">theta_0</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">time_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">const_k</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">]:</span>
+
+    <span class="n">exact_theta_values</span> <span class="o">=</span> <span class="n">theta_0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">const_k</span> <span class="o">*</span> <span class="n">time_values</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">time_values</span><span class="p">,</span> <span class="n">exact_theta_values</span><span class="p">)</span>
+
+
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+<img alt="../../_images/0-IntroductionToNumericalSolutions_1_1.png" src="../../_images/0-IntroductionToNumericalSolutions_1_1.png" />
+</div>
+</div>
+<p>We want to be able to march forward in time from our starting point
+(just like the picture above)
+where <span class="math notranslate nohighlight">\(\theta = \theta_0\)</span> to obtain the value of <span class="math notranslate nohighlight">\(\theta\)</span> at
+later times. To do this, we need to approximate the original
+differential equation, and, in particular, the value of the time
+derivative at each time. There are a number of ways to do this.</p>
+<div class="section" id="first-order-numerical-approximation">
+<h2>First order numerical approximation<a class="headerlink" href="#first-order-numerical-approximation" title="Permalink to this headline">¶</a></h2>
+<p>Assume that the variation in \(\theta(t) \) is linear, i.e.
+\[
+\theta(t’) = \theta_n + \beta t’
+\]</p>
+<p>where we use a local time coordinate \(t’ = t - n\Delta t\), so that when we differentiate</p>
+<p>\[
+\frac{d \theta}{dt} = \beta
+\]</p>
+<p>To determine the approximation for the derivative therefore
+becomes the solution to the following equation:</p>
+<p>\[
+\begin{split}
+&amp; \theta_{n+1} = \theta_n + \beta \Delta t \
+&amp; \Rightarrow	\beta = \frac{d \theta}{dt} = \frac{\theta_{n+1} - \theta_n}{\Delta t}
+\end{split}
+\]</p>
+<p>This is a first order difference expression for the derivative which we
+substitute into the original differential equation for radioactive decay at
+the current timestep</p>
+<p>\[
+\frac{\theta_{n+1} - \theta_n}{\Delta t} = - k \theta_n
+\]</p>
+<p>This rearranges to give us a time-marching algorithm:</p>
+<p>\[
+\theta_{n+1} = \theta_n (1-k \Delta t)
+\]</p>
+<p>It is an indication of the fact that this problem is really not all that difficult
+that this difference equation can be written recursively
+to give:
+\[
+\theta_{n+1} = \theta_0 (1-k \Delta t)^n
+\]</p>
+<p>In a moment we will compute some values for this expression to see how
+accurate it is. First we consider whether we can improve the accuracy of the
+approximation by doing a bit more work.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">theta_0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">const_k</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">delta_t</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">steps</span>
+
+
+<span class="n">theta_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="n">time_values</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+
+
+<span class="n">theta_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_0</span>
+<span class="n">time_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">theta_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_values</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">const_k</span> <span class="o">*</span> <span class="n">delta_t</span><span class="p">)</span>
+    <span class="n">time_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_values</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta_t</span>
+
+<span class="n">exact_theta_values</span> <span class="o">=</span> <span class="n">theta_0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">const_k</span> <span class="o">*</span> <span class="n">time_values</span><span class="p">)</span>
+    
+<span class="n">plot</span><span class="p">(</span><span class="n">time_values</span><span class="p">,</span> <span class="n">exact_theta_values</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">time_values</span><span class="p">,</span> <span class="n">theta_values</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1122b0400&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/0-IntroductionToNumericalSolutions_3_1.png" src="../../_images/0-IntroductionToNumericalSolutions_3_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="higher-order-expansion">
+<h2>Higher order expansion<a class="headerlink" href="#higher-order-expansion" title="Permalink to this headline">¶</a></h2>
+<p>First we try fitting the local expansion for \(\theta\) through an
+additional point.	
+This time we assume that the variation in \(\theta(t)\) is quadratic, i.e.
+$<span class="math notranslate nohighlight">\(
+    \theta(t') = \theta_{n-1} + \beta t' + \gamma {t'}^2
+\)</span>$</p>
+<p>The local time coordinate is <span class="math notranslate nohighlight">\(t' = t - (n-1)\Delta t\)</span>, and when we differentiate</p>
+<div class="math notranslate nohighlight">
+\[       
+    \frac{d \theta}{dt} = \beta + 2 \gamma t'
+\]</div>
+<p>To solve for \(\beta\) and \(\gamma\) we fit the curve through the sample points:
+$<span class="math notranslate nohighlight">\(
+    \begin{split}
+            \theta_n &amp;= \theta_{n-1} + \beta \Delta t + \gamma (\Delta t)^2 \\
+            \theta_{n+1} &amp;= \theta_{n-1} + 2 \beta \Delta t + 4 \gamma (\Delta t)^2
+     \end{split}
+\)</span>$</p>
+<p>Which solve to give
+$<span class="math notranslate nohighlight">\(
+     \begin{split}
+     \beta &amp;= \left( 4 \theta_n - \theta_{n+1} - 3\theta_{n-1} \right) \frac{1}{2\Delta t} \\
+     \gamma &amp;= \left( \theta_{n+1} + \theta_{n-1} -2 \theta_n \right) \frac{1}{2\Delta t^2} 
+     \end{split}
+\)</span>$</p>
+<p>We can subsitute this back into the equation above and then into the original differential equation and we obtain the following</p>
+<div class="math notranslate nohighlight">
+\[	 	
+     \left. \frac{d\theta}{dt} \right|_{t=n\Delta t} = \beta + 2\gamma \Delta t =
+     \frac{1}{2\Delta t} \left( \theta_{n+1} - \theta_{n-1} \right)  = -k \theta_n 
+\]</div>
+<p>The difference approximation to the derivative turns out to be the average of the expressions for the previous derivative and the new derivative. We have now included information about the current timestep and the previous timestep in our expression for the value of \(\theta\) at the forthcoming timestep:</p>
+<div class="math notranslate nohighlight">
+\[
+     \theta_{n+1} = \theta_{n-1} -2k \theta_n \Delta t
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">theta_0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">const_k</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">delta_t</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">steps</span>
+
+<span class="n">theta_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="n">time_values</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+
+<span class="n">theta_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_0</span>
+<span class="n">time_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">theta_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">const_k</span> <span class="o">*</span> <span class="n">delta_t</span><span class="p">)</span>
+<span class="n">time_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">delta_t</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">theta_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_values</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">theta_values</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">const_k</span> <span class="o">*</span> <span class="n">delta_t</span>
+    <span class="n">time_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_values</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta_t</span>
+
+<span class="n">exact_theta_values</span> <span class="o">=</span> <span class="n">theta_0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">const_k</span> <span class="o">*</span> <span class="n">time_values</span><span class="p">)</span>
+    
+<span class="n">plot</span><span class="p">(</span><span class="n">time_values</span><span class="p">,</span> <span class="n">exact_theta_values</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">time_values</span><span class="p">,</span> <span class="n">theta_values</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x112207828&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/0-IntroductionToNumericalSolutions_5_1.png" src="../../_images/0-IntroductionToNumericalSolutions_5_1.png" />
+</div>
+</div>
+<p>The results are more accurate when a smaller timestep is used although it
+requires more computation to achieve the greater accuracy. Higher order expansion
+also increases the accuracy and may be more efficient in terms of the number of computations
+required for a given level of accuracy.</p>
+<p>Note, however, that the supposedly better quadratic expansion produces an error which
+oscillates as time increases. Does this error grow ? Does this make second order
+expansions useless ?</p>
+</div>
+<div class="section" id="second-order-runge-kutta">
+<h2>Second Order Runge-Kutta<a class="headerlink" href="#second-order-runge-kutta" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/theta_rk2-1.png"><img alt="../../_images/theta_rk2-1.png" src="../../_images/theta_rk2-1.png" style="width: 66%;" /></a>
+<p>The Runge-Kutta approach to higher order integration methods is
+illustrated in the figure above. The idea is to estimate the
+gradient \(d \theta / d t\) at the half way point between two
+timestep values.  This is done in two stages. Initially a
+first order estimate, \( \hat{\theta} \) is made for the value of the function
+\( \theta\) at \(t=t+\Delta t /2\) in the future. This value is then
+subsituted into the differential equation to obtain the
+estimate for the gradient at this time. The revised gradient is
+then used to update the original \(\theta(t)\) by an entire timestep.</p>
+<p>The first order step is
+$<span class="math notranslate nohighlight">\(
+		\begin{split}
+		\hat{\theta}(t+\Delta t /2) &amp; = \theta(t) + \left.  \frac{d \theta}{d t} \right|_t \frac{\Delta t}{2} \\
+         &amp;= \theta(t) \left[ 1-\frac{k\Delta t}{2} \right]
+		\end{split}
+\)</span>$</p>
+<p>Substitute to estimate the gradient at the mid-point
+$<span class="math notranslate nohighlight">\(
+	\left. \frac{d \theta}{d t} \right|_{t+\Delta t /2} \approx -k \theta(t)  \left[ 1-\frac{k\Delta t}{2} \right]
+\)</span>$</p>
+<p>Use this value as the average gradient over the interval \( t\rightarrow t+\Delta t\) to update \(\theta\)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+    \begin{split}
+        \theta(t+\Delta t) &amp; \approx \theta(t) + \delta t \left(  -k \theta(t)  \left[ 1-\frac{k\Delta t}{2} \right]  \right) \\
+            &amp; \approx \theta(t) \left( 1 - k \Delta t + k^2 \frac{\Delta t^2}{2} \right)
+    \end{split}
+\end{split}\]</div>
+<p>It’s worth noting that the Taylor expansion of the solution should look like
+$<span class="math notranslate nohighlight">\(        
+    e^{-kt} = 1 - kt + \frac{k^2 t^2}{2!} - \frac{k^3 t^3}{3!} + \ldots
+\)</span>$</p>
+<p>The Runge Kutta method can be extended by repeating the estimates on smaller regions of the interval. The usual choice is fourth order RK. This is largely because, obviously, it’s accurate to fourth order, but also because the number of operations to go higher than fourth order is disproportionately large. See Numerical Recipes for a discussion on this and better methods for ODE’s.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">theta_0</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">const_k</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="n">delta_t</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">steps</span>
+
+
+<span class="n">theta_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<span class="n">time_values</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+
+
+<span class="n">theta_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_0</span>
+<span class="n">time_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+    <span class="n">theta_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">theta_values</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">const_k</span> <span class="o">*</span> <span class="n">delta_t</span> <span class="o">+</span> <span class="n">const_k</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">delta_t</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">time_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_values</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">delta_t</span>
+
+<span class="n">exact_theta_values</span> <span class="o">=</span> <span class="n">theta_0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">const_k</span> <span class="o">*</span> <span class="n">time_values</span><span class="p">)</span>
+    
+<span class="n">plot</span><span class="p">(</span><span class="n">time_values</span><span class="p">,</span> <span class="n">exact_theta_values</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">time_values</span><span class="p">,</span> <span class="n">theta_values</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1122dd7f0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/0-IntroductionToNumericalSolutions_8_1.png" src="../../_images/0-IntroductionToNumericalSolutions_8_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part2-Python/SolveMathProblems"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

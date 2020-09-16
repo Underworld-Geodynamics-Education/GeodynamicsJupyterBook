@@ -1,0 +1,573 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navier-Stokes Equation &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Non-dimensional equations &amp; dimensionless numbers" href="MantleDynamics.html" />
+    <link rel="prev" title="Conservation Laws" href="ContinuumMechanics.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part1-FluidDynamics/NavierStokes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#viscosity">
+   Viscosity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boussinesq-approximation-equation-of-state-density-variations">
+   Boussinesq Approximation, Equation of State, Density Variations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fluid-motion-eulerian-v-lagrangian">
+   Fluid Motion: Eulerian v. Lagrangian
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-material">
+   Reading Material
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="navier-stokes-equation">
+<h1>Navier-Stokes Equation<a class="headerlink" href="#navier-stokes-equation" title="Permalink to this headline">¶</a></h1>
+<p>In the previous section (<a class="reference internal" href="ContinuumMechanics.html"><span class="doc">Conservation Laws</span></a>), we looked a very general way use conservation principles to construct equations describing how sources, fluxes and material transport of varous quantities balance one another through time. This approach can also be used to generate conservation equations for additional physical variables
+(for example, angular momentum, electric current).</p>
+<p>One thing is still missing, though, and that is how we express the flux term for a quantity in terms of gradients in the quantity itself. We did this without any comment in the conservation of heat energy because we used Fourier’s law  <span class="math notranslate nohighlight">\(\mathbf{F} = -k \nabla T\)</span> to express the heat flux as a linear function of the temperature gradient. This is an empirical relationship that contains a physical constant that we are not able to derive from first principles.
+This missing relationship is known as a <strong>constitutive law</strong>.</p>
+<div class="section" id="viscosity">
+<h2>Viscosity<a class="headerlink" href="#viscosity" title="Permalink to this headline">¶</a></h2>
+<p>For a fluid, the constitutive relationship relating momentum flux to momentum gradients introduces a new physical parameter, <strong>viscosity</strong> which relates stress to rates of change in velocity gradients and a second viscosity relating to rates of volume change.</p>
+<p>If we make the assumption that the fluid is incompressible (<span class="math notranslate nohighlight">\(\nabla \cdot \mathbf{v}\)</span>) which we already mentioned in deriving the temperature equation, we only have to worry about the viscosity that relates to velocity gradients</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma_{ij} = \eta \left( \frac{\partial v_i}{\partial x_j} + \frac{\partial v_j}{\partial x_i}\right) - p\delta_{ij}
+\]</div>
+<p>(An expanded derivation for
+this is in Landau &amp; Lifschitz[REF] and they also talk extensively about rate of volume change effects).</p>
+<p>If the viscosity is constant, then we can substitute the constitutive
+law into the stress-divergence term of the momentum conservation
+equation. In index notation once again,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{split}
+                \nabla \cdot \boldsymbol{\sigma} &amp; =
+                    \frac{\partial}{\partial x_j} \eta 
+                        \left( \frac{\partial v_i}{\partial x_j} +  \frac{\partial v_j}{\partial x_i} \right)
+                        - \frac{\partial p}{\partial x_j} \delta_{ij} \\
+                &amp; = \eta \frac{\partial^2 v_i}{\partial x_j \partial x_j} +
+                            \eta \frac{\partial^2 v_j}{\partial x_i \partial x_j} -
+                                \frac{\partial p}{\partial x_i}\\
+                &amp; = \eta \nabla^2 \mathbf{v} +
+                             \eta \textcolor[rgb]{0.0,0.7,0.0}{ \nabla (\nabla \cdot \mathbf{v})} - \nabla p       
+\end{split}
+\end{split}\]</div>
+<p>the second (green) term in this final form must vanish because of the
+incompressibility assumption, so the momentum conservation equation
+becomes</p>
+<div class="math notranslate nohighlight" id="equation-eq-navstokes">
+<span class="eqno">(9)<a class="headerlink" href="#equation-eq-navstokes" title="Permalink to this equation">¶</a></span>\[\textcolor[rgb]{0.7,0.0,0.0}{   \rho \left( \frac{\partial \mathbf{v}}{\partial t}
+                            + (\mathbf{v} \cdot \nabla) \mathbf{v} \right) =
+                            \eta \nabla^2 \mathbf{v} - \nabla p 
+                            - g\rho\hat{\mathbf{z}}      }\]</div>
+<p>This is the Navier-Stokes equation. Once again some new notation has
+shown up uninvited. The Laplacian operator <span class="math notranslate nohighlight">\(\nabla^2\)</span> is defined (in a
+scalar context) as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+            \nabla^2 \phi &amp; = \nabla \cdot \nabla \phi \\
+                                    &amp; = \frac{\partial^2 \phi}{\partial x^2} + 
+                                            \frac{\partial^2 \phi}{\partial y^2} +  
+                                            \frac{\partial^2 \phi}{\partial z^2}  
+                                            \mathrm{\hspace{1cm} (Cartesian)}
+\end{split}\end{split}\]</div>
+<p>and in a vector context as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{split}
+                \nabla^2 \mathbf{u} &amp; = \nabla \nabla \cdot \mathbf{u} - \nabla \times (\nabla \times \mathbf{u}) \\
+                                                    &amp; = \mathbf{i} \nabla \cdot \nabla u_x + 
+                                                            \mathbf{j} \nabla \cdot \nabla u_y + 
+                                                            \mathbf{k} \nabla \cdot \nabla u_z   
+                                                            \mathrm{\hspace{1cm} (Cartesian)}
+\end{split}\end{split}\]</div>
+<p>In Cartesian coordinates, the Laplacian operator has a simple form, and
+the vector Laplacian is simply the scalar operator applied in each
+direction. In other coordinate systems this operator becomes
+substantially more complicated but this notation is handy because the
+equations always look the same no matter the coordinate system.</p>
+</div>
+<div class="section" id="boussinesq-approximation-equation-of-state-density-variations">
+<h2>Boussinesq Approximation, Equation of State, Density Variations<a class="headerlink" href="#boussinesq-approximation-equation-of-state-density-variations" title="Permalink to this headline">¶</a></h2>
+<p>The equation which relates pressure, temperature and density is known as
+the equation of state. For the equations derived so far, we have
+specified an incompressible fluid and that means the density
+can’t change at all.</p>
+<p>Can you see the problem ?  We have also included a source term for momentum
+which relies on gravity acting on <em>density variations</em>.
+This conflict is typical in fluid mechanics:
+simplifying assumptions if taken to their logical limit imply
+only trivial solutions (no motions are possible, that sort of thing)</p>
+<p>We have to do something to get around this problem and the simplest thing
+to do is assume density <em>changes</em> are typically
+small relative to the magnitude of the density.
+Any terms in the equations
+which are multiplied by density can therefore assume that density is a large,
+constant value. Terms which contain gradients of density or density
+variations (where the constant terms cancel out) need to consider
+the equation of state.</p>
+<p>We call this the <em>Boussinesq
+approximation</em> and it is only good for nearly-
+incompressible fluids. In the Navier-Stokes equation, the hydrostatic
+pressure does not influence the velocity field at all. Only
+<em>differences</em> in density drive fluid flow, and so the only term
+where we need to worry about density not being constant is
+in the gravitational body forces.</p>
+<p>In the case of density variations due to temperature, the equation of
+state is this:</p>
+<div class="math notranslate nohighlight" id="equation-eq-boussinesq-state">
+<span class="eqno">(10)<a class="headerlink" href="#equation-eq-boussinesq-state" title="Permalink to this equation">¶</a></span>\[\rho = \rho_0 \left(1 - \alpha ( T-T_0 )\right)
+            \label{eq:state}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho_0\)</span> is the density at a reference temperature <span class="math notranslate nohighlight">\(T_0\)</span>. <span class="math notranslate nohighlight">\(\alpha\)</span>
+is the coefficient of thermal expansion. <span class="math notranslate nohighlight">\(\alpha\)</span> is generally <em>much</em> smaller
+than one which justifies making the approximation in the first place.</p>
+<p>The energy and momentum conservation equations are now coupled
+through the buoyancy forces,</p>
+<div class="math notranslate nohighlight">
+\[
+        g\rho\hat{\mathbf{z}} = g \rho_0 \left(1 - \alpha(T-T_0)\right)
+\]</div>
+<p>Density variations due to pressure produce a perfectly vertical,
+isotropic forcing term on the momentum conservation equation. In the
+steady state case, this is balanced by the hydrostatic pressure
+gradient. (The isotropic term does not contribute at all the the
+deviatoric part of the stress equation and thus cannot induce steady
+flow). This is the reason we can ignore the vertical density gradient due to the
+weight of the fluid.</p>
+<p>Another density variation is the one that results from variation in
+chemical composition from one fluid element to another. An example
+would be
+where two immiscible fluids live in the same region. Now density
+variations might be large – the fluid domains must be considered
+separately if we still want to assume small density changes due to
+temperature.</p>
+</div>
+<div class="section" id="fluid-motion-eulerian-v-lagrangian">
+<h2>Fluid Motion: Eulerian v. Lagrangian<a class="headerlink" href="#fluid-motion-eulerian-v-lagrangian" title="Permalink to this headline">¶</a></h2>
+<p>We have seen the <span class="math notranslate nohighlight">\(\mathbf{v} \cdot \nabla\)</span> operator a number of times
+now. The presence of this term causes major complications when we
+want to find solutions to the equations of continuum
+mechanics since it introduces a strong non-linearity.
+It is this term which is behind turbulence in high speed flows.</p>
+<p>This term describes the <strong>advection</strong> of a quantity which accounts for the passive
+transport of something (temperature, momentum), by the motion of the
+fluid. Advection also presents some serious headaches in numerical
+methods and has spawned a vast  literature devoted to efficient and
+accurate solution methods.</p>
+<p>One way to side-step<br />
+the complexity of advection is to consider an
+elemental volume of space which <em>moves with the fluid</em>. The surface flux
+term from equation <a class="reference internal" href="ContinuumMechanics.html#equation-eq-cons1">(1)</a>  vanishes at once if there is no
+motion of material in or out of the boundary. In reality, we
+are just sweeping the problem under the rug – it doesn’t actually
+go away altogether – but it can be useful to do this
+because every once in a while that term will cancel out before we need to
+actually do anything with it ! And, sometimes, when it comes to numerical methods,
+different views of the equations can lead to better approximations.</p>
+<p>Mathematically, we introduce a new notation:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{D \phi}{D t} = \frac{d}{dt} \phi\left[ x_1(t),x_2(t),x_3(t),t \right]
+\]</div>
+<p>where the change in the reference position <span class="math notranslate nohighlight">\((x_1(t),x_2(t),x_3(t))\)</span> is
+governed by the local flow velocity:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d x_1}{d t} = v_1 \;\;\;\;
+                    \frac{d x_2}{d t} = v_2  \;\;\;\;
+                    \frac{d x_3}{d t} = v_3
+\]</div>
+<p>and this keeps the reference point moving with the fluid.
+Differentiating gives</p>
+<div class="math notranslate nohighlight">
+\[
+        \frac{D \phi}{D t} =    \frac{\partial \phi}{\partial t} +
+                                \frac{\partial \phi}{\partial x_1}\frac{d x_1}{d t} + 
+                                \frac{\partial \phi}{\partial x_2}\frac{d x_2}{d t} +
+                                \frac{\partial \phi}{\partial x_3}\frac{d x_3}{d t} 
+\]</div>
+<p>which leads to</p>
+<div class="math notranslate nohighlight">
+\[
+                \frac{D \phi}{D t} =   \frac{\partial \phi}{\partial t} +
+                                    v_1 \frac{\partial \phi}{\partial x_1} + 
+                                    v_2 \frac{\partial \phi}{\partial x_2} +
+                                    v_3 \frac{\partial \phi}{\partial x_3}  
+\]</div>
+<p>which is equivalent to</p>
+<div class="math notranslate nohighlight">
+\[
+                \frac{D \phi}{D t} = \frac{\partial \phi}{\partial t} + 
+                (\mathbf{v} \cdot \nabla) \phi                         
+\]</div>
+<p>If we think of <span class="math notranslate nohighlight">\(\phi\)</span> as the concentration of a dye in the fluid, then
+the above is a conservation equation assuming the dye does not diffuse
+and has no sources or sinks.</p>
+<p>Viewed from a reference frame locked to <em>a particular fluid element</em>,
+the energy conservation equation becomes</p>
+<div class="math notranslate nohighlight">
+\[
+        \frac{D T}{Dt} =
+        \kappa \nabla^2 T + \frac{H}{C_p}
+\]</div>
+<p>and the momentum conservation equation now becomes</p>
+<div class="math notranslate nohighlight">
+\[
+        \frac{D \mathbf{v} }{D t} =
+                \eta \nabla^2 \mathbf{v} - \nabla P     
+                - g\rho\hat{\mathbf{z}}
+\]</div>
+<p>This is a considerably more compact way of writing the equations, but
+it is now necessary to use a coordinate system which is locked into the
+fluid and rapidly deforms as the fluid flows. Before long, the
+coordinate system is unimaginably complex – the advection problem
+returns in another guise. This formulation is known as the Lagrangian
+formulation and contrasts with the Eulerian viewpoint which is fixed in
+space.</p>
+<p>From the numerical point of view, however, this approach can have some
+distinct advantages. The computer can often track the distorted
+coordinate system far better than it can handle successive applications
+of the <span class="math notranslate nohighlight">\(\mathbf{v} \cdot \nabla\)</span> operator at a fixed point in space. We
+will return to this point later.</p>
+</div>
+<div class="section" id="reading-material">
+<h2>Reading Material<a class="headerlink" href="#reading-material" title="Permalink to this headline">¶</a></h2>
+<p>G. F. Davies. <em>Dynamic Earth</em>. Cambridge University Press, New York,
+1999.</p>
+<p>J. Grotzinger, T. H. Jordan, F. Press, and R. Siever. <em>Understanding
+Earth</em>. W. H. Freeman &amp; Co, 5 edition, 2006. URL
+<a class="reference external" href="http://bcs.whfreeman.com/understandingearth5e/">http://bcs.whfreeman.com/understandingearth5e/</a>.</p>
+<p>L. D. Landau and E. M. Lifshitz. <em>Fluid Mechanics</em>, volume 6 of <em>Course
+of Theoretical Physics</em>. Pergamon Press, 1959.</p>
+<p>G. Schubert, D. L. Turcotte, and P. Olson. <em>Mantle Convection in Earth
+and Planets</em>. Cambridge University Press, UK, 2001.</p>
+<p>D.L. Turcotte and G. Schubert. <em>Geodynamics</em>. John Wiley and Sons, New
+York, 1982.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part1-FluidDynamics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="ContinuumMechanics.html" title="previous page">Conservation Laws</a>
+    <a class='right-next' id="next-link" href="MantleDynamics.html" title="next page">Non-dimensional equations &amp; dimensionless numbers</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

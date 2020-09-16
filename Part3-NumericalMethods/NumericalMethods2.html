@@ -1,0 +1,755 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey of numerical methods &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction to the Finite Element Method" href="NumericalMethods3.html" />
+    <link rel="prev" title="Numerical Modeling in Solid Earth Dynamics" href="NumericalMethods1.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part3-NumericalMethods/NumericalMethods2.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#explicit-versus-implicit-methods">
+   Explicit versus implicit methods}
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalizing-from-the-simplest-example">
+   Generalizing from the Simplest Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-problem-with-advection">
+   The Problem with Advection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-example-in-1d">
+     Numerical Example in 1D
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#node-particle-advection">
+     Node/Particle Advection
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#courant-condition">
+       Courant condition
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-variety-of-numerical-methods">
+   A Variety of Numerical Methods
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finite-differences">
+     Finite Differences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finite-elements">
+     Finite Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finite-volumes">
+     Finite Volumes
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#natural-elements">
+     Natural Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spectral-time-space">
+     Spectral (time/space)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discrete-elements">
+     Discrete Elements
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#smooth-particle-hydrodynamics">
+     Smooth Particle Hydrodynamics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#particle-in-cell-methods">
+     Particle in Cell methods
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lagrangian-eulerian-meshes">
+     Lagrangian/Eulerian meshes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ale">
+       ALE
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dlr">
+       DLR
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="survey-of-numerical-methods">
+<h1>Survey of numerical methods<a class="headerlink" href="#survey-of-numerical-methods" title="Permalink to this headline">¶</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\newcommand{\dGamma}{\mathbf{d}\boldsymbol{\Gamma}}
+\newcommand{\erfc}{\mbox{\rm erfc}}
+\newcommand{\curly}{\sf }
+\newcommand{\Red     }[1]{\textcolor[rgb]{0.7,0.0,0.0}{ #1}} 
+\newcommand{\Green   }[1]{\textcolor[rgb]{0.0,0.7,0.0}{ #1}} 
+\newcommand{\Blue    }[1]{\textcolor[rgb]{0.0,0.0,0.7}{ #1}} 
+\newcommand{\Emerald }[1]{\textcolor[rgb]{0.0,0.7,0.3}{ #1}} 
+\]</div>
+<div class="section" id="explicit-versus-implicit-methods">
+<h2>Explicit versus implicit methods}<a class="headerlink" href="#explicit-versus-implicit-methods" title="Permalink to this headline">¶</a></h2>
+<p>The use of implicit solution methods is crucial when we come to the mantle flow problem (and to elasticity). It is a deceptively simple concept which we use to eliminate oscillatory errors and other problems associated with <em>stiff</em> systems, and in other cases where we want to take large timesteps. Again, Numerical Recipes provides a good example of the way in which implicit methods avoid the shuffling timesteps which result when an otherwise unimportant component of the system blows up. To obtain an implicit solution, we express our updated timestep in terms of values of derivatives etc which are evaluated at that timestep. This may result in dependencies which mean large systems of simultaneous equations need to be solved.</p>
+<p>But our simple example can also be solved implicitly as follows</p>
+<div class="math notranslate nohighlight">
+\[ 
+    \theta(t+\Delta t) = \left. \frac{d \theta}{d t} \right|_{t+\Delta t} + \theta(t)
+ \]</div>
+<p>Easy to write down, but <span class="math notranslate nohighlight">\(\left. d \theta/ dt \right|_{t+\Delta t}\)</span> is not known  until <span class="math notranslate nohighlight">\(\theta(t+\Delta t)\)</span> is known. In this case, however, we simply substitute <span class="math notranslate nohighlight">\(\left. d \theta/ dt \right|_{t+\Delta t}= -k \theta(t+\Delta t)\)</span> from the differential equation and write</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+    \begin{split}
+        \theta(t+\Delta t)  &amp; = -k \theta(t+\Delta t) \Delta t + \theta(t) \\
+                                        &amp; = \frac{\theta(t) }{ 1 + k\Delta t}
+    \end{split}
+\end{split}\]</div>
+<p>A higher order implicit method can be found by considering how the second order Runge-Kutta method constructs its estimates. In place of the first order approximation above, we try</p>
+<div class="math notranslate nohighlight">
+\[ 
+    \theta(t+\Delta t) = \left. \frac{d \theta}{d t} \right|_{t+\Delta t/2} + \theta(t)
+\]</div>
+<p>where we assume</p>
+<div class="math notranslate nohighlight">
+\[ 
+    \left. \frac{d \theta}{d t} \right|_{t+\Delta t/2} = 
+        \frac{1}{2} \left. \frac{d \theta}{d t} \right|_{t+\Delta t} + 
+        \frac{1}{2} \left. \frac{d \theta}{d t} \right|_{t} 
+\]</div>
+<p>Substituting from our original differential equation now gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+    \begin{split}
+        \theta(t+\Delta t) &amp;= -k\frac{\theta(t+\Delta t) + \theta(t)}{2} \Delta t + \theta(t) \\
+                    &amp;= \theta(t) \frac{1-k\Delta t / 2}{1+k\Delta t / 2}
+    \end{split}
+\end{split}\]</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>t</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(^1\theta_i\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(^2\theta_i\)</span></p></th>
+<th class="head"><p>Exact</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.0</p></td>
+<td><p>1.0000</p></td>
+<td><p>1.0000</p></td>
+<td><p>1.0000</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.1</p></td>
+<td><p>0.9091</p></td>
+<td><p>0.9048</p></td>
+<td><p>0.9048</p></td>
+</tr>
+<tr class="row-even"><td><p>0.2</p></td>
+<td><p>0.8264</p></td>
+<td><p>0.8186</p></td>
+<td><p>0.8187</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.3</p></td>
+<td><p>0.7513</p></td>
+<td><p>0.7406</p></td>
+<td><p>0.7408</p></td>
+</tr>
+<tr class="row-even"><td><p>0.4</p></td>
+<td><p>0.6830</p></td>
+<td><p>0.6701</p></td>
+<td><p>0.6703</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.5</p></td>
+<td><p>0.6209</p></td>
+<td><p>0.6063</p></td>
+<td><p>0.6063</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Results of the two implicit schemes derived above for the numerical integration of the decay equation][table-decay]</p>
+<p>The first order scheme is of approximately the same accuracy as the explicit scheme, not surprisingly, but the mid-point implicit method has very impressive results considering that there is very little extra work involved in deriving the formulation. Can this strategy stabilize the quadratic expansion which
+proved to be so unstable in explicit form ?</p>
+<p>Evaluating the derivatives at time <span class="math notranslate nohighlight">\(t=(n+1)\Delta t\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[ 
+    \left. \frac{d \theta}{d t} \right|_{(n+1)\Delta t} = 3 \theta_{n+1} - 4\theta_n + \theta_{n-1} 
+\]</div>
+<p>which we substitute into the differential equation at <span class="math notranslate nohighlight">\(t=(n+1)\Delta t\)</span> to
+give (eventually)</p>
+<div class="math notranslate nohighlight">
+\[ 
+    \theta_{n+1} = \frac{4\theta_n - \theta_{n-1}}{3+2k\Delta t}
+\]</div>
+<p>This method is stable although not as accurate as the second order Runge-Kutta Scheme. It is trivial to modify the <code class="docutils literal notranslate"><span class="pre">Python</span></code> script to demonstrate this.</p>
+</div>
+<div class="section" id="generalizing-from-the-simplest-example">
+<h2>Generalizing from the Simplest Example<a class="headerlink" href="#generalizing-from-the-simplest-example" title="Permalink to this headline">¶</a></h2>
+<p>We have learned a number of things — in particular</p>
+<ul class="simple">
+<li><p>We have to know something about the governing equations of the system before modeling can proceed (i.e. a conceptual model, and then a mathematical model).</p></li>
+<li><p>Before the equations can be solved in the computer, it is necessary to render the problem finite.</p></li>
+<li><p>The discretization method chosen may not be effective for a particular problem. Numerical modeling can be an art since experience with different differential equations is often needed to avoid pitfalls.</p></li>
+</ul>
+</div>
+<div class="section" id="the-problem-with-advection">
+<h2>The Problem with Advection<a class="headerlink" href="#the-problem-with-advection" title="Permalink to this headline">¶</a></h2>
+<p>Advection is a fundamental concept in fluid mechanics, get it makes the lives of fluid dynamicists much more difficult. It can be particularly problematic in numerical modeling. This is worth having in mind when we discuss different numerical methods because in application to solid Earth dynamics, advection will be a major issue with any method we choose.</p>
+<p><img alt="Advection pure and simple --- with no diffusion, fluid motion winds up initially local regions into long, convoluted tendrils" src="../_images/advect_mix.png" /></p>
+<p>As we discussed previously in dealing with approximate analytic solutions, the solution to all our advection woes is to deal with a coordinate system locked to the fluid. Unfortunately, while this approach works well in some situations – predominantly solid mechanics and engineering applications where total deformation is generally no more than a few percent strain – in fluids, the local coordinate system becomes quite hard to track. In the <a class="reference external" href="#advection">figure above</a> , a small, square region of fluid has been tagged and is followed during the deformation induced by a simple convection roll. It is clear that a coordinate system based on initially orthogonal sets of axes rapidly becomes unrecognizably distorted.</p>
+<p>Advection, in the absence of any diffusion terms, represents a transport of information about the state of an individual parcel of fluid which is different from the state of its neighbours. For example, it might be a dye which tells us whether a parcel of fluid started in on half of the domain or the other. We are dealing with a chaotic system in the sense that parcels of material which start abitrarily close together will wind up exponentially far apart as time progresses. Thus, the dye will become ever more stretched and filamented without ever being mixed (at least in laminar flow).</p>
+<p>If the dye can diffuse then, the finer scales of the tendrils will in fact be mixed because they are associated with enormous spatial gradients (e.g. compare this with boundary layers). If the dye cannot diffuse then the density of information needed to characterize the system increases without limit. Numerically this is impossible to represent since at some stage, the stored problem has to be kept finite.  This can be imagined as an effective diffusion process, although it has an anisotropic and discretization dependent form.  The rule of thumb, that arises from this observation is that the <em>real</em> diffusion coefficient must be larger than the numerical one if the method is to give a true representation of the problem.</p>
+<div class="section" id="numerical-example-in-1d">
+<h3>Numerical Example in 1D<a class="headerlink" href="#numerical-example-in-1d" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Setup for a first attempt at a numerical advection scheme on a fixed discretization. After two timesteps, the sharp front has become smoothed despite introducing no genuine diffusion" src="../_images/eul_adv.png" /></p>
+<p>Let us follow our usual strategy an solve the simplest imaginable advection equation:</p>
+<div class="math notranslate nohighlight">
+\[ 
+    \frac{\partial \phi}{\partial t} = -v \frac{\partial \phi}{\partial x}
+\]</div>
+<p>in which <span class="math notranslate nohighlight">\(v\)</span> is a constant velocity. Obviously we need to introduce some notation as a warm-up for solving the problem. We break up the spatial domain into a series of points separated by <span class="math notranslate nohighlight">\(\delta x\)</span> <a class="reference external" href="#eul_adv1">as shown</a> and, as we did in the earlier examples, break up time into a discrete set separated by <span class="math notranslate nohighlight">\(\delta t\)</span>.
+The values of <span class="math notranslate nohighlight">\(\phi\)</span> at various times and places are denoted by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+    &amp;&amp;  &amp;_{i-1}\phi_{n-1}   &amp;&amp;_{i}\phi_{n-1}    &amp;&amp; _{i+1}\phi_{n-1} &amp;&amp; \nonumber \\
+    &amp;&amp;  &amp;_{i-1}\phi_{n}         &amp;&amp;_{i}\phi_{n}      &amp;&amp; _{i+1}\phi_{n}  &amp;&amp;\\
+    &amp;&amp;  &amp;_{i-1}\phi_{n+1}   &amp;&amp;_{i}\phi_{n+1}    &amp;&amp; _{i+1}\phi_{n+1} &amp;&amp;\nonumber 
+\end{align}
+\end{split}\]</div>
+<p>where the <span class="math notranslate nohighlight">\(i\)</span> subscript is the <span class="math notranslate nohighlight">\(x\)</span> position and <span class="math notranslate nohighlight">\(n\)</span> denotes the timestep:</p>
+<div class="math notranslate nohighlight">
+\[ 
+    \phi(x_i,n\Delta t) = {_{i}\phi}_n
+\]</div>
+<p>A simple discretization gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+    \begin{split}
+    _{i}\phi_{n+1} &amp;= \frac{\partial \phi}{\partial t} \Delta t + {_{i}\phi_n} \\
+                &amp; = -v \frac{{_{i+1}\phi_n} - {_{i-1}\phi_n}}{2 \delta x} + {_{i}\phi_n}
+    \end{split}
+\end{split}\]</div>
+<p>For simplicity, we set <span class="math notranslate nohighlight">\(v\delta t = \delta x /2\)</span> and write</p>
+<div class="math notranslate nohighlight">
+\[ 
+ {_{i}\phi}_{n+1} = \frac{1}{4}\left(  {_{i+1}\phi}_n - {_{i-1}\phi}_n \right)
+\]</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p>location</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p>time</p></td>
+<td><p>i-2</p></td>
+<td><p>i-1</p></td>
+<td><p>i</p></td>
+<td><p>i+1</p></td>
+<td><p>i+2</p></td>
+<td><p>i+3</p></td>
+<td><p><span class="math notranslate nohighlight">\(\int \phi dx\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Centred</strong></p></td>
+<td><p>t=0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>t=\(\delta x/2v\)</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1.25</p></td>
+<td><p>0.25</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>3.5</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>t=\(\delta x/v \)</p></td>
+<td><p>1</p></td>
+<td><p>0.938</p></td>
+<td><p>1.438</p></td>
+<td><p>0.563</p></td>
+<td><p>0.0625</p></td>
+<td><p>0</p></td>
+<td><p>4.0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Upwind</strong></p></td>
+<td><p>t=0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p>t=\(\delta x/2v\)</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.5</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>3.5</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p>t=\(\delta x/v \)</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.75</p></td>
+<td><p>0.25</p></td>
+<td><p>0</p></td>
+<td><p>4.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Hand calculation of low order advection schemes][hand-rolled-advection]</p>
+<p>We compute the first few timesteps for a step function in <span class="math notranslate nohighlight">\(\phi\)</span> initially on the location <span class="math notranslate nohighlight">\(x_i\)</span> as shown in the diagram. These are written out in the first section of the <a class="reference external" href="#hand-rolled-advection">Table</a>. There are some oddities immediately visible from the table entries. The step has a large overshoot to the left, and its influence gradually propogates in the upstream direction. However, it does preserve the integral value of <span class="math notranslate nohighlight">\(\phi\)</span> on the domain (allowing for the fact that the step is advancing into the domain).</p>
+<p>These effects can be minimized if we use “upwind differencing”. This involves replacing the advection term with a non-centred difference scheme instead of the symmetrical term that we used above.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
+    \begin{split}
+    _{i}\phi_{n+1} &amp;= \frac{\partial \phi}{\partial t} \Delta t + {_{i}\phi_n} \\
+                &amp; = -v \frac{{_{i}\phi_n} - {_{i-1}\phi_n}}{\delta x} + {_{i}\phi_n}
+    \end{split}
+\end{split}\]</div>
+<p>Where we now take a difference only in the upstream direction.</p>
+<p>The results of this advection operator are clearly superior to the centred difference version. Now the step has no influence at all in the upstream direction, and the value does not overshoot the maximum. Again, the total quantity of <span class="math notranslate nohighlight">\(\phi\)</span> is conserved.</p>
+<p>Why does this apparently <em>ad hoc</em> modification make such an improvement to the solution ?  We need to remember that the fluid is moving. In the time it takes to make the update at a particular spatial location, the material at that location is swept downstream. Consider where the effective location of the derivative is computed at the beginning of the timestep — by the end of the timestep the fluid has carried this point to the place where the update will occur.  This has some similarity to the implicit methods used earlier to produce stable results.</p>
+</div>
+<div class="section" id="node-particle-advection">
+<h3>Node/Particle Advection<a class="headerlink" href="#node-particle-advection" title="Permalink to this headline">¶</a></h3>
+<p>Contrary to the difficulty in advecting a continuum field, discrete particle paths can be integrated very easily. For example a Runge-Kutta integration scheme can be applied to advance the old positions to the new based on the known velocity field. It is only when the information needs to be recovered back to some regular grid points that the interpolation degradation of information becomes important.</p>
+<div class="section" id="courant-condition">
+<h4>Courant condition<a class="headerlink" href="#courant-condition" title="Permalink to this headline">¶</a></h4>
+<p>For stability, the maximum value of <span class="math notranslate nohighlight">\(\delta t\)</span> should not exceed the time taken for material to travel a distance <span class="math notranslate nohighlight">\(\delta x\)</span>. This makes sense as the derivatives come from local information (between a point and its immediate neighbour) and information cannot propogate faster than <span class="math notranslate nohighlight">\(\delta x / \delta t\)</span>. If the physical velocity exceeds the maximum information velocity, then the procedure must fail.</p>
+<p>This is known as the Courant (or Courant-Friedrichs-Lewy) condition.
+In multidimensional applications it takes the form</p>
+<div class="math notranslate nohighlight">
+\[    \delta t \le \frac{\delta x}{\sqrt{N} |v|}
+ 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of dimensions, and a uniform spacing in all directions, <span class="math notranslate nohighlight">\(\delta x\)</span> is presumed.</p>
+<p>The exact details of such maximum timestep restrictions for explicit methods vary from problem to problem. It is, however, important to be aware that such restrictions exist so as to be able to search them out before trouble strikes.</p>
+<p>One of the ugliest problems from advection appears when viscoelasticity is introduced. In this case we need to track a tensor quantity (stress-rate) without diffusion or other distorting effects.  Obviously this is not easy, especially in a situation where very large deformations are being tracked elsewhere in the system — e.g. the lithosphere floating about on the mantle as it is being stressed and storing elastic stress.</p>
+</div>
+</div>
+</div>
+<div class="section" id="a-variety-of-numerical-methods">
+<h2>A Variety of Numerical Methods<a class="headerlink" href="#a-variety-of-numerical-methods" title="Permalink to this headline">¶</a></h2>
+<p>We now discuss a number of different numerical solution techniques which are suitable for solid Earth dynamics problems. Obviously only a brief discussion of any one method is possible, and more methods are inevitably available.</p>
+<p>As we have already seen, some methods work well for particular problem and others roll over and die with hardly any sign of impending doom. We need to know what the tools in our toolbox are for and what will cause them to break before we try to solve serious problems with them. After all, in uncharted territory, a numerical  instability might look enticingly like an exiting new result.</p>
+<p>Obviously there is not room to do justice to any particular method — or (god forbid) make some other method seem better than finite elements (though for some things this is obviously true).</p>
+<div class="section" id="finite-differences">
+<h3>Finite Differences<a class="headerlink" href="#finite-differences" title="Permalink to this headline">¶</a></h3>
+<p>We are already familiar with finite differences. The examples we went through in the introductory material use the finite difference philosophy to represent derivatives by differences. We used only primitive versions of finite differences but the methodology is similar: a regular mesh-based discretization of time and space with differential equations being represented as difference equations.</p>
+<p>Finite Difference methods are simple and can be very fast. They can be intuitively easy to understand and program and are also universally applied. They may encounter difficulties when extreme variations in properties occur from one grid point to another.</p>
+</div>
+<div class="section" id="finite-elements">
+<h3>Finite Elements<a class="headerlink" href="#finite-elements" title="Permalink to this headline">¶</a></h3>
+<p>Finite elements work from a variational principle (more, much more, later) which is an integral version of the governing equations. They work with a spatial discretization into a mesh spanned by elements with unknowns allocated to their vertices.</p>
+<p>The application of finite elements to complex problems and those with very complex domains is a programmers joy since the entire methodology match  object - oriented programming techniques. The flip-side of this is that the construction of the numerical equations which need to be solved may take considerably longer than the actual solution process.</p>
+<p>The retention of the integral form can be beneficial for problems with difficult boundary conditions or discontinuities which can be integrated. Variational methods are, however, difficult to constrain particularly when iterative, implicit solution methods are used.</p>
+</div>
+<div class="section" id="finite-volumes">
+<h3>Finite Volumes<a class="headerlink" href="#finite-volumes" title="Permalink to this headline">¶</a></h3>
+<p>In finite volumes one combines some of the best features of finite elements and finite differences. The method is grid based and works with both the original mesh and its dual. The formulation starts with a weak form of the equations based on volume fluxes into the local volume surrounding a node (based on the dual mesh). These integrals are then converted via Gauss’ theorem, into surface integrals on the edges/faces of the dual mesh. Depending on the subsequent discretization, the resulting algorithm can be akin to finite differences or to finite elements (whether surface integrals remain in the formulation or are replaced by some differencing form) Advantages include the fact that the surface integral formulation can be tailored to satisfy local constraints without additional messing about thus making for very rapid solution times. The formulation can also deal with arbitrary mesh configurations. Disadvantages include a difficulty in applying some boundary conditions since the dual surface is not defined outside the mesh (formally).</p>
+</div>
+<div class="section" id="natural-elements">
+<h3>Natural Elements<a class="headerlink" href="#natural-elements" title="Permalink to this headline">¶</a></h3>
+<p>An extension of finite elements using the theory of Natural Neighbour interpolation schemes to provide shape functions for all grid point arrangements. A best (Delaunay) triangulation is defined for such a set of points and interpolation functions exist which give an optimal representation of the interpolant. These functions can provide a basis for a finite element scheme. Advantages include the fact that elements can be highly distorted but this does not affect the convergence of the method in the same catastrophic way as for normal schemes. Disadvantages include the fact that shape functions overlap other elements and therefore precise integration is difficult. Also this is a relatively novel method and there are some odds and ends to be ironed out.</p>
+</div>
+<div class="section" id="spectral-time-space">
+<h3>Spectral (time/space)<a class="headerlink" href="#spectral-time-space" title="Permalink to this headline">¶</a></h3>
+<p>We saw in the theoretical treatment of instabilities in a layer how beneficial it can be to deal with harmonic functions in one or more dimensions. This turns the problem from a partial differential equation into a set of ordinary differential equations for the different wavenumbers. The method works well for systems with homogeneous material properties otherwise spatial variations in these properties are couple the different wavenumbers together and add layer upon layer of complexity to the problem. Due to the existence of the fast fourier transform, these methods, when they can be applied, are potentially very quick. They are limited to relatively regular geometries, however.</p>
+</div>
+<div class="section" id="discrete-elements">
+<h3>Discrete Elements<a class="headerlink" href="#discrete-elements" title="Permalink to this headline">¶</a></h3>
+<p>Meshless methods which deal with either actual discrete systems such as large systems of granular materials or systems in which notional particles represent elements of the continuum.  The method works by treating simple interactions of very many particles dynamically. For each particle an explicit solution of <span class="math notranslate nohighlight">\(F=ma\)</span> for translations and <span class="math notranslate nohighlight">\(L=I\ddot{\theta}\)</span> for the rotations is found in reponse to the interaction forces with every other particle. In discrete elements such interactions are usually local (e.g. only when particles are in contact) and this makes the system manageable in size.  Very good for treatment of fracture and dynamic responses of granular systems but can be hampered by the time taken for the fully explicit nature of the algorithm, i.e. elastic waves must be resolved in order to  model deformation. Also, these methods are based on particle interaction functions and so properties of the continuum such as viscosity are not direct inputs but have to be computed as an average response of the system (just like the real thing). <em>Compare this to molecular dynamics simulations.</em></p>
+</div>
+<div class="section" id="smooth-particle-hydrodynamics">
+<h3>Smooth Particle Hydrodynamics<a class="headerlink" href="#smooth-particle-hydrodynamics" title="Permalink to this headline">¶</a></h3>
+<p>Another meshless method in which “particles” are the centres of smooth functions such as gaussians. These can be used to interpolate any field across the solution domain. They are also differentiable and can therefore represent differential equations relatively efficiently. Very useful for high velocity flows and astrophysics type problems. Historically there have been problems representing boundary conditions and viscosity so not ideal for the highly viscous and/or elastic type problems of the solid earth.</p>
+</div>
+<div class="section" id="particle-in-cell-methods">
+<h3>Particle in Cell methods<a class="headerlink" href="#particle-in-cell-methods" title="Permalink to this headline">¶</a></h3>
+<p>In these methods both particles and a mesh exist. The mesh supplies the velocities which move particles around, but the particles carry information with them in a Lagrangian sense. Derivatives are computed on the mesh using the values of nodal variables but material property variations are measured by the particles. Advantages include the fact that the method is geometrically simple for relatively complex deformations and uses a horses-for-courses approach with the mesh doing what it is best at - derivatives, fast solutions and the particles doing their part on the Lagrangian components of the problem. Major disadvantages include the fact that the particle properties and the mesh properties must be synchronized and this may involve some averaging to the mesh. Worse, there need to be more particles than grid points for the algorithm to work, but this means there are more particle degrees of freedom than can be constrained by the mesh — this means that multiple particle configurations can produce the same solution on the mesh some of which may be unstable and incapable of being damped during the solution.</p>
+</div>
+<div class="section" id="lagrangian-eulerian-meshes">
+<h3>Lagrangian/Eulerian meshes<a class="headerlink" href="#lagrangian-eulerian-meshes" title="Permalink to this headline">¶</a></h3>
+<p>As we hinted earlier, Lagrangian formulations eliminate convective terms from the equations but at the expense of geometrical complexity. Finite elements are not particularly troubled by complex meshes provided the elements do not become too distorted. Thus, for moderate deformations, advection of the grid points provides a simple way to eliminate the much more complicated advection terms from the differential equations. For fluids, however, the deformation ultimately ruins the ability of the mesh to converge on the correct solution and the results have to be interpolated to a new mesh, losing some accuracy as a result.</p>
+<div class="section" id="ale">
+<h4>ALE<a class="headerlink" href="#ale" title="Permalink to this headline">¶</a></h4>
+<p>An alternative to this approach is to use ALE which is, sad to say, an acronym for Arbitrary-Lagrangian-Eulerian. The node points are advected but not at the same rate as the flow. This can be used to prevent mesh tangling while still mitigating the worst difficulties associated with the advection term. But, on the other hand, it hasn’t entirely eliminated that term.</p>
+</div>
+<div class="section" id="dlr">
+<h4>DLR<a class="headerlink" href="#dlr" title="Permalink to this headline">¶</a></h4>
+<p>A different method is to start with an optimal, Delaunay, triangulation and allow the grid points to move locked into the fluid so as to eliminate the convection term from the differential equation. The mesh connections are checked at each timestep to see if the triangulation is still optimal. From near-optimal to optimal in this way involves exchanging a few node connections. This continual updating avoids ever being in a situation where full remeshing is required and thus avoids the loss of information during that process. Additional nodes can be introduced to improve resolution where required. The disadvantage of this procedure is in tracking history variables such as stress rate. These are only defined on the element interiors not the nodes, so the result is the tracking of a somewhat smoothed quantity. (brought to you by the Natural Element people)</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part3-NumericalMethods"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="NumericalMethods1.html" title="previous page">Numerical Modeling in Solid Earth Dynamics</a>
+    <a class='right-next' id="next-link" href="NumericalMethods3.html" title="next page">Introduction to the Finite Element Method</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

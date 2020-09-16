@@ -1,0 +1,434 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conservation Laws" href="../Part1-FluidDynamics/ContinuumMechanics.html" />
+    <link rel="prev" title="Geodynamics with Underworld" href="../FrontPage.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part1-FluidDynamics/LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Part2-Python/SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Part0-Introduction/Introduction.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-model">
+   What is a model ?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-mathematics-you-need">
+   The mathematics you need
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#programming-skills">
+   Programming skills
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Our goal is to develop an quantitative understanding of the dynamic
+processes within the Earth and sister planets as I have sketched in the
+Figure to the right. These dynamic processes are largely driven by the
+internal heat of the planet escaping to the surface through whatever
+mechanisms are available. Some of the heat is left over from the
+original formation of the planet, and the rest originates in the decay
+of radioactive elements. In the Earth’s early history and elsewhere in
+the solar system, tidal heating, chemical segregation, and impacts have
+all played a role in supplying the interior heat budget.</p>
+<div class="figure align-default" id="mantle-slice">
+<a class="reference internal image-reference" href="../_images/EarthProcessesPlume.png"><img alt="../_images/EarthProcessesPlume.png" src="../_images/EarthProcessesPlume.png" style="width: 100mm;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">A schematic of the
+Earth’s interior and something similar for Venus and Mars would be, on
+the face of it, much simpler</span><a class="headerlink" href="#mantle-slice" title="Permalink to this image">¶</a></p>
+</div>
+<p>This is because the Earth’s dynamics is completely dominated by Plate
+Tectonics — a unique manifestation of interior heat loss as far as we
+are aware. Part of our task is to understand why plate tectonics is a
+possible outcome of a hot planet, but also why it is not the only
+possible outcome. If we can also understand how the different modes are
+selected for planets of different size, composition, and heat budget,
+then we have a powerful way to predict the geological behaviour of
+extrasolar planets. Plate tectonics creates a number of very efficient
+cycling mechanisms which link the interior of the Earth and the
+Atmosphere and Oceans; it may prove to be an essential ingredient for
+the kind of friendly world we expect to be needed to nurture
+(intelligent) life.</p>
+<div class="section" id="what-is-a-model">
+<h2>What is a model ?<a class="headerlink" href="#what-is-a-model" title="Permalink to this headline">¶</a></h2>
+<p>Global scale geodynamics is a discipline where we cannot do controlled
+experiments on the basic processes we are studying. We rely on observing
+the Earth and the other terrestrial planets and moons and looking for
+multiple manifestations of the same processes under different conditions
+to give us control on certain parameters.</p>
+<p>While it is not possible to do experiments at the planetary scale over
+geological time, it is possible to perform experiments at a physically
+manageable size and, by careful scaling, to generalise the results to
+geologically relevant space and time-scales. If these processes of
+interest can be understood through a mathematical description, then the
+equations are automatically applicable at geological time and space
+scales provided the assumptions which go into developing the
+mathematical model are still valid.</p>
+<p>We will frequently be talking about “modeling” — people mean many
+different things by this and all of the following fall under the general
+concept of modeling:</p>
+<ul class="simple">
+<li><p>Laboratory based physical models which can be scaled to give
+meaningful, quantitative insight into deformation at geological
+scales.</p></li>
+<li><p>The building of mathematical descriptions of the world and their use
+to approximate physical “reality”.</p></li>
+<li><p>Computational solution of these descriptions (where needed) and the
+concept of a numerical model.</p></li>
+<li><p>How to go about constructing a model</p></li>
+<li><p>How to go about using a model (these are quite different things !).</p></li>
+<li><p>Exploring parameter variation to understand the dominant effects.</p></li>
+</ul>
+</div>
+<div class="section" id="the-mathematics-you-need">
+<h2>The mathematics you need<a class="headerlink" href="#the-mathematics-you-need" title="Permalink to this headline">¶</a></h2>
+<p>These notes contains material at different levels. There is broadly
+descriptive content which is intended to introduce the subject and lead
+up to the more advanced mathematical content. It should be possible to
+follow these notes without detailed knowledge of how the mathematical
+results are obtained, but it is expected that you can use the results in
+exercises for to solve real problems in geophysics.</p>
+<p>Familiarity with vector &amp; tensor notation &amp; index notation is required
+for understanding the kinds of equations we will be dealing with and I
+interchange them a little. On the assumption that these things are
+disconcerting (at best) the first few times, I tend to write everything
+out in full – at least for the Cartesian case. In other geometries,
+vector notation generally still holds, but the definition of the
+operators can be very different, and it is always worth checking before
+using them.</p>
+</div>
+<div class="section" id="programming-skills">
+<h2>Programming skills<a class="headerlink" href="#programming-skills" title="Permalink to this headline">¶</a></h2>
+<p>All of the examples that we use in this book are based around <code class="docutils literal notranslate"><span class="pre">python</span></code> code
+which is easy to pick up and also very powerful. Many python codes are actually
+<code class="docutils literal notranslate"><span class="pre">fortran</span></code> or <code class="docutils literal notranslate"><span class="pre">C</span></code> codes in disguise with python providing a more convenient
+way to operate and coordinate than stacks of punched cards or text-based input files.</p>
+<p>Python is a very flexible language which is constantly improving (some would say).
+The flexibility can make it hard to know where to start or how to find
+documentation on the function or module you are using. Jupyter notebooks add
+interactivity to the language and make it much more straightforward to
+dig into the details of the code you are running. We use Jupyter notebooks extensively
+for examples in this book and these can be run live.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part0-Introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../FrontPage.html" title="previous page">Geodynamics with Underworld</a>
+    <a class='right-next' id="next-link" href="../Part1-FluidDynamics/ContinuumMechanics.html" title="next page">Conservation Laws</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

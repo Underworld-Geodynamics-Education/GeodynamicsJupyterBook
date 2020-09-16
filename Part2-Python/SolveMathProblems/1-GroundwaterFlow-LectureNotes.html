@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partial Differential Equations of Groundwater Flow &#8212; Geodynamics with Underworld</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/MundusSubterraneus.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../FrontPage.html">
+   Geodynamics with Underworld
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction and Background
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part0-Introduction/Introduction.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Mathematical Fluid Dynamics
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ContinuumMechanics.html">
+   Conservation Laws
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/NavierStokes.html">
+   Navier-Stokes Equation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/MantleDynamics.html">
+   Non-dimensional equations &amp; dimensionless numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/ThermalConvection.html">
+   Thermal Convection
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/LithosphericDynamics.html">
+   Dynamics of the Lithosphere
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Numerical Modeling
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods1.html">
+   Numerical Modeling in Solid Earth Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods2.html">
+   Survey of numerical methods
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods3.html">
+   Introduction to the Finite Element Method
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods4.html">
+   Practical Finite Elements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods5.html">
+   Methods for Solving Numerical Problems
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Python for Geoscientists
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../0-StartHere.html">
+   Python for Earth Scientists
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Plotting/1-IntroductionToMatplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Mapping/00-Maps_with_Cartopy.html">
+   Maps with the Cartopy Package
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SphericalMeshing/0-Stripy.html">
+   Triangulations
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/master?urlpath=tree/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://demon.underworldcloud.org/hub/user-redirect/git-pull?repo=https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook&urlpath=tree/GeodynamicsJupyterBook/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb&branch=master"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/blob/master/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-interpret-the-equations">
+   How to interpret the equations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extension-to-2d-and-3d">
+   Extension to 2D and 3D
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="partial-differential-equations-of-groundwater-flow">
+<h1>Partial Differential Equations of Groundwater Flow<a class="headerlink" href="#partial-differential-equations-of-groundwater-flow" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="how-to-interpret-the-equations">
+<h2>How to interpret the equations<a class="headerlink" href="#how-to-interpret-the-equations" title="Permalink to this headline">¶</a></h2>
+<p>If you are mathematically minded, then the groundwater flow equation by itself give you a really good feel for how the fluid works. You recognise a <em>diffusion equation</em> and understand that it naturally comes about from a problem where the flux in some quantity is proportional to the gradient of this quantity. <em>(In this case, mass or volume flux is proportional to the pressure gradient. In the case of thermal diffusion, the heat flux is proportional to the temperature gradient).</em>  You also understand how the problem becomes more complicated when the material properties vary from place to place.</p>
+<p>For the less mathematically minded, remember that the Laplace equation above is the result of writing the rate of change of the pressure as a gradient of the flux.</p>
+<div class="math notranslate nohighlight">
+\[ S \frac{\partial h}{\partial t} + H = -\frac{\partial }{\partial x} 
+            \underbrace{\left( - K \frac{\partial h}{\partial x} \right)}_\text{flux} \]</div>
+<p>Here is a simple picture to help you visualise why the gradient of the flux controls the build up of pressure <em>(or temperature)</em>: the level of fluid builds up if the rate at which fluid enters the volume (<em>the mass flux</em>), \(q_i\), is larger than the rate at which fluid leaves the volume, \(q_o\). The values of the fluxes top / bottom in this case are only different if there is a gradient in the flux (a difference between the values at two points !). The greater the difference, the faster the pressure in the volume will change.</p>
+<a class="reference internal image-reference" href="../../_images/BucketFlux.png"><img alt="Bucket" src="../../_images/BucketFlux.png" style="width: 250px;" /></a>
+<p>If the fluxes don’t change, then change of the level, \(\Delta h\) in this bucket over some interval, \(\Delta t\),  is just proportional to the difference between the flux out and the flux in.</p>
+<div class="math notranslate nohighlight">
+\[  \;\;\; \frac{\Delta h}{\Delta t} \propto q_o - q_i  \]</div>
+</div>
+<div class="section" id="extension-to-2d-and-3d">
+<h2>Extension to 2D and 3D<a class="headerlink" href="#extension-to-2d-and-3d" title="Permalink to this headline">¶</a></h2>
+<p>The flux is a vector quantity (the flow has a specific direction), so in 2D and 3D problems, we have a <strong>vector</strong> balance of the flux in / out of the local volume in each direction.</p>
+<div class="math notranslate nohighlight">
+\[ S \frac{\partial h}{\partial t} + H = -\frac{\partial }{\partial x} 
+              \underbrace{\left( - K \frac{\partial h}{\partial x} \right)}_\textrm{x flux}
+              -\frac{\partial }{\partial y}
+              \left( - K \frac{\partial h}{\partial y} \right) 
+               -\frac{\partial }{\partial z}
+              \left( - K \frac{\partial h}{\partial z} \right) 
+ \]</div>
+<p>Which simplifies to</p>
+<div class="math notranslate nohighlight">
+\[  S\frac{\partial h}{\partial t} + H = 
+    K \left( \frac{\partial^2 h}{\partial x^2} + \frac{\partial^2 h}{\partial y^2} + \frac{\partial^2 h}{\partial z^2} \right) \textit{ $\longrightarrow$ (3D, isotropic groundwater flow equation)}\]</div>
+<p>\( K \) may not be isotropic — it can vary with direction. In fact this is often the case because the crust is formed under the influence of gravity which introduces layers and preferential directions for faults / joints. Under these circumstances, we have a <strong>tensor</strong> valued coefficient. Let’s worry about that another time.</p>
+</div>
+</div>
+<div class="section" id="finite-differences">
+<h1>Finite Differences<a class="headerlink" href="#finite-differences" title="Permalink to this headline">¶</a></h1>
+<p>Still working backwards !!</p>
+<p>In deriving the equations above, we always think about a small volume of material, and we imagine it shrinking to an infinitessimal size. This gives us the differential equations which relate changes in some quantity to its gradients in the spatial directions and in time.</p>
+<p><em>What if we don’t shrink the little boxes to an infinitessimal size ?</em></p>
+<p>In that case, we get an approximate version of what would happen in the real world because we are only looking at the gradients in a few places and averaging their effects over the whole of each box. If we choose just a few boxes, then we get a very rough approximation !</p>
+<p>Look at this picture in which we pick a small number of discrete points in a line and draw boxes around each one (boxes that touch each other).</p>
+<a class="reference internal image-reference" href="../../_images/BlockFlux.png"><img alt="../../_images/BlockFlux.png" src="../../_images/BlockFlux.png" style="height: 160px;" /></a>
+<div class="math notranslate nohighlight">
+\[  S \frac{\partial h}{\partial t} + H = -\frac{\partial }{\partial x} 
+            \underbrace{\left( - K \frac{\partial h}{\partial x} \right)}_{q}
+\]</div>
+<div class="math notranslate nohighlight">
+\[  S \frac{\Delta h}{\Delta t} = - K \frac{\Delta q}{\Delta x}
+\textit{$\longrightarrow$ ( approximate rate of change )}
+\]</div>
+<div class="math notranslate nohighlight">
+\[  q = \frac{\Delta h}{\Delta x} \textit{$\longrightarrow$ ( approximate flux )} \]</div>
+<p>We use \(\Delta \) here to indicate that we are not going to shrink the lengths to find the infinitessimal limit, but are going to leave the boxes at a finite size. If we have some initial values of \(h\) at the start of the calculation, we can calculate approximate fluxes on each of the vertical planes from the expression above. That means we can compute the approximate change in \(h\) with time at each of the point in the diagram.</p>
+<p>We can only calculate the changes at this finite set of points, but, if we have write this into a simple computer program, we can calculate this at an awful lot of points. Let’s see if it works !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">pylab</span> inline
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    This is a function to calculate the gradient at a point in a long line</span>
+<span class="sd">    of points. You feed it coordinates (X), values (H) and - optional - </span>
+<span class="sd">    boundary conditions. It returns the gradient.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">def</span> <span class="nf">gradx</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">leftbc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rightbc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  
+    <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>    
+    <span class="n">gradP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+    <span class="n">gradP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">H</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">gradP</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">H</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">leftbc</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">gradP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">leftbc</span>
+        
+    <span class="k">if</span> <span class="n">rightbc</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">gradP</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rightbc</span> 
+        
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">gradP</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">H</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span>
+            
+    <span class="k">return</span> <span class="n">gradP</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s set up a bunch of points for <span class="math notranslate nohighlight">\(P_i\)</span> from the diagram we sketched earlier. We start making this <span class="math notranslate nohighlight">\(\sin(x)\)</span> since we know that the derivative should be <span class="math notranslate nohighlight">\(\cos(x)\)</span> and so we can easily check how well it works.</p>
+<a class="reference internal image-reference" href="../../_images/BlockFlux.png"><img alt="../../_images/BlockFlux.png" src="../../_images/BlockFlux.png" style="height: 160px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">xP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.0</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">hP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span>
+<span class="n">gradx_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
+
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xP</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">gradx_hP</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1144bb4e0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/1-GroundwaterFlow-LectureNotes_9_1.png" src="../../_images/1-GroundwaterFlow-LectureNotes_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hP2</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="o">*</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="n">gradx_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP2</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xP</span><span class="o">*</span><span class="mf">3.0</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">gradx_hP2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11456eda0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/1-GroundwaterFlow-LectureNotes_11_1.png" src="../../_images/1-GroundwaterFlow-LectureNotes_11_1.png" />
+</div>
+</div>
+<p>How about the second derivative, since we are dealing with a diffusion equation ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The rate of change with time is proportional to the gradient of the gradient !</span>
+
+<span class="n">grad2x_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP</span><span class="p">)</span>
+<span class="n">grad2x_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">grad2x_hP</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span> <span class="s2">&quot;Value &amp; 2nd derivative $\sin(x)$&quot;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="o">*</span><span class="mf">3.0</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">grad2x_hP2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span> <span class="s2">&quot;Value &amp; 2nd derivative $\sin(x) + 0.1 \sin(3x)$&quot;</span><span class="p">)</span>
+
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">-</span> <span class="n">grad2x_hP</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="o">*</span><span class="mf">3.0</span><span class="p">)</span> <span class="o">-</span> <span class="n">grad2x_hP2</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span> 
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span> <span class="s2">&quot;Error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Error&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/1-GroundwaterFlow-LectureNotes_14_1.png" src="../../_images/1-GroundwaterFlow-LectureNotes_14_1.png" />
+</div>
+</div>
+<p>So, it seems we can calculate reasonably accurate gradients with our little-boxes approximation. We can now try to solve the time-evolution of the pressure with the same function and see what happens.</p>
+<p><strong>Note:</strong> In the previous plots, errors are less than 1% in the second derivative away from the boundary but nearer 5% there. On the other hand, we haven’t even tried to do a clever job of building the interpolation / derivatives.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xP</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">hP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span>
+<span class="n">hP2</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xP</span><span class="p">))</span>
+
+<span class="c1"># random initial wavelengths</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">25</span><span class="p">):</span>
+    <span class="n">hP2</span> <span class="o">=</span> <span class="n">hP2</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> 
+
+<span class="n">hP2</span> <span class="o">=</span> <span class="n">hP2</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">hP2</span><span class="p">)</span>    
+    
+<span class="n">gradx_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
+<span class="n">gradx_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP2</span><span class="p">)</span>
+<span class="n">grad2x_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP</span><span class="p">)</span>
+<span class="n">grad2x_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP2</span><span class="p">)</span>    
+
+<span class="n">deltat</span> <span class="o">=</span> <span class="mf">0.002</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span> <span class="s2">&quot;Smoothly varying&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span> <span class="s2">&quot;Wildly varying&quot;</span><span class="p">)</span>
+
+<span class="c1">## Timestepping loop </span>
+
+<span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">time</span><span class="o">%</span><span class="k">50</span>==0):    
+        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">hP2</span><span class="p">)</span>
+
+    <span class="n">hP</span> <span class="o">=</span> <span class="n">hP</span> <span class="o">+</span> <span class="n">deltat</span> <span class="o">*</span> <span class="n">grad2x_hP</span>
+    <span class="n">hP2</span> <span class="o">=</span> <span class="n">hP2</span> <span class="o">+</span> <span class="n">deltat</span> <span class="o">*</span> <span class="n">grad2x_hP2</span>
+    
+    <span class="c1"># Boundary conditions</span>
+    
+    <span class="n">hP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">hP</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">hP2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">hP2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># compute new gradients    </span>
+    <span class="n">gradx_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
+    <span class="n">gradx_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP2</span><span class="p">)</span>
+    <span class="n">grad2x_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP</span><span class="p">)</span>
+    <span class="n">grad2x_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP2</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1-GroundwaterFlow-LectureNotes_16_0.png" src="../../_images/1-GroundwaterFlow-LectureNotes_16_0.png" />
+</div>
+</div>
+<p>We can start to obtain results which are clearly “right” in the sense that they evolve quantitatively the way the solutions are supposed to. They act like diffusion solutions – smoothing rapidly fluctuating (short wavelength) regions quickly.</p>
+<div class="section" id="harder-problems">
+<h2>Harder problems<a class="headerlink" href="#harder-problems" title="Permalink to this headline">¶</a></h2>
+<p>What about if we let \(K\) vary in space ?  We can guess how this will influence the solution, but we can also try it out.</p>
+<p><strong>Note</strong> in the solution below, we can also see how sensitive the answer can be to <em>getting the numerical representation correct.</em> Although this is a specialised topic, I would like you to see that these results  always need to be tested against any analytic solutions you can find as it is very easy to calculate a lot of nonsense !</p>
+<p><em>Try changing \(\Delta t\) and then \(\Delta x\)</em> – is that what you expected ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># delta x = 1/100 ... also try 1/250 </span>
+
+<span class="n">xP</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>  
+
+<span class="c1"># Check out what happens if you change this value from 0.0020 to 0.0025</span>
+<span class="n">deltat</span> <span class="o">=</span> <span class="mf">0.0025</span>
+
+<span class="n">hP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xP</span><span class="p">))</span>
+
+<span class="c1"># random initial wavelengths</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">K</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">k</span><span class="p">))</span> <span class="o">/</span> <span class="n">k</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">K</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">K</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>  
+
+<span class="n">gradx_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
+<span class="n">grad2x_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP</span><span class="o">*</span><span class="n">K</span><span class="p">)</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span> <span class="s2">&quot;Coefficient $K$ varies with position&quot;</span><span class="p">)</span>
+
+<span class="c1">## Timestepping loop </span>
+
+<span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">):</span>
+    <span class="n">hP</span> <span class="o">=</span> <span class="n">hP</span> <span class="o">+</span> <span class="n">deltat</span> <span class="o">*</span> <span class="n">grad2x_hP</span>
+    <span class="n">hP2</span> <span class="o">=</span> <span class="n">hP2</span> <span class="o">+</span> <span class="n">deltat</span> <span class="o">*</span> <span class="n">grad2x_hP2</span>    
+
+    <span class="c1"># Boundary conditions   </span>
+    <span class="n">hP</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">hP</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c1"># compute new gradients    </span>
+    <span class="n">gradx_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
+    <span class="n">grad2x_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP</span><span class="o">*</span><span class="n">K</span><span class="p">)</span>
+      
+    <span class="k">if</span><span class="p">(</span><span class="n">time</span><span class="o">%</span><span class="k">100</span>==0):    
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1-GroundwaterFlow-LectureNotes_19_0.png" src="../../_images/1-GroundwaterFlow-LectureNotes_19_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Part2-Python/SolveMathProblems"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Louis Moresi<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
