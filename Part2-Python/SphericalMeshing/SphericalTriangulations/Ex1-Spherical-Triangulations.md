@@ -3,8 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: 0.12
-    jupytext_version: 1.6.0
+    format_version: '0.9'
+    jupytext_version: 1.5.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -164,8 +164,6 @@ for s1, s2 in segs:
 We can view the same triangulation in an interactive form using the `lavavu` package (`pip install lavavu`). 
 The list of simplices of the triangulation (`spherical_triangulation.simplices`) is compatible with the format expected by Lavavu.
 
-
-
 ```{code-cell} ipython3
 import lavavu
 
@@ -201,12 +199,9 @@ nodes2.vertices(refined_spherical_triangulation.points)
 
 lv.hide("fine")
 lv.hide("finew")
-
-
 ```
 
 ```{code-cell} ipython3
-
 lv.control.Panel()
 lv.control.Button(command="hide triangles; hide points; show ghost; show fine_nodes; show coarse; show coarsew; show coarse_nodes; redraw", label="Coarse")
 lv.control.Button(command="hide triangles; hide points; show ghost; show coarse_nodes; show fine; show finew; show fine_nodes; redraw", label="Fine")
