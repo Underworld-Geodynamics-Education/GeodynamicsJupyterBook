@@ -7,9 +7,9 @@ dependencies:
 #     - compilers 
     - python==3.7.*
     - pip 
-    - cartopy==0.17.*
     - numpy>=1.16.0
     - scipy>=1.0.0
+    - cartopy==0.17.*
 #    - obspy
 #    - pandas
 #    - sympy
