@@ -2,7 +2,7 @@
 title: Geodynamics with Underworld
 author: Louis Moresi 
 logo: Diagrams/MundusSubterraneus.png
-exclude_patterns: ["Notes/*", "Scripts/*"]
+exclude_patterns: ["README.md", "Notes/*", "Scripts/*"]
 
 latex:
   latex_documents:
