@@ -5,10 +5,12 @@ channels:
     - underworldcode
 dependencies:
 #     - compilers 
-    - cartopy
-    - obspy
-    - pandas
-    - sympy
+    - cartopy==0.17.*
+    - numpy==1.18.1
+    - scipy==1.4.1
+#    - obspy
+#    - pandas
+#    - sympy
     - stripy
     - litho1pt0
     # - libiconv
