@@ -16,7 +16,6 @@ The strategy is:
 
 
 
-
 ## Jupyterhub environment
 
 Kernels / kernel-name specifications

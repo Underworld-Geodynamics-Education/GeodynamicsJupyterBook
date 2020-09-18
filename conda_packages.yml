@@ -1,0 +1,25 @@
+
+name: required_environment
+channels: 
+    - conda-forge
+    - underworldcode
+dependencies:
+    - nb_conda_kernels
+    - sympy
+    - stripy
+    - litho1pt0
+    - quagmire
+    - cartopy
+    - obspy
+    - pandas
+    - pip
+    - libiconv
+    - swig>=4.0.0
+    - scons
+    - compilers 
+    - pip:
+      - jupyter-book 
+      - xvfbwrapper
+      # - lavavu  # probably not critical for the static book
+      # - underworldcode # unlikely to build - need a script for this
+
