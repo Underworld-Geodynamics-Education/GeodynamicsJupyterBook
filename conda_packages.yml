@@ -1,5 +1,5 @@
 
-name: required_environment
+name: base
 channels: 
     - conda-forge
     - underworldcode
