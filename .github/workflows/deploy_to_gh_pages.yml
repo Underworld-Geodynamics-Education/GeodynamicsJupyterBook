@@ -29,12 +29,23 @@ jobs:
     #   with:
     #     python-version: 3.7
 
+    - name: Cache conda
+      uses: actions/cache@v1
+      env:
+        # Increase this value to reset cache if etc/example-environment.yml has not changed
+        CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('etc/example-environment.yml') }}
+
+
     - name: Miniconda 
       uses: conda-incubator/setup-miniconda@v1
       with:
           miniconda-version: "latest"
-          activate-environment: base
+          auto-activate-base: true 
           python-version: 3.7
+          use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
 
     # Would be helpful to cache some of the installation
     - name: Install dependencies needed to run some / all examples in the book
@@ -48,8 +59,8 @@ jobs:
         conda config --show-sources
         conda config --show
 
-      # Not Underworld or Lavavu for the moment
-        # pip install -r requirements.txt
+      # Conda cache will not catch the pip installations (need to do this separately)
+        pip install -r requirements.txt
 
 
     # Build the book
