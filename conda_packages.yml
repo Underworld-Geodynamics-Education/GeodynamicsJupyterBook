@@ -4,19 +4,17 @@ channels:
     - conda-forge
     - underworldcode
 dependencies:
-    - nb_conda_kernels
+    - compilers 
     - sympy
     - stripy
     - litho1pt0
-    - quagmire
     - cartopy
     - obspy
     - pandas
     - pip
-    - libiconv
-    - swig>=4.0.0
-    - scons
-    - compilers 
+    # - libiconv
+    # - swig>=4.0.0
+    # - scons
     - pip:
       - jupyter-book 
       - xvfbwrapper

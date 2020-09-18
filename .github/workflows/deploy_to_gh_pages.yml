@@ -39,7 +39,6 @@ jobs:
       run: |
         sed '/^[[:blank:]]*#/d;s/#.*//' apt_get_packages.txt > apt_get_packages_no_comment.txt
         sudo xargs apt-get -y install < apt_get_packages_no_comment.txt
-
         conda env update -n base --file conda_packages.yml
 
       # Not Underworld or Lavavu for the moment
