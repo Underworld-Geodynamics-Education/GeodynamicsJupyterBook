@@ -36,15 +36,17 @@ jobs:
         CACHE_NUMBER: 0
       with:
         path: ~/conda_pkgs_dir
-        key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('etc/example-environment.yml') }}
+        key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('conda_packages.yml') }}
 
 
     - name: Miniconda 
       uses: conda-incubator/setup-miniconda@v1
       with:
           miniconda-version: "latest"
+          environment-file: conda_packages.yml
           auto-activate-base: true 
           python-version: 3.7
+          add_pip_as_python_dependency: True
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
 
     # Would be helpful to cache some of the installation
@@ -56,8 +58,7 @@ jobs:
         conda env update -n base --file conda_packages.yml
         conda info
         conda list
-        conda config --show-sources
-        conda config --show
+
         # Conda cache will not catch the pip installations (need to do this separately)
         pip install -r requirements.txt
 

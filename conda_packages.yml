@@ -18,8 +18,8 @@ dependencies:
     # - libiconv
     # - swig>=4.0.0
     # - scons
-    - pip:
-      - jupyter-book 
+    # - pip:
+    #   - jupyter-book 
       # - xvfbwrapper
       # - lavavu  # probably not critical for the static book
       # - underworldcode # unlikely to build - need a script for this
