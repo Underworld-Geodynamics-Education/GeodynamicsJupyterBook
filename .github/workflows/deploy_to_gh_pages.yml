@@ -58,8 +58,7 @@ jobs:
         conda list
         conda config --show-sources
         conda config --show
-
-      # Conda cache will not catch the pip installations (need to do this separately)
+        # Conda cache will not catch the pip installations (need to do this separately)
         pip install -r requirements.txt
 
 
