@@ -4,20 +4,19 @@ channels:
     - conda-forge
     - underworldcode
 dependencies:
-    - compilers 
-    - sympy
-    - stripy
-    - litho1pt0
+#     - compilers 
     - cartopy
     - obspy
     - pandas
-    - pip
+    - sympy
+    - stripy
+    - litho1pt0
     # - libiconv
     # - swig>=4.0.0
     # - scons
     - pip:
       - jupyter-book 
-      - xvfbwrapper
+      # - xvfbwrapper
       # - lavavu  # probably not critical for the static book
       # - underworldcode # unlikely to build - need a script for this
 
