@@ -11,8 +11,8 @@ dependencies:
     - scipy>=1.0.0
     - cartopy==0.17.*
 #    - obspy
-#    - pandas
-#    - sympy
+    - pandas
+    - sympy
     - stripy==1.2.2
     - litho1pt0
     # - libiconv
