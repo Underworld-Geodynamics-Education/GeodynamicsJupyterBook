@@ -13,7 +13,7 @@ dependencies:
     - obspy
     - pandas
     - sympy
-    - stripy==1.2.2
+    - stripy==2.0.2
     - litho1pt0
     # - libiconv
     # - swig>=4.0.0
