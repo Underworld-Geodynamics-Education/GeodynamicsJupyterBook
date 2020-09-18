@@ -30,12 +30,15 @@ jobs:
     #     python-version: 3.7
 
     - name: Miniconda 
-      uses: goanpeca/setup-miniconda@v1
+      uses: conda-incubator/setup-miniconda@v1
       with:
-        python-version: 3.7
+          miniconda-version: "latest"
+          activate-environment: foo
+          python-version: 3.7
 
     # Would be helpful to cache some of the installation
     - name: Install dependencies needed to run some / all examples in the book
+      shell: bash -l {0}
       run: |
         # sed '/^[[:blank:]]*#/d;s/#.*//' apt_get_packages.txt > apt_get_packages_no_comment.txt
         # sudo xargs apt-get -y install < apt_get_packages_no_comment.txt
