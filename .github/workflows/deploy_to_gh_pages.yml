@@ -49,8 +49,9 @@ jobs:
           add_pip_as_python_dependency: True
           use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!
 
+
     # Would be helpful to cache some of the installation
-    - name: Install dependencies needed to run some / all examples in the book
+    - name: Install pip dependencies 
       shell: bash -l {0}
       run: |
         # sed '/^[[:blank:]]*#/d;s/#.*//' apt_get_packages.txt > apt_get_packages_no_comment.txt
