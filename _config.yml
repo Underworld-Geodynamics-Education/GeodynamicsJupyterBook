@@ -22,7 +22,7 @@ sphinx:
 
 repository:
   url                       : https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook  # Online location of your book
-  branch                    : master  # Which branch of the repository should be used when creating links (optional)
+  branch                    : 2020  # Which branch of the repository should be used when creating links (optional)
 
 launch_buttons:
   jupyterhub_url: "https://demon.underworldcloud.org"  # The URL for your JupyterHub. 
