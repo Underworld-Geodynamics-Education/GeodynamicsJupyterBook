@@ -1,0 +1,26 @@
+
+name: jupyter-book 
+channels: 
+    - conda-forge
+    - underworldcode
+dependencies:
+#     - compilers 
+    - python==3.7.*
+    - pip 
+    - numpy>=1.16.0
+    - scipy>=1.0.0
+    - cartopy==0.17.*
+    - obspy
+    - pandas
+    - sympy
+    - stripy==2.0.2
+    - litho1pt0
+    # - libiconv
+    # - swig>=4.0.0
+    # - scons
+    # - pip:
+    #   - jupyter-book 
+      # - xvfbwrapper
+      # - lavavu  # probably not critical for the static book
+      # - underworldcode # unlikely to build - need a script for this
+

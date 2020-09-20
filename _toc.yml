@@ -1,0 +1,96 @@
+- file: FrontPage.md
+  numbered: false
+
+- part: Introduction and Background
+  chapters:
+  - file: Part0-Introduction/Introduction.md 
+
+- part: Mathematical Fluid Dynamics
+  chapters:
+    - file: Part1-FluidDynamics/ContinuumMechanics.md 
+    - file: Part1-FluidDynamics/NavierStokes.md 
+    - file: Part1-FluidDynamics/MantleDynamics.md
+    - file: Part1-FluidDynamics/ThermalConvection.md
+    - file: Part1-FluidDynamics/LithosphericDynamics.md
+
+- part: Numerical Modeling 
+  chapters:
+  - file: Part3-NumericalMethods/NumericalMethods1.md
+  - file: Part3-NumericalMethods/NumericalMethods2.md
+  - file: Part3-NumericalMethods/NumericalMethods3.md
+  - file: Part3-NumericalMethods/NumericalMethods4.md
+  - file: Part3-NumericalMethods/NumericalMethods5.md
+
+## Using .gitignore
+## Something for cloudstor (etc) ... big files not under version control
+
+- part: Python for Geoscientists   
+  chapters:
+  - file: Part2-Python/0-StartHere.md
+    sections:
+    - file: Part2-Python/Introduction2Python/1-IntroductionToJupyterNotebooks.md
+    - file: Part2-Python/Introduction2Python/2-IntroductionToIpython.md
+    - file: Part2-Python/Introduction2Python/3-PythonDataTypes.md
+    - file: Part2-Python/Introduction2Python/4-PythonClasses.md
+
+#     - file: Part2-Python/Introduction2VersionControl/1-GettingStartedWithGit.ipynb
+#     - file: Part2-Python/Introduction2VersionControl/2-NextStepsWithGit.ipynb
+#     - file: Part2-Python/Introduction2VersionControl/3-YourOwnRepositories.ipynb
+
+  - file: Part2-Python/NumpyAndScipy/0-NumpyAndScipy.md
+    sections: 
+    - file: Part2-Python/NumpyAndScipy/1-IntroductionToNumpy.md
+    - file: Part2-Python/NumpyAndScipy/2-Application-TheGameOfLife.md
+    - file: Part2-Python/NumpyAndScipy/3-Discussion-TheGameOfLife.md
+    - file: Part2-Python/NumpyAndScipy/4-IntroductionToScipy.md
+    - file: Part2-Python/NumpyAndScipy/5-ScipyInterpolate.md
+    - file: Part2-Python/NumpyAndScipy/6-ScipySpatialAndMeshing.md
+    - file: Part2-Python/NumpyAndScipy/7-ScipyOptimize.md
+    - file: Part2-Python/NumpyAndScipy/8-Numpy+ScipyMiscellany.md
+
+  - file: Part2-Python/Plotting/1-IntroductionToMatplotlib.md
+
+  - file: Part2-Python/Mapping/00-Maps_with_Cartopy.md
+    sections:
+    - file: Part2-Python/Mapping/0-Preliminaries.md
+    - file: Part2-Python/Mapping/1-IntroductingCartopy.md
+    - file: Part2-Python/Mapping/2-ImagesAndGeoTIFFs.md
+    - file: Part2-Python/Mapping/3-WorkingWithRealData.md
+    - file: Part2-Python/Mapping/4-ContouringGlobalData.md
+    - file: Part2-Python/Mapping/5-WorkingWithPointData.md
+    - file: Part2-Python/Mapping/6-WorkingWithShuttleRadarTopography.md
+    - file: Part2-Python/Mapping/7-WorkingWithOn-DemandMappingServices.md
+    - file: Part2-Python/Mapping/8-GlobalPlateMotionsEtc.md
+    - file: Part2-Python/Mapping/9-HimalayaRegionMapsAndImages.md
+    - file: Part2-Python/Mapping/9a-HimalayaRegionMapsAndImages-Pt2.md
+
+  - file: Part2-Python/SphericalMeshing/0-Stripy.md
+    sections: 
+    - file: Part2-Python/SphericalMeshing/CartesianTriangulations/0-Cartesian.md
+      sections: 
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex1-Cartesian-Triangulations.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex2-CartesianGrids.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex3-Interpolation.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex4-Gradients.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex5-Smoothing.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex6-Scattered-Data.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex7-Refinement-of-Triangulations.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex8-Spline-Tension.md
+      - file: Part2-Python/SphericalMeshing/CartesianTriangulations/Ex9-Voronoi-Diagram.md
+
+    - file: Part2-Python/SphericalMeshing/SphericalTriangulations/0-Spherical.md
+      sections:  
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex1-Spherical-Triangulations.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex2-SphericalGrids.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex3-Interpolation.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex4-Gradients.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex5-Smoothing.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex6-Scattered-Data.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex7-Refinement-of-Triangulations.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex8-Spline-Tension.md
+      - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex9-Voronoi-Diagram.md
+
+  # - file: Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb
+  # - file: Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb
+  # - file: Part2-Python/SolveMathProblems/2-FiniteDifferences.ipynb
+  # - file: Part2-Python/SolveMathProblems/3-AdvancedFiniteDifferences.ipynb

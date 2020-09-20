@@ -1,0 +1,9 @@
+jupyter-book
+# matplotlib
+# cartopy
+# stripy
+# litho1pt0
+# numpy
+# scipy
+# pandas
+# obspy

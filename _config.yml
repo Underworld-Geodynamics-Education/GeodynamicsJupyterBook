@@ -1,0 +1,47 @@
+# Book settings
+title: Geodynamics with Underworld
+author: Louis Moresi 
+logo: Diagrams/MundusSubterraneus.png
+exclude_patterns: ["README.md", "Notes/*", "Scripts/*"]
+
+latex:
+  latex_documents:
+    targetname: Geodynamics_with_Underworld.tex
+
+html:
+#  home_page_in_navbar option: true
+  use_repository_button: true
+
+parse:
+  myst_extended_syntax: true
+
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+repository:
+  url                       : https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook  # Online location of your book
+  branch                    : master  # Which branch of the repository should be used when creating links (optional)
+
+launch_buttons:
+  jupyterhub_url: "https://demon.underworldcloud.org"  # The URL for your JupyterHub. 
+  binderhub_url:  "https://mybinder.org"  # The URL of the BinderHub (e.g., https://mybinder.org)
+  notebook_interface: "classic" # "jupyterlab" or "classic"
+
+
+execute:
+  exclude_patterns:
+    - Part2-Python/Introduction2Python/*
+    - Part2-Python/Introduction2VersionControl/*
+    - Part2-Python/Mapping/*
+    - Part2-Python/NumpyAndScipy/*
+    - Part2-Python/NumpyAndScipy/Incomplete/*
+    - Part2-Python/Plotting/*
+    - Part2-Python/SolveMathProblems/*
+    - Part2-Python/SphericalMeshing/*    
+    - Part2-Python/SphericalMeshing/CartesianTriangulations/*    
+    - Part2-Python/SphericalMeshing/SphericalTriangulations/*    
+    - Part2-Python/SphericalMeshing/Litho1pt0/*
+
+  allow_errors : true # If `False`, when a code cell raises an error the execution is stopped, otherwise all cells are always run.
