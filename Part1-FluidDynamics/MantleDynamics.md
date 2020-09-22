@@ -1,3 +1,12 @@
+```{math}
+\newcommand{\dGamma}{\mathbf{d}\boldsymbol{\Gamma}}
+\DeclareMathOperator{\erfc}{erfc}
+\newcommand{\Red     }[1]{\textcolor[rgb]{0.7,0.0,0.0}{#1}} 
+\newcommand{\Green   }[1]{\textcolor[rgb]{0.0,0.7,0.0}{ #1}} 
+\newcommand{\Blue    }[1]{\textcolor[rgb]{0.0,0.0,0.7}{ #1}} 
+\newcommand{\Emerald }[1]{\textcolor[rgb]{0.0,0.7,0.3}{ #1}} 
+```
+
 # Non-dimensional equations & dimensionless numbers
 
 Before too long it would be a good idea to get a feeling for the flavour
@@ -53,7 +62,6 @@ flow from the hot boundary to the cool one whenever the fluid is
 moving.
 ```
 
-
 Various scalings result, with the new variables indicated using a prime
 ($'$). 
 
@@ -103,8 +111,8 @@ $$
 \end{aligned}
 $$
 
-$\rm Pr$ is known as the Prandtl number, and $\rm Ra$ is known as the
-Rayleigh number; both are non-dimensional numbers. By choosing to scale
+$\rm Pr$ is known as the **Prandtl** number, and $\rm Ra$ is known as the
+**Rayleigh** number; both are non-dimensional numbers. By choosing to scale
 the equations (and this is still perfectly general as we haven't forced
 any particular choice of scaling yet), we have condensed the different
 physical variable quantities into just two numbers. The benefit of this
@@ -133,7 +141,7 @@ considering the dynamic response of the Earth to changes in, for
 example, plate configurations.
 
 Incidentally, a third, independent dimensionless number can be derived
-for the thermally driven flow equations. This is the Nusselt number
+for the thermally driven flow equations. This is the **Nusselt** number
 
 $$ {\rm Nu} = \frac{Q}{k\Delta T} $$
 
@@ -148,12 +156,94 @@ air, $\sim$1; water, $\sim$ 6; non-conducting fluids $10^3$ or more;
 liquid metal, $\sim$0.1. Rayleigh number and Nusselt number are both
 properties of the chosen geometry.
 
+```{admonition} Exercise
+
+If the acceleration term is negligible, this means we are ignoring the
+kinetic energy of the flow (forces are always in static equilibrium). 
+
+**Estimate the kinetic energy of the Pacific Plate** and compare this
+value to the average daily energy requirement of an adult human. 
+```
+
 ## Does the Earth's rotation matter ?
 
-The effect of the Earth's rotation is very strong in the Atmosphere, Oceans
-and in the outer Core where Coriolis effects induce rotational flows. 
+The effect of the Earth's rotation is very strong in the atmosphere, oceans
+and in the outer core where Coriolis effects induce rotational flows. 
 In slow-moving, high-viscosity fluids, the effect of rotation is likely to
 be smaller, but is it negligible like the inertial term ?
+
+To answer that question, we can look at the relative magnitudes of the 
+accelerations in a rotating reference frame, $\{\hat{\mathbf{e}}_i\}$ without having to transform 
+the equations into that reference frame. The vectors are continually
+transformed by the rotation so that:
+
+$$
+\frac{d \hat{\mathbf{e}}_i}{dt} = \boldsymbol{\omega} \times \hat{\mathbf{e}}_i
+$$
+
+where $\boldsymbol{\omega}$ is the angular velocity of Earth. Then a vector in the
+rotating reference frame $\mathbf{x} \equiv \left\{ x_i \hat{\mathbf{e}}_i \right\}$
+moves at 
+
+$$
+    \left. \frac{d \mathbf{x}}{dt} \right|_0 =  \frac{d x_i}{d t} \hat{\mathbf{e}}_i + x_i \frac{d \hat{\mathbf{e}}_i}{dt}
+$$
+
+in the static reference frame. We can rewrite this as
+
+$$
+    \left. \frac{d \mathbf{x}}{dt} \right|_0 =  \mathbf{v}_R + \boldsymbol{\omega} \times \mathbf{x}
+$$
+
+where $\mathbf{v}_R$ is the velocity of a point in the rotating reference frame. We can find the
+acceleration by a further time derivative and we find this:
+
+$$
+  \boldsymbol\gamma_0 = \left. \boldsymbol\gamma \right|_R + 2 \boldsymbol{\omega} \times \mathbf{v}_R + 
+                                          \boldsymbol{\omega} \times \left(  \boldsymbol{\omega} \times \mathbf{x} \right) +
+                                          \Red{\frac{d \boldsymbol{\omega}}{dt} \times   \mathbf{x}}
+$$
+
+These are the Coriolis, centrifugal and Poincar\'e accelerations and the latter we will ignore by assuming changes in rotation 
+are negligible in the case of the modern Earth.
+
+Now we only need to consider the relative magnitude of these terms by estimating characteristic scales. The ratio of the 
+Coriolis term to the imposed gravitational acceleration is, for the Earth, 
+
+$$
+\frac{2 \omega U} {g} \approx 10^{-13}
+$$
+
+where $U$ is a typical mantle flow or plate velocity (say 10 cm/yr). Gravitational forces 
+only drive flow when density gradients are present, so a more reliable estimate of the
+relative magnitude in the case where density variations occur due to temperature would be
+
+$$
+\frac{2 \rho \omega U} {\rho \alpha \Delta T g} \approx 10^{-11}
+$$
+
+This might not be as dramatic a scale separation as for intertia, but it does suggest that the 
+Coriolis term does not play a role in mantle dynamics for the Earth. 
+
+The centrifugal acceleration term compared to the
+gravitational acceleration is
+
+$$
+\frac{\omega^2 R_\mathrm{Earth} } {g} \approx 3.10^{-3}
+$$
+
+which, is clearly not negligible in scale compared to the typical accelerations due to 
+density variations within the Earth. However, this acceleration depends only on 
+the distance from the rotation axis and not on the flow velocity. It is responsible
+for the equatorial bulge of the Earth which is, to first order, part of the hydrostatic
+balance that does not influence flow patterns.
+
+There are some more dimensionless numbers at work here. The **Rossby** number is the 
+ratio of inertial forces to Coriolis forces, and the **Eckman** number is the ratio
+of the viscous forces to Coriolis forces.
+
+
+
 
 
 ## The stream function
@@ -164,7 +254,7 @@ flow everywhere.
 The stream function is the scalar quantity,$\psi$, which satisfies
 
 $$
-    v_1 = -\frac{\partial \psi}{\partial x_2} \mbox{\hspace{1cm}}
+    v_1 = -\frac{\partial \psi}{\partial x_2} \mathrm{\hspace{1cm}}
                         v_2 = \frac{\partial \psi}{\partial x_1}
                     \label{eq:strmfn}
 $$ 
