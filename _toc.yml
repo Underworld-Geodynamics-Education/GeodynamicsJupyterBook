@@ -33,9 +33,9 @@
     - file: Part2-Python/Introduction2Python/3-PythonDataTypes.md
     - file: Part2-Python/Introduction2Python/4-PythonClasses.md
 
-#     - file: Part2-Python/Introduction2VersionControl/1-GettingStartedWithGit.ipynb
-#     - file: Part2-Python/Introduction2VersionControl/2-NextStepsWithGit.ipynb
-#     - file: Part2-Python/Introduction2VersionControl/3-YourOwnRepositories.ipynb
+    - file: Part2-Python/Introduction2VersionControl/1-GettingStartedWithGit.ipynb
+    - file: Part2-Python/Introduction2VersionControl/2-NextStepsWithGit.ipynb
+    - file: Part2-Python/Introduction2VersionControl/3-YourOwnRepositories.ipynb
 
   - file: Part2-Python/NumpyAndScipy/0-NumpyAndScipy.md
     sections: 
@@ -90,7 +90,19 @@
       - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex8-Spline-Tension.md
       - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex9-Voronoi-Diagram.md
 
-  # - file: Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb
-  # - file: Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb
-  # - file: Part2-Python/SolveMathProblems/2-FiniteDifferences.ipynb
-  # - file: Part2-Python/SolveMathProblems/3-AdvancedFiniteDifferences.ipynb
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/Ex1-Litho1Layers.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/Ex2-Litho1Properties.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/Ex3-CrustalRegionalisation.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/WorkEx1-CratonAverageProperties.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/WorkEx2-OceanDepthAge.md
+
+
+
+
+  - file: Part2-Python/SympleSympy/StartingWithSympy.md
+
+  - file: Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb
+    sections:
+    - file: Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb
+    - file: Part2-Python/SolveMathProblems/2-FiniteDifferences.ipynb
+    - file: Part2-Python/SolveMathProblems/3-AdvancedFiniteDifferences.ipynb

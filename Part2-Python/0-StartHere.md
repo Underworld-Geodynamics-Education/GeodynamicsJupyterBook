@@ -8,13 +8,13 @@ A notebook-based introduction to python, jupyter notebooks and programming workf
 
 The material is broken down into a number of sections of, approximately, increasing difficulty. 
 
-  1. [Introduction to python / jupyter](Introduction2Python/1-IntroductionToJupyterNotebooks.ipynb)
-  2. [Introduction to version control with git](Introduction2VersionControl/1-GettingStartedWithGit.ipynb)
-  3. [Getting Started with Numpy / Scipy](Numpy+Scipy/1-IntroductionToNumpy.ipynb)
-  4. [Introduction to Matplotlib](Plotting/1-IntroductionToMatplotlib.ipynb)
-  5. [Stripy for meshing / mapping the Sphere](SphericalMeshing/SphericalTriangulations/Ex1-Spherical-Triangulations.ipynb)
-  6. [Making beautiful and useful maps with Cartopy](Mapping/0-Preliminaries.ipynb)
-  7. [Finite Differences with numpy](SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb)
+  1. [Introduction to python / jupyter](Introduction2Python/1-IntroductionToJupyterNotebooks.md)
+  2. [Introduction to version control with git](Introduction2VersionControl/1-GettingStartedWithGit.md)
+  3. [Getting Started with Numpy / Scipy](Numpy+Scipy/1-IntroductionToNumpy.md)
+  4. [Introduction to Matplotlib](Plotting/1-IntroductionToMatplotlib.md)
+  5. [Stripy for meshing / mapping the Sphere](SphericalMeshing/SphericalTriangulations/Ex1-Spherical-Triangulations.md)
+  6. [Making beautiful and useful maps with Cartopy](Mapping/0-Preliminaries.md)
+  7. [Finite Differences with numpy](SolveMathProblems/0-IntroductionToNumericalSolutions.md)
   
 
 *Description*

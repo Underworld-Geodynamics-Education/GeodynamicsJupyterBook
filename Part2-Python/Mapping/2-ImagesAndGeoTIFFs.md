@@ -57,7 +57,7 @@ What if we want to use a different projection for the image. For example, we mig
 
 Let's try what we used before to plot with a different projection. Specifically, let's try an orthographic projection which should wrap the image around a sphere and show us the disk from a particular orientation. Here is one I made earlier ... the output should look like this:
 
-<img src="../../Data/Reference/OrthographicProjectionBlueMarble.png" width=30%>
+<img src="../Images/OrthographicProjectionBlueMarble.png" width=30%>
 
 ```{code-cell} ipython3
 fig = plt.figure(figsize=(12, 12), facecolor="none")

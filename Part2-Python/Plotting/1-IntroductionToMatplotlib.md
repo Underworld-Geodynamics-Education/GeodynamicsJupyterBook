@@ -17,7 +17,7 @@ So far we have seen some of the built in `pylab` code in notebooks for making pl
 
 A more general interface is available and a more structured approach to using `matplotlib` is helpful.
 
-   - [PDF documentation](../../Documentation/Matplotlib-user-2.0.0.pdf)
+<!-->   - [PDF documentation](../../Documentation/Matplotlib-user-2.0.0.pdf) -->
    - [Online gallery / cookbook](http://matplotlib.org/gallery.html)
    
 Matplotlib fully embraces the python object-oriented model, but for some tasks the design of the object hierarchy is a little bit counter-intuitive. It's best to find a common pattern for building plots and stick to it. 
