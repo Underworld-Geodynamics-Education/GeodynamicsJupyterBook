@@ -87,7 +87,17 @@ phi.simplify()
 S.subs(X, 8)
 ```
 
-## Differentiation / Integration
+```{code-cell} ipython3
+S.subs(X, -8)
+```
+
+```{code-cell} ipython3
+:tags: [raises-exception]
+
+np.sqrt(-8)
+```
+
+# Differentiation / Integration
 
 ```{code-cell} ipython3
 Ds = S.diff(X)
@@ -105,16 +115,3 @@ Ds.integrate((X,2,3))
 ```{code-cell} ipython3
 
 ```
-
-## Example
-
-Show that $ s = s_0 \cos \omega t $ is a solution of the equation of motion:
-
-$$ \frac{d^2 s}{dt^2} = -\frac{k}{m} s $$
-
-```{code-cell} ipython3
-  S = sympy.sqrt(X)
-S
-
-```
-

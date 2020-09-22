@@ -158,11 +158,12 @@ properties of the chosen geometry.
 
 ```{admonition} Exercise
 
-If the acceleration term is negligible, this means we are ignoring the
-kinetic energy of the flow (forces are always in static equilibrium). 
+If the acceleration term is ignored, it means we are assuming the
+kinetic energy of the flow is small (forces are always in static equilibrium). 
 
 **Estimate the kinetic energy of the Pacific Plate** and compare this
-value to the average daily energy requirement of an adult human. 
+value to the average daily energy requirement of an adult human. Also compare this
+to the heat lost by the Earth in a day.
 ```
 
 ## Does the Earth's rotation matter ?
