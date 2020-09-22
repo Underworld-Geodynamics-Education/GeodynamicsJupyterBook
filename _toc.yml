@@ -33,9 +33,9 @@
     - file: Part2-Python/Introduction2Python/3-PythonDataTypes.md
     - file: Part2-Python/Introduction2Python/4-PythonClasses.md
 
-    - file: Part2-Python/Introduction2VersionControl/1-GettingStartedWithGit.ipynb
-    - file: Part2-Python/Introduction2VersionControl/2-NextStepsWithGit.ipynb
-    - file: Part2-Python/Introduction2VersionControl/3-YourOwnRepositories.ipynb
+    - file: Part2-Python/Introduction2VersionControl/1-GettingStartedWithGit.md
+    - file: Part2-Python/Introduction2VersionControl/2-NextStepsWithGit.md
+    - file: Part2-Python/Introduction2VersionControl/3-YourOwnRepositories.md
 
   - file: Part2-Python/NumpyAndScipy/0-NumpyAndScipy.md
     sections: 

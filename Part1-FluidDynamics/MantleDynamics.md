@@ -148,6 +148,14 @@ air, $\sim$1; water, $\sim$ 6; non-conducting fluids $10^3$ or more;
 liquid metal, $\sim$0.1. Rayleigh number and Nusselt number are both
 properties of the chosen geometry.
 
+## Does the Earth's rotation matter ?
+
+The effect of the Earth's rotation is very strong in the Atmosphere, Oceans
+and in the outer Core where Coriolis effects induce rotational flows. 
+In slow-moving, high-viscosity fluids, the effect of rotation is likely to
+be smaller, but is it negligible like the inertial term ?
+
+
 ## The stream function
 
 For incompressible flows in two dimensions it can be very convenient to

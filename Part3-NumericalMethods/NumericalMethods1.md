@@ -127,12 +127,10 @@ $$
 Which we can solve to give this:
 
  $$ 
- 
     \begin{split}
             \beta &= \left( 4 \theta_n - \theta_{n+1} - 3\theta_{n-1} \right) \frac{1}{2\Delta t} \\
             \gamma &= \left( \theta_{n+1} + \theta_{n-1} -2 \theta_n \right) \frac{1}{2\Delta t^2} 
     \end{split}
- 
 $$
 
 By substituting into \\( (\ref{eq:dthdt2}) \\), and then into the original differential equation \\( (\ref{eq:ode_decay}) \\) we obtain the following
@@ -140,14 +138,12 @@ By substituting into \\( (\ref{eq:dthdt2}) \\), and then into the original diffe
 $$        
             \left. \frac{d\theta}{dt} \right|_{t=n\Delta t} = \beta + 2\gamma \Delta t =
                 \frac{1}{2\Delta t} \left( \theta_{n+1} - \theta_{n-1} \right)  = -k \theta_n 
- 
 $$
 
 The difference approximation to the derivative turns out to be the average of the expressions for the previous derivative and the new derivative. We have now included information about the current timestep and the previous timestep in our expression for the value of $\theta$ at the forthcoming timestep: 
-$$ 
 
+$$ 
          \theta_{n+1} = \theta_{n-1} -2k \theta_n \Delta t
- 
 $$
 
 ### A comparison of the two schemes
@@ -168,12 +164,10 @@ How well do these two methods perform, and what difference does the choice of $\
 |   0.8 |   0.4096     | 0.4305       | 0.4688        | 0.4543         | 0.4483   |
 |   0.9 |   ---        | 0.3874       | ---           | 0.4001         | 0.4066   |
 |   1.0 |   0.3277     | 0.3487       | 0.3405        | 0.3743         | 0.3679   |
-[Results of the numerical simulation of the decay equation. $^1\theta_H$ is from the first order expansion of $\theta(t)$, at a timestep of $\Delta t=0.2$, and $^2\theta_H$ is the second order expansion at $\Delta t=0.2$; other calculations are at $\Delta t = 0.1$. $^1\theta_h$ is the linear expansion,  $^2\theta_h$ results from the quadratic expansion of $\theta(t)$. The actual solution is also shown.][table-two-schemes]
+
+Results of the numerical simulation of the decay equation. $^1\theta_H$ is from the first order expansion of $\theta(t)$, at a timestep of $\Delta t=0.2$, and $^2\theta_H$ is the second order expansion at $\Delta t=0.2$; other calculations are at $\Delta t = 0.1$. $^1\theta_h$ is the linear expansion,  $^2\theta_h$ results from the quadratic expansion of $\theta(t)$. The actual solution is also shown.
 
 The results are more accurate when a smaller timestep is used although it requires more computation to achieve the greater accuracy. Higher order expansion also increases the accuracy and may be more efficient in terms of the number of computations required for a given level of accuracy. Note, however, that the supposedly better quadratic expansion produces an error which oscillates as time increases. Does this error grow ? Does this make second order expansions useless ?
-
-
-
 
 ### Second Order Runge-Kutta
 
@@ -185,21 +179,23 @@ The results are more accurate when a smaller timestep is used although it requir
 The Runge-Kutta approach to higher order integration methods is [illustrated in the figure](#rk2). The idea is to estimate the gradient $d \theta / d t$ at the half way point between two timestep values.  This is done in two stages. Initially a first order estimate, $\hat{\theta}$ is made for the value of the function $\theta$ at $t=t+\Delta t /2$ in the future. This value is then subsituted into the differential equation to obtain the estimate for the gradient at this time. The revised gradient is then used to update the original $\theta(t)$ by an entire timestep.
 
 The first order step is
-$$ 
 
+$$ 
     \begin{split}
         \hat{\theta}(t+\Delta t /2) & = \theta(t) + \left.  \frac{d \theta}{d t} \right|_t \frac{\Delta t}{2} \\
             &= \theta(t) \left[ 1-\frac{k\Delta t}{2} \right]
     \end{split}
- 
 $$
+
 Substitute to estimate the gradient at the mid-point
+
 $$ 
      \left. \frac{d \theta}{d t} \right|_{t+\Delta t /2} \approx -k \theta(t)  \left[ 1-\frac{k\Delta t}{2} \right]
- 
 $$
+
 Use this value as the average gradient over the interval $t\rightarrow t+\Delta t$ to
 update $\theta$
+
 $$ 
     \begin{split}
         \theta(t+\Delta t) & \approx \theta(t) + \delta t \left(  -k \theta(t)  \left[ 1-\frac{k\Delta t}{2} \right]  \right) \\
@@ -207,10 +203,12 @@ $$
     \end{split}
  
 $$
+
 It's worth noting that the Taylor expansion of the solution should look like
+
 $$ 
     e^{-kt} = 1 - kt + \frac{k^2 t^2}{2!} - \frac{k^3 t^3}{3!} + \ldots
- $$
+$$
 
 The Runge Kutta method can be extended by repeating the estimates on smaller regions of the interval. The usual choice is fourth order RK. This is largely because, obviously, it's accurate to fourth order, but also because the number of operations to go higher than fourth order is disproportionately large. See Numerical Recipes for a discussion on this and better methods for ODE's.
 
@@ -218,7 +216,7 @@ The Runge Kutta method can be extended by repeating the estimates on smaller reg
 
 The simplest way to answer our earlier question is to code the methods and see. The following is a script which computes the first and second order expressions and the Runge-Kutta method, and compares with the "exact" solution (which is numerical as well, of course, but computed through series expansions and the like).
 
-```
+```{code} python
 # Compare various ways to integrate the 
 # ODE for radioactive decay / Newton's law of cooling.
 # Assume decay constant of 1.0
