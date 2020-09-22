@@ -1,6 +1,6 @@
 # Geodynamics With Underworld
 
-A jupyterbook introducing [Computational Geodynamics with Underworld and Python](https://underworld-geodynamics-education.github.io/GeodynamicsJupyterBook/FrontPage.html) with live examples in the underworld cloud.
+A jupyterbook introducing [Computational Geodynamics with Underworld and Python](https://ANU-RSES-Education.github.io/GeodynamicsJupyterBook/FrontPage.html) with live examples in the underworld cloud.
 
 
 ![{figure}](Diagrams/MundusSubterraneus.png)
