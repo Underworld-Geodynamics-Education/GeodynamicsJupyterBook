@@ -1,4 +1,3 @@
-
 # Geodynamics with Underworld
 
 ```{figure} Diagrams/MundusSubterraneus.png

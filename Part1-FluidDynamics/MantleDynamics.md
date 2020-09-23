@@ -164,6 +164,8 @@ kinetic energy of the flow is small (forces are always in static equilibrium).
 **Estimate the kinetic energy of the Pacific Plate** and compare this
 value to the average daily energy requirement of an adult human. Also compare this
 to the heat lost by the Earth in a day.
+
+Does this mean that you could eat an extra-large breakfast and then stop plate tectonics ?
 ```
 
 ## Does the Earth's rotation matter ?
@@ -200,7 +202,7 @@ where $\mathbf{v}_R$ is the velocity of a point in the rotating reference frame.
 acceleration by a further time derivative and we find this:
 
 $$
-  \boldsymbol\gamma_0 = \left. \boldsymbol\gamma \right|_R + 2 \boldsymbol{\omega} \times \mathbf{v}_R + 
+  \boldsymbol\gamma_0 =  \boldsymbol\gamma_R + 2 \boldsymbol{\omega} \times \mathbf{v}_R + 
                                           \boldsymbol{\omega} \times \left(  \boldsymbol{\omega} \times \mathbf{x} \right) +
                                           \Red{\frac{d \boldsymbol{\omega}}{dt} \times   \mathbf{x}}
 $$
@@ -208,8 +210,7 @@ $$
 These are the Coriolis, centrifugal and Poincar\'e accelerations and the latter we will ignore by assuming changes in rotation 
 are negligible in the case of the modern Earth.
 
-Now we only need to consider the relative magnitude of these terms by estimating characteristic scales. The ratio of the 
-Coriolis term to the imposed gravitational acceleration is, for the Earth, 
+Now we only need to consider the relative magnitude of these terms by estimating characteristic scales. The ratio of the Coriolis term to the imposed gravitational acceleration is, for the Earth, 
 
 $$
 \frac{2 \omega U} {g} \approx 10^{-13}

@@ -4,6 +4,8 @@
 - part: Introduction and Background
   chapters:
   - file: Part0-Introduction/Introduction.md 
+  - file: Part0-Introduction/PlateTectonics.md 
+  - file: Part0-Introduction/Observations+Planets.md 
 
 - part: Mathematical Fluid Dynamics
   chapters:
