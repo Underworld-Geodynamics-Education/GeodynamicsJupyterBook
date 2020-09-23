@@ -11,6 +11,7 @@ dependencies:
     - cartopy==0.17.*
     - obspy
     - pandas
+    - xarray 
     - sympy
     - stripy==2.0.2
     - litho1pt0

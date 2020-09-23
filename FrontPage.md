@@ -1,5 +1,6 @@
 # Geodynamics with Underworld
 
+
 ```{figure} Diagrams/MundusSubterraneus.png
 ---
 width: 150mm

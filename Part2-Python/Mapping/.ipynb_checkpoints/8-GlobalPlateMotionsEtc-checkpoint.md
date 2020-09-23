@@ -20,17 +20,7 @@ Figure 1 from my SIAM News publication in 2015: http://www.moresi.info/posts/Com
 
 _The surface of the Earth is continually moving in response to convection currents in the underlying mantle. A map of the surface velocities shows the motions are organised into a strikingly simple pattern of surface "plates" that are almost rigid bodies. The surface strain rate - coloured contours - is concentrated at the plate boundaries. On closer inspection, there are many regions within the continental crust where the motions are diffuse, not at all plate-like. The arrows are colored by their angle to North as a means of distinguishing the different plates. The scale is such that the longest vector represents 10cm/yr._
 
-The image is composed of a background grayscale topography / bathymetry map, plate motion vectors (in a Europe-fixed frame) and contours of the observed strain rate second invariant. These data are available after running [Notebook 0](/notebooks/Mapping/0%20-%20Preliminaries.ipynb#) to download / install everything. 
-
-```{code-cell} ipython3
-:solution: hidden
-
-%%sh
-
-# This will run notebook 0 to download all the required data for this example. 
-
-runipy '0 - Preliminaries.ipynb' --quiet 
-```
+The image is composed of a background grayscale topography / bathymetry map, plate motion vectors (in a Europe-fixed frame) and contours of the observed strain rate second invariant. These data are available after running [Notebook 0](/notebooks/Mapping/0%20-%20Preliminaries.ipynb#) to download / install everything.
 
 ```{code-cell} ipython3
 %pylab inline
@@ -47,7 +37,6 @@ from scipy.io import netcdf
 ```
 
 ```{code-cell} ipython3
-
 # The colormap routine creates enormous arrays in intermediary calculations. This is
 # a way to avoid memory errors: process to RGB (int8) in advance
 
@@ -70,7 +59,7 @@ base_projection     = ccrs.PlateCarree()
 global_extent     = [-180.0, 180.0, -90.0, 90.0]
 
 strainrate_extent=[-180,180,-68,80]
-strainrate = numpy.loadtxt("../../Data/Resources/sec_invariant_strain_0.2.dat")
+strainrate = numpy.loadtxt("Resources/sec_invariant_strain_0.2.dat")
 strainrate_data = strainrate.reshape(741,1800,3)  # I had to look at the data to work this out !
 # strainrate_img  = strainrate_data[:,:,2] # Not actually used here !
 ```
@@ -81,7 +70,7 @@ strainrate_data = strainrate.reshape(741,1800,3)  # I had to look at the data to
 
 # Etopo Height field as geotiff
 
-etopoH = gdal.Open("../../Data/Resources/ETOPO1_Ice_c_geotiff.tif") 
+etopoH = gdal.Open("Resources/ETOPO1_Ice_c_geotiff.tif") 
 etopoH_img = etopoH.ReadAsArray()[::2,::2].astype(numpy.float16)
 del(etopoH)
 
@@ -135,7 +124,7 @@ graticules_5 = cfeature.NaturalEarthFeature('physical', 'graticules_5', '10m',
 ```{code-cell} ipython3
 ## Reading the velocity vector data from the EU-fixed dataset
 
-rootgrp = netcdf.netcdf_file(filename="../../Data/Reference/velocity_NNR.nc", version=2)
+rootgrp = netcdf.netcdf_file(filename="Resources/velocity_NNR.nc", version=2)
 
 ve = rootgrp.variables["ve"]
 vn = rootgrp.variables["vn"]
@@ -201,11 +190,11 @@ fig.savefig("PlateMotionsMollweide.png", dpi=500)
 ```{code-cell} ipython3
 ## This was an alternative to the background image which I thought might look good:
 
-globalrelief      = gdal.Open("../../Data/Resources/HYP_50M_SR_W/HYP_50M_SR_W.tif")
+globalrelief      = gdal.Open("Resources/HYP_50M_SR_W/HYP_50M_SR_W.tif")
 globalrelief_img  = globalrelief.ReadAsArray().transpose(1,2,0)
 del(globalrelief)
 
-globalbathym      = gdal.Open("../../Data/Resources/OB_50M/OB_50M.tif")
+globalbathym      = gdal.Open("Resources/OB_50M/OB_50M.tif")
 globalbathym_img  = globalbathym.ReadAsArray().transpose(1,2,0)
 del(globalbathym)
 
@@ -224,7 +213,6 @@ fig = plt.figure(figsize=(12, 6), facecolor="none")
 ax = plt.axes(projection=base_projection)
 ax.imshow(blended_img[::1,::1], transform=ccrs.PlateCarree(), origin="upper", 
           alpha=1.0, extent=global_extent,  zorder=0)
-
 ```
 
 ```{code-cell} ipython3

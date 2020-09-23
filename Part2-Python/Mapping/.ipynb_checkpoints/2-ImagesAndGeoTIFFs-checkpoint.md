@@ -3,8 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -27,7 +27,11 @@ import matplotlib.pyplot as plt
 ```
 
 ```{code-cell} ipython3
-globalmarble      = gdal.Open("../../Data/Resources/BlueMarbleNG-TB_2004-06-01_rgb_3600x1800.TIFF")
+!ls Resources/
+```
+
+```{code-cell} ipython3
+globalmarble      = gdal.Open("Resources/BlueMarbleNG-TB_2004-12-01_rgb_3600x1800.TIFF")
 globalmarble_img  = globalmarble.ReadAsArray().transpose(1,2,0)
 
 # Note that we convert the gdal object into an image array - and also have to re-organise the data 
@@ -57,7 +61,7 @@ What if we want to use a different projection for the image. For example, we mig
 
 Let's try what we used before to plot with a different projection. Specifically, let's try an orthographic projection which should wrap the image around a sphere and show us the disk from a particular orientation. Here is one I made earlier ... the output should look like this:
 
-<img src="../../Data/Reference/OrthographicProjectionBlueMarble.png" width=30%>
+<img src="../Images/OrthographicProjectionBlueMarble.png" width=30%>
 
 ```{code-cell} ipython3
 fig = plt.figure(figsize=(12, 12), facecolor="none")
@@ -85,12 +89,12 @@ Feel free to play with these data which are global magnetic intensity, the globa
 ```{code-cell} ipython3
 base_projection   = ccrs.PlateCarree() 
 
-globalmag         = gdal.Open("../../Data/Resources/EMAG2_image_V2.tif")
+globalmag         = gdal.Open("Resources/EMAG2_image_V2_no_compr.tif")
 globalmag_img     = globalmag.ReadAsArray().transpose(1,2,0)
 globalmag_img_s   = globalmag_img[::2,::2,::]
 del(globalmag)
 
-globaletopo       = gdal.Open("../../Data/Resources/color_etopo1_ice_low.tif")
+globaletopo       = gdal.Open("Resources/color_etopo1_ice_low.tif")
 globaletopo_img   = globaletopo.ReadAsArray().transpose(1,2,0)
 del(globaletopo)
 ```

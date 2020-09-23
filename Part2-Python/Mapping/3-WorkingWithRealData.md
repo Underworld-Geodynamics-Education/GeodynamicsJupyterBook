@@ -17,7 +17,6 @@ Here I am going to show you how to make a map of magnetic intensity using 2 diff
 
 We'll use that dataset in conjunction with the global magnetic dataset I already gave you.
 
-
 ```{code-cell} ipython3
 %pylab inline
 import gdal
@@ -28,7 +27,7 @@ import matplotlib.pyplot as plt
 
 ```{code-cell} ipython3
 base_projection   = ccrs.PlateCarree() 
-globalmag         = gdal.Open("../../Data/Resources/EMAG2_image_V2.tif")
+globalmag         = gdal.Open("Resources/EMAG2_image_V2_no_compr.tif")
 globalmag_img     = globalmag.ReadAsArray().transpose(1,2,0)
 del(globalmag)
 ```
@@ -36,7 +35,7 @@ del(globalmag)
 ```{code-cell} ipython3
 # High resolution total magnetic intensity image map for Australia's land mass (with background masked)
 
-austmag      = gdal.Open("../../Data/Resources/AusMagAll.tiff")
+austmag      = gdal.Open("Resources/AusMagAll.tiff")
 austmag_img  = austmag.ReadAsArray().transpose(1,2,0)    
 
 ## Note that we can use the metadata to find the span of the data in the image
@@ -115,7 +114,6 @@ coastline = cfeature.NaturalEarthFeature('physical', 'coastline', '50m',
 ```
 
 ```{code-cell} ipython3
-
 fig = plt.figure(figsize=(12, 12), facecolor="none")
 ax  = plt.axes(projection=ccrs.PlateCarree())
 ax.set_extent(austmag_extent)

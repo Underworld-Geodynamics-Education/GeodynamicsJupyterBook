@@ -20,7 +20,6 @@ This figure requires the plate motion file and no enormous raster data !
 
 Caption, Figure 2 - _One of the most dramatic departures from plate-like deformation on Earth occurs where the Indian subcontinent is colliding with the Eurasian continent. The map on the left is a satellite image with the flow lines from the plate motion vector field drawn in red. On the right is the same region showing 50 years of earthquake data for events larger than magnitude 4.5, colored by depth and superimposed on the strain rate._
 
-
 ```{code-cell} ipython3
 :hide_input: false
 
@@ -212,12 +211,10 @@ graticules_5 = cfeature.NaturalEarthFeature('physical', 'graticules_5', '10m',
 #     eq_origins[ev,2] = dict(event.origins[0])['depth']
 #     eq_origins[ev,3] = dict(event.magnitudes[0])['mag']
 #     eq_origins[ev,4] = (dict(event.origins[0])['time']).date.year
-
 ```
 
 ```{code-cell} ipython3
-
-rootgrp = netcdf.netcdf_file(filename="../../Data/Reference/velocity_EU.nc", version=2)
+rootgrp = netcdf.netcdf_file(filename="Resources/velocity_EU.nc", version=2)
 
 ve = rootgrp.variables["ve"]
 vn = rootgrp.variables["vn"]
@@ -259,7 +256,6 @@ stamen_Artist = cimgt.Stamen('watercolor')
 google_maps_street = cimgt.GoogleTiles(style="street") 
 google_maps_satellite = cimgt.GoogleTiles(style="satellite") 
 google_maps_terrain = cimgt.GoogleTiles(style="terrain") 
-
 ```
 
 ```{code-cell} ipython3
@@ -272,7 +268,7 @@ from matplotlib.transforms import offset_copy
 import cartopy.crs as ccrs
 
 # import gdal
-# from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
+from cartopy.mpl.gridliner import LONGITUDE_FORMATTER, LATITUDE_FORMATTER
 import matplotlib.ticker as mticker
 
 
@@ -297,7 +293,7 @@ ax.set_extent(himalaya_extent)
 ax.streamplot(lons, lats, Veast, Vnorth, linewidth=0.25, color='black', 
               cmap=cm.gray_r, density=5.0, transform=ccrs.PlateCarree(), zorder=0, arrowstyle='-')
 
-ax.add_image(map_tiles, 5, alpha=0.85, zorder=2)
+ax.add_image(map_tiles, 5)
 
 streamlines = ax.streamplot(lons, lats, Veast, Vnorth, linewidth=1+Vspeed*0.05, color='#883300', cmap=cm.Reds_r,
               transform=ccrs.PlateCarree(), zorder=4)
@@ -350,10 +346,9 @@ ax = plt.axes(projection=map_tiles.crs)
 
 ax.set_extent(himalaya_region_extent)
 
-ax.add_image(map_tiles, 5, alpha=0.45, zorder=2)
+ax.add_image(map_tiles, 5)
 
 ax.add_feature(coastline, linewidth=1.5,  edgecolor="Black", zorder=1)
-
 
 ```
 

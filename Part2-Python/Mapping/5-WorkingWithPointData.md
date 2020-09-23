@@ -26,19 +26,19 @@ import cartopy.feature as cfeature
 
 import matplotlib.pyplot as plt
 import numpy
-import imageio 
+import gdal 
 ```
 
 ```{code-cell} ipython3
 base_projection     = ccrs.PlateCarree() 
 global_extent     = [-180.0, 180.0, -90.0, 90.0]
-globalmag         = gdal.Open("../../Data/Resources/EMAG2_image_V2.tif")
+globalmag         = gdal.Open("Resources/EMAG2_image_V2_no_compr.tif")
 globalmag_img     = globalmag.ReadAsArray().transpose(1,2,0)
-globalmarble      = gdal.Open("../../Data/Resources/BlueMarbleNG-TB_2004-06-01_rgb_3600x1800.TIFF")
+globalmarble      = gdal.Open("Resources/BlueMarbleNG-TB_2004-12-01_rgb_3600x1800.TIFF")
 globalmarble_img  = globalmarble.ReadAsArray().transpose(1,2,0)
-globaletopo       = gdal.Open("../../Data/Resources/color_etopo1_ice_low.tif")
+globaletopo       = gdal.Open("Resources/color_etopo1_ice_low.tif")
 globaletopo_img   = globaletopo.ReadAsArray().transpose(1,2,0)
-globaletopobw       = gdal.Open("../../Data/Resources/etopo1_grayscale_hillshade.tif")
+globaletopobw       = gdal.Open("Resources/etopo1_grayscale_hillshade.tif")
 globaletopobw_img   = globaletopobw.ReadAsArray()[::3,::3] / 256.0
 ```
 
@@ -69,7 +69,7 @@ import json
 
 # 1 Global
 
-earthquakes_datafile=open('../../Data/Resources/Earthquakes-2000-2014-5.5+.json')
+earthquakes_datafile=open('Resources/EQs/Earthquakes-2000-2014-5.5+.json')
 earthquakes_data = json.load(earthquakes_datafile)
 earthquakes_datafile.close()
 earthquakes = earthquakes_data["features"]
@@ -91,7 +91,7 @@ print ("Global magnitude range: ", eqmag.min()," - ", eqmag.max())
     
 # 2 Australian
 
-earthquakes_datafile=open('../../Data/Resources/Earthquakes-AusRegion-2000-2014-4.8-5.5+.json')
+earthquakes_datafile=open('Resources/EQs/Earthquakes-AusRegion-2000-2014-4.8-5.5+.json')
 earthquakes_data = json.load(earthquakes_datafile)
 earthquakes_datafile.close()
 earthquakes = earthquakes_data["features"]
@@ -112,14 +112,14 @@ print ("Aus Region magnitude range: ", ausqmag.min()," - ", ausqmag.max())
 
 #3 Japanese - Earthquakes-JapanRegion-2009-2014-4.5+.json
 
-earthquakes_datafile=open('../../Data/Resources/Earthquakes-JapanRegion-2009-2014-4.5+.json')
+earthquakes_datafile=open('Resources/EQs/Earthquakes-JapanRegion-2009-2014-4.5+.json')
 earthquakes_data = json.load(earthquakes_datafile)
 earthquakes_datafile.close()
 earthquakes = earthquakes_data["features"]
 
 #3+ South of 30 degrees: Earthquakes-IBMRegion-1990-2014-3+.json
 
-earthquakes_datafile=open('../../Data/Resources/Earthquakes-IBMRegion-1990-2014-3+.json')
+earthquakes_datafile=open('Resources/EQs/Earthquakes-IBMRegion-1990-2014-3+.json')
 earthquakes_data = json.load(earthquakes_datafile)
 earthquakes_datafile.close()
 
@@ -144,7 +144,7 @@ norm_eqdep = matplotlib.colors.Normalize(vmin = 0.0, vmax = 200, clip = False)
 #4 Yakutat EQ
 
 
-earthquakes_datafile=open('../../Data/Resources/Earthquakes-YakutatRegion-1990-2014-3+.json')
+earthquakes_datafile=open('Resources/EQs/Earthquakes-YakutatRegion-1990-2014-3+.json')
 earthquakes_data = json.load(earthquakes_datafile)
 earthquakes_datafile.close()
 earthquakes = earthquakes_data["features"]
@@ -162,7 +162,7 @@ for i, eq in enumerate(earthquakes):
 print ("Yakutat Region depth range:     ", yakqdep.min()," - ", yakqdep.max())
 print ("Yakutat Region magnitude range: ", yakqmag.min()," - ", yakqmag.max())
 
-earthquakes_datafile=open('../../Data/Resources/Earthquakes-MeditRegion-1990-2014-3+.json')
+earthquakes_datafile=open('Resources/EQs/Earthquakes-MeditRegion-1990-2014-3+.json')
 earthquakes_data = json.load(earthquakes_datafile)
 earthquakes_datafile.close()
 earthquakes = earthquakes_data["features"]
@@ -199,7 +199,7 @@ ax.imshow(globaletopo_img, origin='upper', transform=base_projection, extent=glo
 ax.imshow(globaletopobw_img, origin='upper', cmap=mpl.cm.Greys, transform=base_projection, extent=global_extent, alpha=0.75, zorder=1)
 
 plt.scatter(itqlon, itqlat, c=itqdep, cmap=mpl.cm.jet_r, norm=norm_eqdep, linewidth=0, 
-            s=(itqmag-3.0)*10, transform=ccrs.Geodetic(), alpha=0.333, zorder=2)
+            s=(itqmag-3.0)*10, transform=ccrs.PlateCarree(), alpha=0.333, zorder=2)
 
 plt.show()
 ```
@@ -221,13 +221,12 @@ ax.imshow(globaletopo_img, origin='upper', transform=base_projection, extent=glo
 ax.imshow(globaletopobw_img, origin='upper', cmap=mpl.cm.Greys, transform=base_projection, extent=global_extent, alpha=0.85, zorder=1)
 
 plt.scatter(itqlon, itqlat, c=itqdep, cmap=mpl.cm.jet_r, norm=norm_eqdep, linewidth=0, 
-            s=(itqmag-3.0)*10, transform=ccrs.Geodetic(), alpha=0.333, zorder=2)
+            s=(itqmag-3.0)*10, transform=ccrs.PlateCarree(), alpha=0.333, zorder=2)
 
 
 plt.savefig("ItaliaEq.png")
 
 plt.show()
-
 ```
 
 ```{code-cell} ipython3
@@ -236,7 +235,7 @@ plt.show()
 datasize = (1801, 3601, 3)
 age_data = np.empty(datasize)
 
-ages = np.load("../../Data/Resources/global_age_data.3.6.z.npz")["ageData"]
+ages = np.load("Resources/global_age_data.3.6.z.npz")["ageData"]
 
 lats = np.linspace(90, -90, datasize[0])
 lons = np.linspace(-180.0,180.0, datasize[1])
@@ -246,7 +245,6 @@ arrlons,arrlats = np.meshgrid(lons, lats)
 age_data[...,0] = arrlons[...]
 age_data[...,1] = arrlats[...]
 age_data[...,2] = ages[...]
-
 ```
 
 ```{code-cell} ipython3
@@ -276,10 +274,9 @@ contour(age_data[:,:,0], age_data[:,:,1], age_data[:,:,2], levels = (0.1,0.5), c
 
 
 plt.scatter(eqlon, eqlat, c=eqdep, cmap=mpl.cm.jet_r, norm=norm_eqdep, linewidth=0.33, 
-            s=(eqmag-5.5)*10, transform=ccrs.Geodetic(), alpha=0.7, zorder=2)
+            s=(eqmag-5.5)*10, transform=ccrs.PlateCarree(), alpha=0.7, zorder=2)
 
 plt.savefig("GlobalAgeMapEq.png", dpi=600, frameon=False, edgecolor="none", facecolor="none", bbox_inches='tight', pad_inches=0.0)
-
 
 
 ```
@@ -300,7 +297,7 @@ contour(age_data[:,:,0], age_data[:,:,1], age_data[:,:,2], levels = (0.1,0.5), c
 
 
 plt.scatter(ausqlon, ausqlat, c=ausqdep, cmap=mpl.cm.jet_r, norm=norm_eqdep, linewidth=0, 
-            s=(ausqmag-4.0)*25, transform=ccrs.Geodetic(), alpha=0.5, zorder=3)
+            s=(ausqmag-4.0)*25, transform=ccrs.PlateCarree(), alpha=0.5, zorder=3)
 
 
 plt.show()
@@ -326,7 +323,6 @@ plt.plot([-0.08, 132], [51.53, 43.17],
          transform=ccrs.PlateCarree(), color="Green", linewidth=2)
 plt.plot([-0.08, 132], [51.53, 43.17], 
          transform=ccrs.Geodetic(), color="Blue", linewidth=3)
-
 ```
 
 ```{code-cell} ipython3
@@ -366,14 +362,5 @@ ax.plot(x, y, marker='o', transform=ccrs.Geodetic())
 ax.fill(xx, yy,  color='coral', alpha=0.4, transform=ccrs.Geodetic())
 ax.gridlines()
 plt.show()
-
-
-```
-
-```{code-cell} ipython3
-
-```
-
-```{code-cell} ipython3
 
 ```

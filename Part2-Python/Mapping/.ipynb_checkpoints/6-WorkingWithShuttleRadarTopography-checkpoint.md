@@ -17,8 +17,6 @@ The SRTM project provides a global land elevation model at a resolution of (roug
 
 For more information on the project: http://www2.jpl.nasa.gov/srtm/
 
-
-
 ```{code-cell} ipython3
 %pylab inline
 
@@ -222,7 +220,7 @@ ax.add_feature(coastline)
 
 from cartopy.io import srtm as csrtm
 
-globaletopo       = gdal.Open("../../Data/Resources/color_etopo1_ice_low.tif")
+globaletopo       = gdal.Open("Resources/color_etopo1_ice_low.tif")
 globaletopo_img   = globaletopo.ReadAsArray().transpose(1,2,0)
 
 def shade(located_elevations):
@@ -308,7 +306,6 @@ ax.add_feature(coastline, edgecolor="black", linewidth=1, zorder=3)
 ax.add_feature(ocean,  zorder=4, alpha = 0.25)
 
 
-
 # This data is high resolution, so pick a small area which has some
 # interesting orography.
 
@@ -323,9 +320,7 @@ fig.savefig("LA_Basin_ShadedRelief", dpi=600)
 ```
 
 ```{code-cell} ipython3
-%%sh
 
-open .
 ```
 
 ```{code-cell} ipython3

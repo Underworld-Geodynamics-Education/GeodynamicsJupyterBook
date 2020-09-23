@@ -67,12 +67,12 @@ def apply_colormap_to_image(rawimage, colormap, norm):
 base_projection     = ccrs.PlateCarree() 
 global_extent     = [-180.0, 180.0, -90.0, 90.0]
 
-etopo1       = gdal.Open("../../Data/Resources/color_etopo1_ice_low.tif")
+etopo1       = gdal.Open("Resources/color_etopo1_ice_low.tif")
 etopo_img    = etopo1.ReadAsArray().transpose(1,2,0)
 del(etopo1)
 
 # Height field only ... 
-etopoH = gdal.Open("../../Data/Resources/ETOPO1_Ice_c_geotiff.tif") 
+etopoH = gdal.Open("Resources/ETOPO1_Ice_c_geotiff.tif") 
 etopoH_img = etopoH.ReadAsArray()[::2,::2].astype(numpy.float16)
 del(etopoH)
 
@@ -81,14 +81,14 @@ norm = matplotlib.colors.Normalize(vmin=-5000, vmax=7500)
 etopoH_img_grey = apply_colormap_to_image(etopoH_img, colormap, norm)
 
 strainrate_extent=[-180,180,-68,80]
-strainrate = numpy.loadtxt("../../Data/Resources/sec_invariant_strain_0.2.dat")
+strainrate = numpy.loadtxt("Resources/sec_invariant_strain_0.2.dat")
 strainrate_data = strainrate.reshape(741,1800,3)  # I had to look at the data to work this out !
 
-globalrelief      = gdal.Open("../../Data/Resources/HYP_50M_SR_W/HYP_50M_SR_W.tif")
+globalrelief      = gdal.Open("Resources/HYP_50M_SR_W/HYP_50M_SR_W.tif")
 globalrelief_img  = globalrelief.ReadAsArray().transpose(1,2,0)
 del(globalrelief)
 
-globalbathym      = gdal.Open("../../Data/Resources/OB_50M/OB_50M.tif")
+globalbathym      = gdal.Open("Resources/OB_50M/OB_50M.tif")
 globalbathym_img  = globalbathym.ReadAsArray().transpose(1,2,0)
 del(globalbathym)
 
@@ -217,11 +217,9 @@ for ev, event in enumerate(cat.events):
     eq_origins[ev,2] = dict(event.origins[0])['depth']
     eq_origins[ev,3] = dict(event.magnitudes[0])['mag']
     eq_origins[ev,4] = (dict(event.origins[0])['time']).date.year
-
 ```
 
 ```{code-cell} ipython3
-
 rootgrp = netcdf.netcdf_file(filename="../../Data/Reference/velocity_EU.nc", version=2)
 
 ve = rootgrp.variables["ve"]
@@ -437,7 +435,6 @@ ax.add_image(map_tiles, 5, alpha=0.45, zorder=2)
 
 ax.add_feature(coastline, linewidth=1.5,  edgecolor="Black", zorder=1)
 
-
 ```
 
 ```{code-cell} ipython3
@@ -472,7 +469,6 @@ ax.contourf(strainrate_data[:,:,0], strainrate_data[:,:,1], strainrate_data[:,:,
 ax.add_feature(coastline, linewidth=1.5,  edgecolor="Black", zorder=1)
 ax.add_feature(rivers,    linewidth=1,    edgecolor="Blue", zorder=2)
 ax.add_feature(lakes,     linewidth=1,    edgecolor="Blue", zorder=3, alpha=0.25)
-
 ```
 
 ```{code-cell} ipython3

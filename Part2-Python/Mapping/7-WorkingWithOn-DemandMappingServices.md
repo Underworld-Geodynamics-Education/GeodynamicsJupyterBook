@@ -3,8 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -64,7 +64,6 @@ ocean = cfeature.NaturalEarthFeature('physical', 'ocean', '10m',
 ```
 
 ```{code-cell} ipython3
-
 ## The full list of available interfaces is found in the source code for this one:
 ## https://github.com/SciTools/cartopy/blob/master/lib/cartopy/io/img_tiles.py
 
@@ -117,7 +116,7 @@ ax.set_extent(map_extent)
 # Add the on-demand image - the second argument is the resolution and needs to be balanced with the 
 # size of the area the map covers. 
 
-ax.add_image(map_tiles, 8, alpha=1.0, zorder=0)
+ax.add_image(map_tiles, 8)
 ax.add_feature(coastline, linewidth=1.5,  edgecolor="Black", zorder=1, alpha=0.5)
 ax.add_feature(rivers,    linewidth=1.0,  edgecolor="Blue",  zorder=2, alpha=0.5)
 ```
@@ -143,7 +142,7 @@ ax.set_extent(map_extent)
 # Add the on-demand image - the second argument is the resolution and needs to be balanced with the 
 # size of the area the map covers. 
 
-ax.add_image(map_tiles, 11, alpha=1.0, zorder=0)
+ax.add_image(map_tiles, 11)
 ax.add_feature(coastline, linewidth=1.5,  edgecolor="Black", zorder=1, alpha=0.5)
 ax.add_feature(rivers,    linewidth=1.0,  edgecolor="Blue",  zorder=2, alpha=0.5)
 ```
@@ -172,7 +171,7 @@ ax.set_extent(map_extent)
 # Add the on-demand image - the second argument is the resolution and needs to be balanced with the 
 # size of the area the map covers. 
 
-ax.add_image(map_tiles, 5, alpha=1.0, zorder=2)
+ax.add_image(map_tiles, 5)
 
 ax.add_feature(coastline50, linewidth=1.5,  edgecolor="Black", zorder=1)
 ax.add_feature(rivers50,    linewidth=1.0,  edgecolor="Blue",  zorder=2)
@@ -194,8 +193,8 @@ ax2  = plt.subplot(122, projection=stamen_TerrainPlus.crs)
 ax1.set_extent(map_extent)
 ax2.set_extent(map_extent)
 
-ax1.add_image(stamen_Terrain, 7, alpha=1.0, zorder=2)
-ax2.add_image(stamen_TerrainPlus, 7, alpha=1.0, zorder=2)
+ax1.add_image(stamen_Terrain, 7)
+ax2.add_image(stamen_TerrainPlus, 7)
 ```
 
 ```{code-cell} ipython3
@@ -211,8 +210,8 @@ ax2  = plt.subplot(122, projection=google_maps_terrain.crs)
 ax1.set_extent(map_extent)
 ax2.set_extent(map_extent)
 
-ax1.add_image(stamen_Terrain,      7,  alpha=1.0, zorder=2)
-ax2.add_image(stamen_Artist,       7,  alpha=1.0, zorder=2)
+ax1.add_image(stamen_Terrain,      7)
+ax2.add_image(stamen_Artist,       7)
 ```
 
 ```{code-cell} ipython3
@@ -245,11 +244,11 @@ ax2.set_extent(map_extent)
 ax3.set_extent(map_extent)
 ax4.set_extent(map_extent)
 
-ax1.add_image(maptype1, 8, alpha=1.0, zorder=2)
-ax2.add_image(maptype2, 8, alpha=1.0, zorder=2)
+ax1.add_image(maptype1, 8)
+ax2.add_image(maptype2, 8)
 
-ax3.add_image(maptype1, 10, alpha=1.0, zorder=2)
-ax4.add_image(maptype2, 10, alpha=1.0, zorder=2)
+ax3.add_image(maptype1, 10)
+ax4.add_image(maptype2, 10)
 ```
 
 ```{code-cell} ipython3
@@ -278,8 +277,8 @@ ax2  = plt.subplot(122, projection=google_maps_satellite.crs)
 ax1.set_extent(map_extent)
 ax2.set_extent(map_extent)
 
-ax1.add_image(google_maps_street, 17,      alpha=1.0, zorder=2)
-ax2.add_image(google_maps_satellite  , 17, alpha=1.0, zorder=2)
+ax1.add_image(google_maps_street, 17,    )
+ax2.add_image(google_maps_satellite  , 17)
 ```
 
 ```{code-cell} ipython3
