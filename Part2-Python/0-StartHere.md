@@ -1,4 +1,4 @@
-# Python for Earth Scientists
+# Content
 
 (c) Louis Moresi (2015-2019)
 
@@ -10,7 +10,7 @@ The material is broken down into a number of sections of, approximately, increas
 
   1. [Introduction to python / jupyter](Introduction2Python/1-IntroductionToJupyterNotebooks.md)
   2. [Introduction to version control with git](Introduction2VersionControl/1-GettingStartedWithGit.md)
-  3. [Getting Started with Numpy / Scipy](Numpy+Scipy/1-IntroductionToNumpy.md)
+  3. [Getting Started with Numpy / Scipy](NumpyAndScipy/1-IntroductionToNumpy.md)
   4. [Introduction to Matplotlib](Plotting/1-IntroductionToMatplotlib.md)
   5. [Stripy for meshing / mapping the Sphere](SphericalMeshing/SphericalTriangulations/Ex1-Spherical-Triangulations.md)
   6. [Making beautiful and useful maps with Cartopy](Mapping/0-Preliminaries.md)

@@ -255,7 +255,7 @@ ax4.add_image(maptype2, 10)
 fig.savefig("ResolutionTest.png", dpi=600)
 ```
 
-See how well that worked by opening the [full-size image](ResolutionTest.png). 
+See how well that worked by opening the [full-size image](./ResolutionTest.png). 
 
 There really is a lot of detail available, but you can also see how long it takes to download and build the different resolutions. There is something of an art to finding the right balance. 
 
@@ -285,7 +285,7 @@ ax2.add_image(google_maps_satellite  , 17)
 figE18.savefig("LondonE18.png", dpi=900)
 ```
 
-Again, open the [full-size image](LondonE18.png) to see how well that worked
+Again, open the [full-size image](./LondonE18.png) to see how well that worked
 
 ```{code-cell} ipython3
 

@@ -173,7 +173,7 @@ The results are more accurate when a smaller timestep is used although it requir
 
 ![ different way to derive a second order method][rk2]
 
-[rk2]: ./Diagrams/theta_rk2-.png
+[rk2]: ./Diagrams/theta_rk2.png
 
 
 The Runge-Kutta approach to higher order integration methods is [illustrated in the figure](#rk2). The idea is to estimate the gradient $d \theta / d t$ at the half way point between two timestep values.  This is done in two stages. Initially a first order estimate, $\hat{\theta}$ is made for the value of the function $\theta$ at $t=t+\Delta t /2$ in the future. This value is then subsituted into the differential equation to obtain the estimate for the gradient at this time. The revised gradient is then used to update the original $\theta(t)$ by an entire timestep.

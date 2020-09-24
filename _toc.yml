@@ -4,11 +4,14 @@
 - part: Introduction and Background
   chapters:
   - file: Part0-Introduction/Introduction.md 
-  - file: Part0-Introduction/PlateTectonics.md 
-  - file: Part0-Introduction/Observations+Planets.md 
+    sections:
+    - file: Part0-Introduction/PlateTectonics.md 
+    - file: Part0-Introduction/Observations.md 
+    - file: Part0-Introduction/Planets.md 
 
 - part: Mathematical Fluid Dynamics
   chapters:
+    - file: Part1-FluidDynamics/0-StartHere.md
     - file: Part1-FluidDynamics/ContinuumMechanics.md 
     - file: Part1-FluidDynamics/NavierStokes.md 
     - file: Part1-FluidDynamics/MantleDynamics.md
@@ -17,6 +20,7 @@
 
 - part: Numerical Modeling 
   chapters:
+  - file: Part3-NumericalMethods/0-StartHere.md
   - file: Part3-NumericalMethods/NumericalMethods1.md
   - file: Part3-NumericalMethods/NumericalMethods2.md
   - file: Part3-NumericalMethods/NumericalMethods3.md
@@ -27,10 +31,12 @@
 ## Something for cloudstor (etc) ... big files not under version control
 
 - part: Python for Geoscientists   
+
   chapters:
   - file: Part2-Python/0-StartHere.md
+
+  - file: Part2-Python/Introduction2Python/1-IntroductionToJupyterNotebooks.md
     sections:
-    - file: Part2-Python/Introduction2Python/1-IntroductionToJupyterNotebooks.md
     - file: Part2-Python/Introduction2Python/2-IntroductionToIpython.md
     - file: Part2-Python/Introduction2Python/3-PythonDataTypes.md
     - file: Part2-Python/Introduction2Python/4-PythonClasses.md
