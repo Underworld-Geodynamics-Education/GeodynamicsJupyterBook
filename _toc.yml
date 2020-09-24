@@ -52,7 +52,7 @@
 
   - file: Part2-Python/Plotting/1-IntroductionToMatplotlib.md
 
-  - file: Part2-Python/Mapping/00-Maps_with_Cartopy.md
+  - file: Part2-Python/Mapping/0-Maps_with_Cartopy.md
     sections:
     - file: Part2-Python/Mapping/0-Preliminaries.md
     - file: Part2-Python/Mapping/1-IntroductingCartopy.md
@@ -97,9 +97,6 @@
       - file: Part2-Python/SphericalMeshing/Litho1pt0/Ex3-CrustalRegionalisation.md
       - file: Part2-Python/SphericalMeshing/Litho1pt0/WorkEx1-CratonAverageProperties.md
       - file: Part2-Python/SphericalMeshing/Litho1pt0/WorkEx2-OceanDepthAge.md
-
-
-
 
   - file: Part2-Python/SympleSympy/StartingWithSympy.md
 
