@@ -13,7 +13,7 @@ kernelspec:
 
 ### Crust 1.0 data
 
-Crust 1.0 is built on a regular grid — it is also wrapped in the `litho1pt0` module 
+Crust 1.0 is built on a regular grid — it is also wrapped in the `litho1pt0` module
 
 ```{code-cell} ipython3
 import gdal
@@ -38,7 +38,7 @@ crust_type_i = np.empty_like(gridlonv, dtype=int)
 ```
 
 ```{code-cell} ipython3
-   
+
 ```
 
 ```{code-cell} ipython3
@@ -64,18 +64,35 @@ base_projection = ccrs.PlateCarree()
 ```
 
 ```{code-cell} ipython3
+!ls ../../Mapping/
+```
+
+```{code-cell} ipython3
 ## Background image
 
+import xarray
+import h5netcdf
 
-globaletopo = gdal.Open("../../../Data/Resources/ETOPO1_Ice_c_geotiff.tif")
-globaletopo_img   = globaletopo.ReadAsArray()[::30,::30]
-del globaletopo
+(left, bottom, right, top) = (-180, -90, 180, 90)
+map_extent = ( left, right, bottom, top)
+
+etopo_dataset = "http://thredds.socib.es/thredds/dodsC/ancillary_data/bathymetry/ETOPO1_Bed_g_gmt4.nc"
+etopo_data = xarray.open_dataset(etopo_dataset)
+regional_data = etopo_data.sel(x=slice(left,right,30), y=slice(bottom, top,30))
+
+lons = regional_data.coords.get('x')
+lats = regional_data.coords.get('y')
+vals = regional_data['z']
+
+x,y = np.meshgrid(lons.data, lats.data)
+globaletopo_img = vals.data
+
 
 from matplotlib.colors import LightSource, Normalize
 
 cmap=plt.cm.Greys
 ls = LightSource(315, 45)
-hillshade = ls.shade(globaletopo_img, cmap, vert_exag=0.0005)[::,::]
+hillshade = ls.shade(globaletopo_img, cmap, vert_exag=0.0005)[1::,1::]
 
 ## Drop one point here because the data are 361 x 721 !!
 ```
@@ -171,7 +188,7 @@ ax  = plt.subplot(111, projection=ccrs.PlateCarree())
 
 ax.set_global()
 
-ax.imshow(crust_color_image, origin='upper', transform=base_projection,
+ax.imshow(crust_color_image, origin='lower', transform=base_projection,
           extent=global_extent, zorder=0)
 
 

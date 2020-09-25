@@ -19,7 +19,6 @@ implemented in the wrapper.
 We also demonstrate the mechanism to query a depth profile at any lon/lat location and therefore how to construct a depth profile along
 a great circle.
 
-
 ```{code-cell} ipython3
 import litho1pt0 as litho
 from pprint import pprint as pprint
@@ -118,7 +117,6 @@ m = ax.imshow(density_at_1km.reshape(-1,360), origin='lower', transform=base_pro
               extent=global_extent, zorder=0, cmap="Blues")
 
 plt.colorbar(mappable=m, orientation="horizontal", shrink=0.5)
-
 ```
 
 ```{code-cell} ipython3
@@ -159,9 +157,9 @@ def great_circle_Npoints(lonlat1, lonlat2, N):
     lonlat2r = np.radians(lonlat2)
 
     
-    xyz1 = stripy.spherical.lonlat2xyz(lonlat1r[0], lonlat1r[1])
-    xyz2 = stripy.spherical.lonlat2xyz(lonlat2r[0], lonlat2r[1])
-    
+    xyz1 = np.array(stripy.spherical.lonlat2xyz(lonlat1r[0], lonlat1r[1])).T
+    xyz2 = np.array(stripy.spherical.lonlat2xyz(lonlat2r[0], lonlat2r[1])).T
+   
     mids = ratio * xyz2 + (1.0-ratio) * xyz1
     norm = (mids**2).sum(axis=1)
     xyzN = mids / norm.reshape(-1,1)
@@ -175,10 +173,20 @@ def great_circle_Npoints(lonlat1, lonlat2, N):
 ```
 
 ```{code-cell} ipython3
+lonlat1r = np.radians(startlonlat)
+lonlat2r = np.radians(endlonlat)
+xyz1 = np.array(stripy.spherical.lonlat2xyz(lonlat1r[0], lonlat1r[1])).T
+xyz2 = np.array(stripy.spherical.lonlat2xyz(lonlat2r[0], lonlat2r[1])).T
+
+N=100
+ratio = np.linspace(0.0,1.0, N).reshape(-1,1)
+mids = ratio * xyz2 + (1.0-ratio) * xyz1
+```
+
+```{code-cell} ipython3
 depths = np.linspace(-10.0, 250, 100)
 startlonlat=np.array([80.0,5.0])
 endlonlat  =np.array([80.0,45.0])
-midlonlat  = 0.5 * (startlonlat+endlonlat)
 
 lons, lats, d = great_circle_profile(startlonlat, endlonlat, depths, 2.5, "DENSITY")
 ```
@@ -190,13 +198,12 @@ ax  = plt.subplot(111, projection=ccrs.Orthographic(central_latitude=midlonlat[1
 ax.set_global()
 
 ax.add_feature(cartopy.feature.OCEAN, alpha=1.0, facecolor="#BBBBBB", zorder=0)
-ax.scatter(lons, lats, transform=ccrs.Geodetic(), zorder=100)
+ax.scatter(lons, lats, transform=ccrs.PlateCarree(), zorder=100)
 
 ax.coastlines()
 ```
 
 ```{code-cell} ipython3
-
 # Compute some properties about the profile line itself
 
 drange = depths[-1] - depths[0]
@@ -233,7 +240,7 @@ lonr, latr = great_circle_Npoints(np.radians(startlonlat), np.radians(endlonlat)
 ptslo  = np.degrees(lonr)
 ptsla  = np.degrees(latr)
 
-ax2.scatter (ptslo, ptsla, marker="+", s=100, transform=ccrs.Geodetic(), zorder=101)
+ax2.scatter (ptslo, ptsla, marker="+", s=100, transform=ccrs.PlateCarree(), zorder=101)
 ```
 
 ```{code-cell} ipython3

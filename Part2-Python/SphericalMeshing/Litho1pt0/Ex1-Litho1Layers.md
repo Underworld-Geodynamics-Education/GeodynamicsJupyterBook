@@ -34,7 +34,6 @@ Pasyanos, M. E., T. G. Masters, G. Laske, and Z. Ma (2014), LITHO1.0: An updated
 
 Laske, G., G. Masters, and Z. Ma (2013), Update on CRUST1. 0—A 1-degree global model of Earth's crust, Geophys Research Abstracts, 15, EGU2013–2658.
 
-
 ```{code-cell} ipython3
 import litho1pt0 as litho
 from pprint import pprint

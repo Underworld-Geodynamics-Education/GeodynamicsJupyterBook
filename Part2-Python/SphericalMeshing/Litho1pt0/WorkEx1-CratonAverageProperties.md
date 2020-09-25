@@ -28,8 +28,6 @@ To do so, we need to be able to:
    
 Stripy can produce the relevant sample points (we could, perhaps, use the original sample points for the litho1.0 model, or well- distributed points from a face-included icosahedron). Litho1.0 and Crust1.0 have the interpolation tools we need.
 
-
-
 ```{code-cell} ipython3
 import litho1pt0 as litho1pt0
 import stripy
@@ -130,7 +128,7 @@ ax.set_global()
 colormap = plt.cm.get_cmap('RdYlBu_r', 10)
 
 m = ax.scatter(longitudes_in_degrees, latitudes_in_degrees, c=sthickness, cmap=colormap,
-               s=2.0, linewidth=0.0, transform=ccrs.Geodetic())
+               s=2.0, linewidth=0.0, transform=ccrs.PlateCarree())
 
 plt.colorbar(mappable=m, orientation="horizontal", shrink=0.5)
 
