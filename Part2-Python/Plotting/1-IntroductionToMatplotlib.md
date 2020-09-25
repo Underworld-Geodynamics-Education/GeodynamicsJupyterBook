@@ -17,10 +17,10 @@ So far we have seen some of the built in `pylab` code in notebooks for making pl
 
 A more general interface is available and a more structured approach to using `matplotlib` is helpful.
 
-<!-->   - [PDF documentation](../../Documentation/Matplotlib-user-2.0.0.pdf) -->
+<!--   - [PDF documentation](../../Documentation/Matplotlib-user-2.0.0.pdf) -->
    - [Online gallery / cookbook](http://matplotlib.org/gallery.html)
    
-Matplotlib fully embraces the python object-oriented model, but for some tasks the design of the object hierarchy is a little bit counter-intuitive. It's best to find a common pattern for building plots and stick to it. 
+Matplotlib fully embraces the python object-oriented model, but for some tasks the design of the object hierarchy is a little bit counter-intuitive. It's best to find a common pattern for building plots and stick to it.
 
 ```{code-cell} ipython3
 %matplotlib inline
@@ -37,14 +37,19 @@ ax = plt.subplot(111) # 1x1 array of plots, ax refers to the 1st of them
 # ...
 
 fig.savefig("test-figure.png", dpi=150)
-plt.show()  # happens anyway !
+plt.show()  
 ```
 
 ---
 
 A good way to look at the rendered image is to open it up in a markdown cell - or look in the file browser.
+This is the markdown you need to view an image file
 
-![test-figure.png](test-figure.png)
+```
+![test-figure.png](./test-figure.png)
+```
+
+![test-figure.png](./test-figure.png)
 
 ```{code-cell} ipython3
 fig = plt.figure(figsize=(6,6), facecolor="none")
@@ -112,7 +117,6 @@ ax.set_ylabel('Damped oscillation')
 ax2.plot(x2, y2, '.-')
 ax2.set_xlabel('time (s)')
 ax2.set_ylabel('Not Damped')
-
 ```
 
 ```{code-cell} ipython3
@@ -178,11 +182,9 @@ plt.show()
 
 ```{code-cell} ipython3
 ## Go play with the gallery examples !! 
-
 ```
 
 ```{code-cell} ipython3
-
 from matplotlib.colors import LightSource, Normalize
 
 
@@ -267,6 +269,7 @@ this example demonstrates how to use the *dx* and *dy* kwargs to ensure that
 the *vert_exag* parameter is the true vertical exaggeration.
 """
 
+from matplotlib import cbook
 from matplotlib.cbook import get_sample_data
 from matplotlib.colors import LightSource
 
@@ -321,14 +324,4 @@ axes[2, 0].annotate('Blend Mode', (0, 0.5), xytext=(-30, 0),
 fig.subplots_adjust(bottom=0.05, right=0.95)
 
 plt.show()
-```
-
-```{code-cell} ipython3
-%%sh
-
-# rm test*png
-```
-
-```{code-cell} ipython3
-
 ```

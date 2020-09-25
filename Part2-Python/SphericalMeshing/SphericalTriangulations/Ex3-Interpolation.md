@@ -33,7 +33,7 @@ The next example is [Ex4-Gradients](./Ex4-Gradients.ipynb)
 
 ### Define two different meshes
 
-Create a fine and a coarse mesh without common points 
+Create a fine and a coarse mesh without common points
 
 ```{code-cell} ipython3
 import stripy as stripy
@@ -97,20 +97,22 @@ def mesh_fig(mesh, meshR, name):
     return
 
 mesh_fig(cmesh,  fmesh, "Two grids" )
-
 ```
 
 ### Analytic function 
 
-Define a relatively smooth function that we can interpolate from the coarse mesh to the fine mesh and analyse 
+Define a relatively smooth function that we can interpolate from the coarse mesh to the fine mesh and analyse
 
 ```{code-cell} ipython3
-
 def analytic(lons, lats, k1, k2):
      return np.cos(k1*lons) * np.sin(k2*lats)
 
 coarse_afn = analytic(cmesh.lons, cmesh.lats, 5.0, 2.0)
 fine_afn   = analytic(fmesh.lons, fmesh.lats, 5.0, 2.0)
+```
+
+```{code-cell} ipython3
+
 ```
 
 ### The analytic function on the different samplings
@@ -120,8 +122,23 @@ It is helpful to be able to view a mesh in 3D to verify that it is an appropriat
 This produces triangles with a narrow area distribution. In three dimensions it is easy to see the origin of the size variations.
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
 
+## This can be an issue on jupyterhub
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+try:
+    vdisplay.start()
+    xvfb = True
+
+except:
+    xvfb = False
+```
+
+```{code-cell} ipython3
 import lavavu
+
 
 lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[600,600], near=-10.0)
 
@@ -187,6 +204,7 @@ err_c2f3 = interp_c2f3-fine_afn
 
 ```{code-cell} ipython3
 import lavavu
+
 
 lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[1000,600], near=-10.0)
 
@@ -259,4 +277,10 @@ ax2.set_global()
 ax2.imshow(grid_z2, extent=np.degrees(extent_globe), cmap='RdBu', transform=ccrs.PlateCarree())
 ```
 
-The next example is [Ex4-Gradients](./Ex4-Gradients.ipynb)
+The next example is [Ex4-Gradients](./Ex4-Gradients.md)
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+vdisplay.stop()
+```

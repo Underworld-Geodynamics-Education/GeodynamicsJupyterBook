@@ -15,6 +15,7 @@ dependencies:
     - sympy
     - stripy==2.0.2
     - litho1pt0
+    - mpl_sample_data
     # - libiconv
     - swig>=4.0.0
     - scons

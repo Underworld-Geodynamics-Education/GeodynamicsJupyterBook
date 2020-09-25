@@ -13,4 +13,16 @@ kernelspec:
 
 # Cartesian Meshes
 
-Something ... 
+  - [Ex1-Cartesian-Triangulations](Ex1-Cartesian-Triangulations.md)
+  - [Ex2-CartesianGrids.md](Ex2-CartesianGrids.md)
+  - [Ex3-Interpolation.md](Ex3-Interpolation.md)
+  - [Ex4-Gradients.md](Ex4-Gradients.md)
+  - [Ex5-Smoothing.md](Ex5-Smoothing.md)
+  - [Ex6-Scattered-Data.md](Ex6-Scattered-Data.md)
+  - [Ex7-Refinement-of-Triangulations.md](Ex7-Refinement-of-Triangulations.md)
+  - [Ex8-Spline-Tension.md](Ex8-Spline-Tension.md)
+  - [Ex9-Voronoi-Diagram.md](Ex9-Voronoi-Diagram.md)
+
+```{code-cell} ipython3
+
+```

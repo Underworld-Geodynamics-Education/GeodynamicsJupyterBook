@@ -29,7 +29,7 @@ The next example is [Ex5-Smoothing](./Ex5-Smoothing.ipynb)
 
 ### Define a computational mesh
 
-Use the (usual) icosahedron with face points included. 
+Use the (usual) icosahedron with face points included.
 
 ```{code-cell} ipython3
 import stripy as stripy
@@ -41,7 +41,7 @@ print(mesh.npoints)
 
 ### Analytic function 
 
-Define a relatively smooth function that we can interpolate from the coarse mesh to the fine mesh and analyse 
+Define a relatively smooth function that we can interpolate from the coarse mesh to the fine mesh and analyse
 
 ```{code-cell} ipython3
 import numpy as np
@@ -84,15 +84,28 @@ pass
 
 ### Derivatives of solution compared to analytic values
 
-The `gradient_lonlat` method of the sTriangulation takes a data array reprenting values on the mesh vertices and returns the lon and lat derivatives. There is an equivalent `gradient_xyz` method which returns the raw derivatives in Cartesian form. Although this is generally less useful, if you are computing the slope (for example) that can be computed in either coordinate system and may cross the pole, consider using the Cartesian form. 
-
+The `gradient_lonlat` method of the sTriangulation takes a data array reprenting values on the mesh vertices and returns the lon and lat derivatives. There is an equivalent `gradient_xyz` method which returns the raw derivatives in Cartesian form. Although this is generally less useful, if you are computing the slope (for example) that can be computed in either coordinate system and may cross the pole, consider using the Cartesian form.
 
 ```{code-cell} ipython3
 stripy_ddlon, stripy_ddlat = mesh.gradient_lonlat(analytic_sol)
 ```
 
 ```{code-cell} ipython3
+## This can be an issue on jupyterhub
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+try:
+    vdisplay.start()
+    xvfb = True
+
+except:
+    xvfb = False
+```
+
+```{code-cell} ipython3
 import lavavu
+
 
 lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[1000,600], near=-10.0)
 
@@ -126,3 +139,7 @@ lv.control.show()
 ```
 
 The next example is [Ex5-Smoothing](./Ex5-Smoothing.ipynb)
+
+```{code-cell} ipython3
+vdisplay.stop()
+```

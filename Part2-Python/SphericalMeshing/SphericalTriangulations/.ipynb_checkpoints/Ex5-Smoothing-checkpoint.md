@@ -31,7 +31,7 @@ The next example is [Ex6-Scattered-Data](./Ex6-Scattered-Data.ipynb)
 
 ## Define a computational mesh
 
-Use the (usual) icosahedron with face points included. 
+Use the (usual) icosahedron with face points included.
 
 ```{code-cell} ipython3
 import stripy as stripy
@@ -43,7 +43,7 @@ print(mesh.npoints)
 
 ## Analytic function with noise and short wavelengths
 
-Define a relatively smooth function that we can interpolate from the coarse mesh to the fine mesh and analyse 
+Define a relatively smooth function that we can interpolate from the coarse mesh to the fine mesh and analyse
 
 ```{code-cell} ipython3
 import numpy as np
@@ -126,9 +126,7 @@ help(mesh.smoothing)
         smoothed version of f
      (dfdx, dfdy, dfdz) : tuple of floats, tuple of 3 shape (n,) arrays
         first derivatives of f_smooth in the x, y, and z directions
-     err : error indicator 
-
-
+     err : error indicator
 
 ```{code-cell} ipython3
 stripy_smoothed,  dds, err = mesh.smoothing(analytic_sol_n, np.ones_like(analytic_sol_n), 10.0, 0.1, 0.01)
@@ -143,6 +141,19 @@ delta_ns2 = analytic_sol   - stripy_smoothed2
 
 delta_n3  = analytic_sol_n - stripy_smoothed3
 delta_ns3 = analytic_sol   - stripy_smoothed3
+```
+
+```{code-cell} ipython3
+## This can be an issue on jupyterhub
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+try:
+    vdisplay.start()
+    xvfb = True
+
+except:
+    xvfb = False
 ```
 
 ## Results of smoothing with different value of `sm`
@@ -201,3 +212,8 @@ lv.control.show()
 ```
 
 The next example is [Ex6-Scattered-Data](./Ex6-Scattered-Data.ipynb)
+
+```{code-cell} ipython3
+
+vdisplay.stop()
+```

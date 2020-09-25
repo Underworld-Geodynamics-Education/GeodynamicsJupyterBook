@@ -25,9 +25,6 @@ We have seen how the standard meshes can be uniformly refined to finer resolutio
    - [Targetted refinement](#Targetted-refinement)
    - [Visualisation](#Visualisation-of-targetted-refinement)
 
-
-   
-
 ```{code-cell} ipython3
 import stripy as stripy
 import numpy as np
@@ -35,7 +32,7 @@ import numpy as np
 
 ## Uniform meshes by refinement
 
-The `refinement_level` parameter of the `stripy` meshes makes repeated loops determining the bisection points of all the existing edges in the triangulation and then creating a new triangulation that includes these points and the original ones. These refinement operations can also be used for non-uniform refinement. 
+The `refinement_level` parameter of the `stripy` meshes makes repeated loops determining the bisection points of all the existing edges in the triangulation and then creating a new triangulation that includes these points and the original ones. These refinement operations can also be used for non-uniform refinement.
 
 ```{code-cell} ipython3
 ico0 = stripy.spherical_meshes.icosahedral_mesh(refinement_levels=0)
@@ -67,7 +64,6 @@ Five refinement strategies:
 These are provided as follows:
 
 ```{code-cell} ipython3
-
 mlons, mlats = ico3.midpoint_refine_triangulation_by_vertices(vertices=[1,2,3,4,5,6,7,8,9,10])
 ico3mv = stripy.sTriangulation(mlons, mlats)
 
@@ -145,12 +141,11 @@ mesh_fig(ico3,        ico3ev,     "EdgeByVertexT1to10" )
 mesh_fig(ico3,        ico3cv,     "CentroidByVertexT1to10" )
 mesh_fig(ico3,        ico3et,     "EdgeByTriangle1to10" )
 mesh_fig(ico3,        ico3ct,     "CentroidByTriangle1to10" )
-
 ```
 
 ## Targetted refinement
 
-Here we refine a triangulation to a specific criterion - resolving two points in distinct triangles or with distinct nearest neighbour vertices. 
+Here we refine a triangulation to a specific criterion - resolving two points in distinct triangles or with distinct nearest neighbour vertices.
 
 ```{code-cell} ipython3
 points = np.array([[ 0.03, 0.035], [0.05, 0.055]]).T
@@ -255,6 +250,15 @@ centroid_t_triangulations = triangulations[:]
 ```{code-cell} ipython3
 import lavavu
 
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+try:
+    vdisplay.start()
+    xvfb = True
+
+except:
+    xvfb = False
+
 ## The four different triangulation strategies
 
 t1 = edge_triangulations[-1]
@@ -323,6 +327,8 @@ lv.control.Button(command="hide triangles; show t2s; show t2w; redraw", label="E
 lv.control.Button(command="hide triangles; show t3s; show t3w; redraw", label="CBV")
 lv.control.Button(command="hide triangles; show t4s; show t4w; redraw", label="CBT")
 lv.control.show()
+
+vdisplay.stop()
 ```
 
 ```{code-cell} ipython3
@@ -411,7 +417,6 @@ A = np.array(T.areas()).T
 equant = np.max(E, axis=1) / np.min(E, axis=1)
 size_ratio = np.sqrt(np.max(A) / np.min(A))
 print ("CBT", T.simplices.shape[0], equant.max(), equant.min(), size_ratio)
-
 
 
 

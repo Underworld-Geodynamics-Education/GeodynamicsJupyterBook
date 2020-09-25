@@ -31,7 +31,7 @@ The next example is [Ex7-Refinement-of-Triangulations](./Ex7-Refinement-of-Trian
 
 ## Define a regular computational mesh
 
-Use the (usual) icosahedron with face points included. 
+Use the (usual) icosahedron with face points included.
 
 ```{code-cell} ipython3
 import stripy as stripy
@@ -44,7 +44,6 @@ print(mesh.npoints)
 ## Point data with uneven spatial distribution
 
 Define a relatively smooth function that we can interpolate from the coarse mesh to the fine mesh and analyse. As it is a familiar pattern, we use the seismic event catalogue for M5.5+ (dawn of time to 2017-12-31) from IRIS
-
 
 ```{code-cell} ipython3
 import numpy as np
@@ -196,7 +195,6 @@ hit_countidr = np.zeros_like(mesh.lons)
 
 for i in range(0,distances.shape[0]):
     hit_countidr[vertices[i,:]] += np.exp( -distances[i,:] / 0.02 ) 
-
 ```
 
 ```{code-cell} ipython3
@@ -216,8 +214,7 @@ pass
 
 ## Mapping data other than frequency to the regular mesh
 
-Here we show how to map point data to the regular mesh - produce a representation of the depth of the events instead of just their frequency. When plotting, we need to distinguish between zero information and zero (shallow) depth. This is done by using the weight function to determine the opacity of the symbol or field that we plot. This has the effect of washing out the regions with few, large events compared to those with many small ones (which in this case means washed out regions where earthquakes are deep). 
-
+Here we show how to map point data to the regular mesh - produce a representation of the depth of the events instead of just their frequency. When plotting, we need to distinguish between zero information and zero (shallow) depth. This is done by using the weight function to determine the opacity of the symbol or field that we plot. This has the effect of washing out the regions with few, large events compared to those with many small ones (which in this case means washed out regions where earthquakes are deep).
 
 ```{code-cell} ipython3
 depth_idr = np.zeros_like(mesh.lons)
@@ -248,11 +245,17 @@ pass
 
 ## Visualisation
 
-
-
-
 ```{code-cell} ipython3
 import lavavu
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+try:
+    vdisplay.start()
+    xvfb = True
+
+except:
+    xvfb = False
 
 
 depth_range = depths.max()
@@ -306,6 +309,7 @@ tris.control.List(property="colourby", options=["hit_count", "hit_countn", "hit_
 
 
 lv.control.show()
+vdisplay.stop()
 ```
 
 The next example is [Ex7-Refinement-of-Triangulations](./Ex7-Refinement-of-Triangulations.ipynb)

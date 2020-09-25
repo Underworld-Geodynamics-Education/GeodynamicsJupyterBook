@@ -66,6 +66,15 @@ stripy_smoothed2, dds, err = mesh.smoothing(data, np.ones_like(data_n), 10.0, 0.
 ```{code-cell} ipython3
 import lavavu
 
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+try:
+    vdisplay.start()
+    xvfb = True
+
+except:
+    xvfb = False
+
 lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[666,666], near=-10.0)
 
 nodes = lv.points("nodes", pointsize=3.0, pointtype="shiny", colour="#448080", opacity=0.75)
@@ -117,7 +126,6 @@ grid_z2, ierr = cmesh.interpolate_cubic(mesh.lons, mesh.lats, cdata, sigma=csigm
 ```
 
 ```{code-cell} ipython3
-
 lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[666,666], near=-10.0)
 
 nodes = lv.points("nodes", pointsize=3.0, pointtype="shiny", colour="#448080", opacity=0.75)
@@ -165,7 +173,6 @@ dlon2, dlat2 = mesh.gradient_lonlat(data, nit=5, tol=1e-6, sigma=sigma) # tensio
 ```
 
 ```{code-cell} ipython3
-
 lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[666,666], near=-10.0)
 
 nodes = lv.points("nodes", pointsize=3.0, pointtype="shiny", colour="#448080", opacity=0.75)
@@ -201,3 +208,7 @@ lv.control.show()
 ```
 
 The next notebook is [Ex9-Voronoi-Diagram](Ex9-Voronoi-Diagram.ipynb)
+
+```{code-cell} ipython3
+vdisplay.stop()
+```

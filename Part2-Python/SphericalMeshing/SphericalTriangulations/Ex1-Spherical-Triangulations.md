@@ -3,8 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
-    format_version: '0.9'
-    jupytext_version: 1.5.2
+    format_version: 0.12
+    jupytext_version: 1.6.0
 kernelspec:
   display_name: Python 3
   language: python
@@ -165,7 +165,24 @@ We can view the same triangulation in an interactive form using the `lavavu` pac
 The list of simplices of the triangulation (`spherical_triangulation.simplices`) is compatible with the format expected by Lavavu.
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
+
+## This can be an issue on jupyterhub
+
+from xvfbwrapper import Xvfb
+vdisplay = Xvfb()
+try:
+    vdisplay.start()
+    xvfb = True
+
+except:
+    xvfb = False
+```
+
+```{code-cell} ipython3
 import lavavu
+
+
 
 lv = lavavu.Viewer(border=False, resolution=[666,666], background="#FFFFFF")
 lv["axis"]=False
@@ -199,14 +216,16 @@ nodes2.vertices(refined_spherical_triangulation.points)
 
 lv.hide("fine")
 lv.hide("finew")
-```
 
-```{code-cell} ipython3
 lv.control.Panel()
 lv.control.Button(command="hide triangles; hide points; show ghost; show fine_nodes; show coarse; show coarsew; show coarse_nodes; redraw", label="Coarse")
 lv.control.Button(command="hide triangles; hide points; show ghost; show coarse_nodes; show fine; show finew; show fine_nodes; redraw", label="Fine")
 
 lv.control.show()
+```
+
+```{code-cell} ipython3
+
 ```
 
 ## Predefined meshes
@@ -222,5 +241,7 @@ refined_spherical_triangulation = stripy.spherical_meshes.icosahedral_mesh(refin
 This capability is shown in a companion notebook [Ex2-SphericalGrids](./Ex2-SphericalGrids.ipynb)
 
 ```{code-cell} ipython3
+:tags: [hide-cell]
 
+vdisplay.stop()
 ```
