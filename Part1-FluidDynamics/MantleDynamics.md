@@ -245,9 +245,6 @@ ratio of inertial forces to Coriolis forces, and the **Eckman** number is the ra
 of the viscous forces to Coriolis forces.
 
 
-
-
-
 ## The stream function
 
 For incompressible flows in two dimensions it can be very convenient to
