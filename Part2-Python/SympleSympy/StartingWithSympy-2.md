@@ -11,9 +11,14 @@ kernelspec:
   name: python3
 ---
 
-# First steps with `sympy`
+# Using `sympy` for ODEs
 
-We can use the capacity in `sympy` to differentiate symbolic expressions for simple verification of solutions of an ODE or PDE
+We can use the capacity in `sympy` to differentiate symbolic expressions for simple verification of solutions of an ODE or PDE.
+For ODEs, there is an extensive set of documentation that deals with finding sets of solutions: 
+https://docs.sympy.org/latest/modules/solvers/ode.html#ode-docs.
+
+Often, however, we are verifying a solution we know or suspect to have a certain form and we simply
+need `sympy` to make sure there are no mistakes. 
 
 Let's begin with a simple harmonic oscillator:
 
@@ -49,7 +54,7 @@ phi = Symbol('phi')
 theta = A * sympy.cos(omega * t + phi)
 ```
 
-Let's now check to see whether this form of theta is an eigenfunction of the ODE 
+Let's now check to see whether this form of theta is an eigenfunction of the ODE
 
 ```{code-cell} ipython3
 theta.diff(t,2) / theta
@@ -58,7 +63,7 @@ theta.diff(t,2) / theta
 So, yes, this satisfies the equation subject to additional information needed to determine
 $\phi$. The value of $\omega$ is $\sqrt{k}$.
 
-# Use of the Eq capability
+# Use of the `sympy` equation module (`Eq`)
 
 If we tell sympy that we have an equation, there are tools we can use to solve it
 
@@ -96,5 +101,7 @@ their_form
 ```
 
 ```{code-cell} ipython3
+# Check to see if they are (exactly) equivalent
+
 myform.equals(their_form)
 ```
