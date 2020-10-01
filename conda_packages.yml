@@ -16,6 +16,8 @@ dependencies:
     - stripy==2.0.2
     - litho1pt0
     - mpl_sample_data
+    - netcdf4
+    - h5netcdf
     # - libiconv
     - swig>=4.0.0
     - scons
