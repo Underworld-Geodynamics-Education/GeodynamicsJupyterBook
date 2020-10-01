@@ -17,7 +17,7 @@ kernelspec:
 We can obtain the global (ocean) age grid from the University of Sydney Earthbyte Group (https://www.earthbyte.org/Resources/agegrid2008.html). 
 The data should look like this when plotted on a map.
 
-![ocean_age_molleweide_180.png](Images/ocean_age_molleweide_180.png)
+![ocean_age_molleweide_180.png](./Images/ocean_age_molleweide_180.png)
 
 Note: I downloaded this file: age.3.6.nc which is "A short integer netCDF formatted file.
 The age units are in millions of years, multiplied by 100 (to enable storage as short  The file spans longitudes from 0 E to

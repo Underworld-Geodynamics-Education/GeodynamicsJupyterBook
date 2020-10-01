@@ -146,6 +146,8 @@ plt.scatter(longitudes_in_degrees, latitudes_in_degrees, c=meshages, cmap="RdYlB
 Can you make a plot like this but excluding all the areas on the land where the information is meaningless ?
 
 ```{code-cell} ipython3
+:tags: [raises-exception]
+
 ## Do something here !
 
 valid_lons = ?

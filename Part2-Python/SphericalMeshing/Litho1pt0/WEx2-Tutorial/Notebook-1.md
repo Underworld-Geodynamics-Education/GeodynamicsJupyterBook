@@ -51,7 +51,7 @@ Turcotte, Donald Lawson, and Gerald Schubert. Geodynamics. 2nd ed. Cambridge ;
 
 This is what we are aiming for:
 <div>
-<img src="Images/MyTargetPlot.png", width=40%>
+<img src="./Images/MyTargetPlot.png", width=40%>
 </div>
 
 ```{code-cell} ipython3
