@@ -25,7 +25,8 @@ $$\nabla^4 \equiv \nabla^2 ( \nabla ^2) \equiv
 
 Solutions take the form:
 
-$ \psi_0 = \sin 2πx \cosh 2πy $ and  $\psi_1 = y \sin 2πx  \cosh 2πy$ 
+  - $ \psi_0 = a \sin k x \cosh k y + b \sin k x \sinh k y $ 
+  - $ \psi_1 = c y \sin k x \cosh k y + d y \sin k x \sinh k y$
 
 ```{code-cell} ipython3
 import sympy
@@ -90,6 +91,21 @@ BH2 = BH1.doit().simplify()
 ```
 
 These don't quite satisfy the equation on their own but it is possible to combine the four potential solutions to find a complete eigenfunction
+
+```{code-cell} ipython3
+PSI = PSI1 + C * y * sympy.sin(k*x) * sympy.cosh(k*y) + D * y * sympy.sin(k*x) * sympy.sinh(k*y) 
+PSI0 = PSI.factor().collect(sympy.cosh(k*y)).collect(sympy.sinh(k*y))
+PSI0 / sympy.sin(k*x)
+```
+
+```{code-cell} ipython3
+BH1 = BH.replace(psi(x,y), PSI).doit().simplify()
+BH2 = BH1.doit().simplify()
+BH3 = BH2.factor().collect(sympy.cosh(k*y)).collect(sympy.sinh(k*y))
+BH3 / sympy.sin(k*x)
+```
+
+It is quite difficult to convince sympy to go a lot further automatically, but this should be sufficient to see that $\psi$ is an eigen function for appropriate choice of $k$ 
 
 ```{code-cell} ipython3
 
