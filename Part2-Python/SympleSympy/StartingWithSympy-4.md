@@ -18,7 +18,7 @@ $$\nabla^4 \psi = -{\rm Ra} \frac{\partial T}{\partial x_1}$$
 
 $$\nabla^4 \equiv \nabla^2 ( \nabla ^2) \equiv 
                     \left( \frac{\partial ^4}{\partial x_1^4} + 
-                    \frac{\partial ^2}{\partial x_1^2} \frac{\partial ^2}{\partial x_2^2} +
+                    2 \frac{\partial ^2}{\partial x_1^2} \frac{\partial ^2}{\partial x_2^2} +
                     \frac{\partial ^4}{\partial x_2^4} \right)$$ 
                     
                     
@@ -62,7 +62,7 @@ PSI1
 Define the biharmonic operator and the biharmonic equation
 
 ```{code-cell} ipython3
-BH = psi(x,y).diff(x,4) + psi(x,y).diff((x,2),(y,2)) + psi(x,y).diff(y,4) 
+BH = psi(x,y).diff(x,4) + 2 * psi(x,y).diff((x,2),(y,2)) + psi(x,y).diff(y,4) 
 eq1=sympy.Eq(BH, 0)
 eq2=sympy.Eq(BH, Ra*T(x,y).diff(x))
 ```
@@ -90,7 +90,7 @@ BH2 = BH1.doit().simplify()
 (BH2 / PSI2).simplify()
 ```
 
-These don't quite satisfy the equation on their own but it is possible to combine the four potential solutions to find a complete eigenfunction
+
 
 ```{code-cell} ipython3
 PSI = PSI1 + C * y * sympy.sin(k*x) * sympy.cosh(k*y) + D * y * sympy.sin(k*x) * sympy.sinh(k*y) 
@@ -105,7 +105,7 @@ BH3 = BH2.factor().collect(sympy.cosh(k*y)).collect(sympy.sinh(k*y))
 BH3 / sympy.sin(k*x)
 ```
 
-It is quite difficult to convince sympy to go a lot further automatically, but this should be sufficient to see that $\psi$ is an eigen function for appropriate choice of $k$ 
+
 
 ```{code-cell} ipython3
 
