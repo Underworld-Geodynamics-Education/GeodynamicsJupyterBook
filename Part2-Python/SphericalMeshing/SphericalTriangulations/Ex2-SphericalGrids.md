@@ -45,7 +45,7 @@ The next example is [Ex3-Interpolation](./Ex3-Interpolation.ipynb)
 
 ### Sample meshes
 
-We create a number of meshes from the basic types available in `stripy` with approximately similar numbers of vertices.  
+We create a number of meshes from the basic types available in `stripy` with approximately similar numbers of vertices.
 
 ```{code-cell} ipython3
 import stripy as stripy
@@ -137,7 +137,7 @@ print("Random: {}".format(randR.__doc__))
 ### Analysis of the characteristics of the triangulations
 
 We plot a histogram of the (spherical) areas of the triangles in each of the triangulations normalised by the average area. This is one 
-measure of the uniformity of each mesh.  
+measure of the uniformity of each mesh.
 
 ```{code-cell} ipython3
 %matplotlib inline
@@ -227,28 +227,31 @@ This produces triangles with a narrow area distribution. In three dimensions it 
 
 import lavavu
 
-## or smesh = icoF0
-smesh = icoFR
+from xvfbwrapper import Xvfb
+with Xvfb() as xvfb:
 
-lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[1000,600], near=-10.0)
+    ## or smesh = icoF0
+    smesh = icoFR
 
-tris = lv.triangles("triangulation",  wireframe=True, colour="#444444", opacity=0.8)
-tris.vertices(smesh.points)
-tris.indices(smesh.simplices)
+    lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[1000,600], near=-10.0)
 
-tris2 = lv.triangles("triangles",  wireframe=False, colour="#77ff88", opacity=0.8)
-tris2.vertices(smesh.points)
-tris2.indices(smesh.simplices)
+    tris = lv.triangles("triangulation",  wireframe=True, colour="#444444", opacity=0.8)
+    tris.vertices(smesh.points)
+    tris.indices(smesh.simplices)
 
-nodes = lv.points("nodes", pointsize=2.0, pointtype="shiny", colour="#448080", opacity=0.75)
-nodes.vertices(smesh.points)
+    tris2 = lv.triangles("triangles",  wireframe=False, colour="#77ff88", opacity=0.8)
+    tris2.vertices(smesh.points)
+    tris2.indices(smesh.simplices)
+
+    nodes = lv.points("nodes", pointsize=2.0, pointtype="shiny", colour="#448080", opacity=0.75)
+    nodes.vertices(smesh.points)
 
 
-lv.control.Panel()
-lv.control.Range('specular', range=(0,1), step=0.1, value=0.4)
-lv.control.Checkbox(property='axis')
-lv.control.ObjectList()
-lv.control.show()
+    lv.control.Panel()
+    lv.control.Range('specular', range=(0,1), step=0.1, value=0.4)
+    lv.control.Checkbox(property='axis')
+    lv.control.ObjectList()
+    lv.control.show()
 ```
 
 ```{code-cell} ipython3
@@ -266,7 +269,7 @@ projection3 = ccrs.PlateCarree()
 base_projection = ccrs.PlateCarree()
 ```
 
-### Plot and compare the predefined meshes 
+### Plot and compare the predefined meshes
 
 ```{code-cell} ipython3
 def mesh_fig(mesh, meshR, name):
@@ -319,11 +322,6 @@ mesh_fig(socc0, socc2, "SoccerBall")
 mesh_fig(ring0, ring2, "Ring")
 mesh_fig(rand0, rand2, "Random")
 
-
-
 ```
-
-
-
 
 The next example is [Ex3-Interpolation](./Ex3-Interpolation.ipynb)

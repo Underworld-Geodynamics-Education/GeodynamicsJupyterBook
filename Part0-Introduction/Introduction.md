@@ -21,7 +21,6 @@ Earth's interior and something similar for Venus and Mars would be, on
 the face of it, much simpler
 ```
 
-
 This is because the Earth's dynamics is completely dominated by Plate
 Tectonics --- a unique manifestation of interior heat loss as far as we
 are aware. Part of our task is to understand why plate tectonics is a
@@ -34,6 +33,15 @@ cycling mechanisms which link the interior of the Earth and the
 Atmosphere and Oceans; it may prove to be an essential ingredient for
 the kind of friendly world we expect to be needed to nurture
 (intelligent) life.
+
+## Background Information
+
+It is easy to get lost in the details of this topic and some broad context 
+helps a lot. 
+
+  1. [Plate Tectonics](PlateTectonics.md)
+  2. [Observables](Observations.md)
+  3. [Terrestrial Planets](Planets.md)
 
 ## What is a model ?
 
@@ -103,3 +111,9 @@ documentation on the function or module you are using. Jupyter notebooks add
 interactivity to the language and make it much more straightforward to 
 dig into the details of the code you are running. We use Jupyter notebooks extensively
 for examples in this book and these can be run live.
+
+
+## References
+
+```{bibliography} ../ComputationalGeodynamics-JB.bib
+```

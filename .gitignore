@@ -1,5 +1,11 @@
 _build
 
 .ipynb_checkpoints
-
 .vscode
+
+Part2-Python/Mapping/GlobalAgeMapEq.png
+Part2-Python/Mapping/ItaliaEq.png
+Part2-Python/Mapping/LA_Basin_ShadedRelief.png
+Part2-Python/Mapping/LA_Region_ShadedRelief.png
+Part2-Python/Mapping/LaBasinTerrain-stamen.png
+Part2-Python/Mapping/HimalayaRivers.png

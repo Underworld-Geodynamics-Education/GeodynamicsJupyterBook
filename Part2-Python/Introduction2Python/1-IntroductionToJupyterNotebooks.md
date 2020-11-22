@@ -33,7 +33,7 @@ The results of running a cell depend on the content of the cell. It may produce 
 Formatting looks something like this:
 
 ```` myst
-### Formatted text
+## Formatted text
 
 This uses an almost-already-formatted version of text known as `markdown` to make content that can be formatted to look similar to a word document, but which also tends to highlight the intended formatting even if not processed. It is quite a useful form to learn for taking notes.
 
@@ -57,7 +57,7 @@ for i in range(0,100):
 ```
 ````
 
-### Formatted text
+## Formatted text
 
 This uses an almost-already-formatted version of text known as `markdown` to make content that can be formatted to look similar to a word document, but which also tends to highlight the intended formatting even if not processed. It is quite a useful form to learn for taking notes.
 
@@ -95,7 +95,7 @@ And images like this:
 Running cells containing formatted code will replace the cell with the formatted version. This allows you to write a well-formatted page with interleaved code which also can be executed.
 
 
-### Python code
+## Python code
 
 Cells which are defined to be code cells contain python statements which will be executed when the cell is run. If multiple cells have code, then they will be run in the order you choose (or if you "run all" or "run all above" they will be run in the order they are listed).
 

@@ -4,9 +4,14 @@
 - part: Introduction and Background
   chapters:
   - file: Part0-Introduction/Introduction.md 
+    sections:
+    - file: Part0-Introduction/PlateTectonics.md 
+    - file: Part0-Introduction/Observations.md 
+    - file: Part0-Introduction/Planets.md 
 
 - part: Mathematical Fluid Dynamics
   chapters:
+    - file: Part1-FluidDynamics/0-StartHere.md
     - file: Part1-FluidDynamics/ContinuumMechanics.md 
     - file: Part1-FluidDynamics/NavierStokes.md 
     - file: Part1-FluidDynamics/MantleDynamics.md
@@ -15,6 +20,7 @@
 
 - part: Numerical Modeling 
   chapters:
+  - file: Part3-NumericalMethods/0-StartHere.md
   - file: Part3-NumericalMethods/NumericalMethods1.md
   - file: Part3-NumericalMethods/NumericalMethods2.md
   - file: Part3-NumericalMethods/NumericalMethods3.md
@@ -25,17 +31,19 @@
 ## Something for cloudstor (etc) ... big files not under version control
 
 - part: Python for Geoscientists   
+
   chapters:
   - file: Part2-Python/0-StartHere.md
+
+  - file: Part2-Python/Introduction2Python/1-IntroductionToJupyterNotebooks.md
     sections:
-    - file: Part2-Python/Introduction2Python/1-IntroductionToJupyterNotebooks.md
     - file: Part2-Python/Introduction2Python/2-IntroductionToIpython.md
     - file: Part2-Python/Introduction2Python/3-PythonDataTypes.md
     - file: Part2-Python/Introduction2Python/4-PythonClasses.md
 
-#     - file: Part2-Python/Introduction2VersionControl/1-GettingStartedWithGit.ipynb
-#     - file: Part2-Python/Introduction2VersionControl/2-NextStepsWithGit.ipynb
-#     - file: Part2-Python/Introduction2VersionControl/3-YourOwnRepositories.ipynb
+    - file: Part2-Python/Introduction2VersionControl/1-GettingStartedWithGit.md
+    - file: Part2-Python/Introduction2VersionControl/2-NextStepsWithGit.md
+    - file: Part2-Python/Introduction2VersionControl/3-YourOwnRepositories.md
 
   - file: Part2-Python/NumpyAndScipy/0-NumpyAndScipy.md
     sections: 
@@ -50,7 +58,7 @@
 
   - file: Part2-Python/Plotting/1-IntroductionToMatplotlib.md
 
-  - file: Part2-Python/Mapping/00-Maps_with_Cartopy.md
+  - file: Part2-Python/Mapping/0-Maps_with_Cartopy.md
     sections:
     - file: Part2-Python/Mapping/0-Preliminaries.md
     - file: Part2-Python/Mapping/1-IntroductingCartopy.md
@@ -90,7 +98,27 @@
       - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex8-Spline-Tension.md
       - file: Part2-Python/SphericalMeshing/SphericalTriangulations/Ex9-Voronoi-Diagram.md
 
-  # - file: Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb
-  # - file: Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb
-  # - file: Part2-Python/SolveMathProblems/2-FiniteDifferences.ipynb
-  # - file: Part2-Python/SolveMathProblems/3-AdvancedFiniteDifferences.ipynb
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/Ex1-Litho1Layers.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/Ex2-Litho1Properties.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/Ex3-CrustalRegionalisation.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/WorkEx1-CratonAverageProperties.md
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/WorkEx2-OceanDepthAge.md
+
+      - file: Part2-Python/SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-1.md
+        sections:
+        - file: Part2-Python/SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-2.md
+        - file: Part2-Python/SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-3.md
+        - file: Part2-Python/SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-4.md
+        - file: Part2-Python/SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-5.md
+
+  - file: Part2-Python/SympleSympy/StartingWithSympy.md
+    sections:
+    - file: Part2-Python/SympleSympy/StartingWithSympy-2.md
+    - file: Part2-Python/SympleSympy/StartingWithSympy-3.md
+    - file: Part2-Python/SympleSympy/StartingWithSympy-4.md
+
+  - file: Part2-Python/SolveMathProblems/0-IntroductionToNumericalSolutions.ipynb
+    sections:
+    - file: Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb
+    - file: Part2-Python/SolveMathProblems/2-FiniteDifferences.ipynb
+    - file: Part2-Python/SolveMathProblems/3-AdvancedFiniteDifferences.ipynb

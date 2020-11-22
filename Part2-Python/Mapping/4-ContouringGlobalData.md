@@ -26,9 +26,9 @@ import matplotlib.pyplot as plt
 
 ```{code-cell} ipython3
 global_extent     = [-180.0, 180.0, -90.0, 90.0]
-globalmarble      = gdal.Open("../../Data/Resources/BlueMarbleNG-TB_2004-06-01_rgb_3600x1800.TIFF")
+globalmarble      = gdal.Open("Resources/BlueMarbleNG-TB_2004-12-01_rgb_3600x1800.TIFF")
 globalmarble_img  = globalmarble.ReadAsArray().transpose(1,2,0)
-globaletopo       = gdal.Open("../../Data/Resources/color_etopo1_ice_low.tif")
+globaletopo       = gdal.Open("Resources/color_etopo1_ice_low.tif")
 globaletopo_img   = globaletopo.ReadAsArray().transpose(1,2,0)
 
 del(globalmarble)
@@ -39,7 +39,7 @@ del(globaletopo)
 # Global strain rate data - from Unavco
 
 strainrate_extent=[-180,180,-68,80]
-strainrate = numpy.loadtxt("../../Data/Resources/sec_invariant_strain_0.2.dat")
+strainrate = numpy.loadtxt("Resources/sec_invariant_strain_0.2.dat")
 strainrate_data = strainrate.reshape(741,1800,3)  # I had to look at the data to work this out !
 # strainrate_img  = strainrate_data[:,:,2]
 ```
@@ -80,7 +80,7 @@ plt.show()
 datasize = (1801, 3601, 3)
 age_data = np.empty(datasize)
 
-ages = np.load("../../Data/Resources/global_age_data.3.6.z.npz")["ageData"]
+ages = np.load("Resources/global_age_data.3.6.z.npz")["ageData"]
 
 lats = np.linspace(90, -90, datasize[0])
 lons = np.linspace(-180.0,180.0, datasize[1])
@@ -149,7 +149,6 @@ ax.contourf(strainrate_data[:,:,0], strainrate_data[:,:,1], strainrate_data[:,:,
 ax.add_feature(coastline, linewidth=0.33, zorder=3)
 
 plt.savefig("GlobalAgeAndStrainRate.png", dpi=300, frameon=False, edgecolor="none", facecolor="none", bbox_inches='tight', pad_inches=0.0)
-
 
 ```
 
