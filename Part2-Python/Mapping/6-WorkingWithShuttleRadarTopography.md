@@ -320,7 +320,6 @@ fig.savefig("LA_Basin_ShadedRelief", dpi=600)
 ```
 
 ```{code-cell} ipython3
-
 ```
 
 ```{code-cell} ipython3

@@ -205,7 +205,6 @@ err_c2f3 = interp_c2f3-fine_afn
 ```{code-cell} ipython3
 import lavavu
 
-
 lv = lavavu.Viewer(border=False, background="#FFFFFF", resolution=[1000,600], near=-10.0)
 
 fnodes = lv.points("fnodes", pointsize=3.0, pointtype="shiny", colour="#448080", opacity=0.75)

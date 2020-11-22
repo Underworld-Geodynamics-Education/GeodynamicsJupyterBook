@@ -216,7 +216,6 @@ nodes2.vertices(refined_spherical_triangulation.points)
 
 lv.hide("fine")
 lv.hide("finew")
-
 lv.control.Panel()
 lv.control.Button(command="hide triangles; hide points; show ghost; show fine_nodes; show coarse; show coarsew; show coarse_nodes; redraw", label="Coarse")
 lv.control.Button(command="hide triangles; hide points; show ghost; show coarse_nodes; show fine; show finew; show fine_nodes; redraw", label="Fine")

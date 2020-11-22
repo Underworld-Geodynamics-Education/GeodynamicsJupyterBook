@@ -1,6 +1,7 @@
 _build
 
 .ipynb_checkpoints
+.vscode
 
 Part2-Python/Mapping/GlobalAgeMapEq.png
 Part2-Python/Mapping/ItaliaEq.png
