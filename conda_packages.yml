@@ -1,29 +1,31 @@
 name: jupyter-book 
 channels: 
     - conda-forge
-    - underworldcode
+    - geo-down-under
 dependencies:
-    - compilers 
-    - python==3.7.*
-    - pip 
-    - numpy>=1.16.0
-    - scipy>=1.0.0
-    - cartopy==0.17.*
+
+    - compilers
+    - geo-down-under::stripy==2.0.5b2
+    - geo-down-under::litho1pt0
+    - geo-down-under::quagmire
+    - matplotlib
+    - pyproj
+    - pyepsg
+    - h5netcdf
+    - netcdf4
+    - cartopy
     - obspy
     - pandas
-    - xarray 
     - sympy
-    - stripy==2.0.2
-    - litho1pt0
     - mpl_sample_data
-    - netcdf4
-    - h5netcdf
-    # - libiconv
-    - swig>=4.0.0
-    - scons
+    - xarray
+    - xvfbwrapper
+    - fs 
+    - fs.webdavfs
+    - pip 
+
     - pip:
-      - jupyter-book 
-      - xvfbwrapper
-      - lavavu  # probably not critical for the static book
-      # - underworldcode # unlikely to build - need a script for this
+        - jupyter-book
+        - lavavu
+
 
