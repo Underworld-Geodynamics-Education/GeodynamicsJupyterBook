@@ -42,16 +42,15 @@ jobs:
           ~/GeodynamicsJupyterBook/GeodynamicsJupyterBook/_build
         key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('conda_packages.yml') }}
           
-          
     - name: Miniconda + Cache
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-            miniconda-version: "latest"
-            auto-update-conda: true
-            environment-file: conda_packages.yml
-            activate-environment: jupyter-book
-            python-version: 3.7
-            use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!:  
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        miniconda-version: "latest"
+        auto-update-conda: true
+        environment-file: conda_packages.yml
+        activate-environment: jupyter-book
+        python-version: 3.7
+        use-only-tar-bz2: true # IMPORTANT: This needs to be set for caching to work properly!:  
 
 
     # Build the book
