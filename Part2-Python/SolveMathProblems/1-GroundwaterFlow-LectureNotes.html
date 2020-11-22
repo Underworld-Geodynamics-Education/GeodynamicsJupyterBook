@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html>
@@ -7,16 +6,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Partial Differential Equations of Groundwater Flow &#8212; Geodynamics with Underworld</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -25,8 +44,8 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -38,9 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Finite difference operations" href="2-FiniteDifferences.html" />
+    <link rel="prev" title="Numerical models" href="0-IntroductionToNumericalSolutions.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -62,39 +83,60 @@
   <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../FrontPage.html">
    Geodynamics with Underworld
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Introduction and Background
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../Part0-Introduction/Introduction.html">
    Introduction
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Part0-Introduction/PlateTectonics.html">
+     Plate tectonics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Part0-Introduction/Observations.html">
+     Observations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Part0-Introduction/Planets.html">
+     Planetary Science
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Mathematical Fluid Dynamics
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/0-StartHere.html">
+   Content
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../Part1-FluidDynamics/ContinuumMechanics.html">
    Conservation Laws
@@ -121,12 +163,17 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Numerical Modeling
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/0-StartHere.html">
+   Content
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods1.html">
    Numerical Modeling in Solid Earth Dynamics
@@ -153,42 +200,505 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Python for Geoscientists
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../0-StartHere.html">
-   Python for Earth Scientists
+   Content
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Introduction2Python/1-IntroductionToJupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2Python/2-IntroductionToIpython.html">
+     ipython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2Python/3-PythonDataTypes.html">
+     Python data types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2Python/4-PythonClasses.html">
+     Classes and objects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2VersionControl/1-GettingStartedWithGit.html">
+     An introduction to Version Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2VersionControl/2-NextStepsWithGit.html">
+     An introduction to Version Control pt 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2VersionControl/3-YourOwnRepositories.html">
+     How to use git for yourself
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../NumpyAndScipy/0-NumpyAndScipy.html">
    Numpy and Scipy
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/1-IntroductionToNumpy.html">
+     Numpy data structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/2-Application-TheGameOfLife.html">
+     The game of life
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/3-Discussion-TheGameOfLife.html">
+     The game of life (Advanced)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/3-Discussion-TheGameOfLife.html#animation">
+     Animation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/4-IntroductionToScipy.html">
+     scipy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/5-ScipyInterpolate.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy.interpolate
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/6-ScipySpatialAndMeshing.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy.spatial
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/7-ScipyOptimize.html">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       scipy.optimize
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../NumpyAndScipy/8-Numpy%2BScipyMiscellany.html">
+     Data storage
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Plotting/1-IntroductionToMatplotlib.html">
    Introduction to matplotlib
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Mapping/00-Maps_with_Cartopy.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Mapping/0-Maps_with_Cartopy.html">
    Maps with the Cartopy Package
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/0-Preliminaries.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/1-IntroductingCartopy.html">
+     Cartopy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/2-ImagesAndGeoTIFFs.html">
+     Handling images
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/3-WorkingWithRealData.html">
+     Australian magnetic intensity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/4-ContouringGlobalData.html">
+     How to use contours to view global data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/5-WorkingWithPointData.html">
+     Point Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/6-WorkingWithShuttleRadarTopography.html">
+     Cartopy and the Shuttle Radar Topography Map data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/7-WorkingWithOn-DemandMappingServices.html">
+     On demand mapping services
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/8-GlobalPlateMotionsEtc.html">
+     Global Plate Motions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/9-HimalayaRegionMapsAndImages.html">
+     Himalaya Maps (1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/9a-HimalayaRegionMapsAndImages-Pt2.html">
+     Himalaya Maps (2)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../SphericalMeshing/0-Stripy.html">
    Triangulations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/0-Cartesian.html">
+     Cartesian Meshes
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex1-Cartesian-Triangulations.html">
+       Example 1 - Triangulation of arbitrary points
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex2-CartesianGrids.html">
+       Example 2 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       predefined meshes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex3-Interpolation.html">
+       Example 3 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       interpolation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex4-Gradients.html">
+       Example 4 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       gradients
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex5-Smoothing.html">
+       Example 5 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       smoothing operations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex6-Scattered-Data.html">
+       Example 6 - Scattered Data and ‘Heat Maps’
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex7-Refinement-of-Triangulations.html">
+       Example 7 - Refining a triangulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex8-Spline-Tension.html">
+       Example 8 - Spline Tension
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex9-Voronoi-Diagram.html">
+       Example 9 - Constructing the Voronoi diagram
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/0-Spherical.html">
+     Spherical Meshes
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex1-Spherical-Triangulations.html">
+       Example 1 - Triangulation of arbitrary points on the sphere
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex2-SphericalGrids.html">
+       Example 2 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       predefined meshes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex3-Interpolation.html">
+       Example 3 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       interpolation on the sphere
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex4-Gradients.html">
+       Example 4 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       gradients on the sphere
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex5-Smoothing.html">
+       Example 5 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       smoothing operations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex6-Scattered-Data.html">
+       Example 6 - Scattered Data and ‘Heat Maps’
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex7-Refinement-of-Triangulations.html">
+       Example 7 - Refining a triangulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex8-Spline-Tension.html">
+       Example 8 - Spline Tension
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex9-Voronoi-Diagram.html">
+       Example 9 - Constructing the Voronoi diagram
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/Ex1-Litho1Layers.html">
+       Introduction to the stripy wrapper for litho 1.0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/Ex2-Litho1Properties.html">
+       Litho 1.0 global sampling
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/Ex3-CrustalRegionalisation.html">
+       Crust 1.0 data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WorkEx1-CratonAverageProperties.html">
+       Properties of the cratons
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WorkEx2-OceanDepthAge.html">
+       Age of the oceans / depth of the oceans
+      </a>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-1.html">
+       A quick look at the depth-age relationship for the seafloor.
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-2.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-3.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-4.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-5.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SympleSympy/StartingWithSympy.html">
+   Getting started with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sympy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../SympleSympy/StartingWithSympy.html#differentiation-integration">
+   Differentiation / Integration
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-2.html">
+     Using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+     for ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-2.html#use-of-the-sympy-equation-module-eq">
+     Use of the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+     equation module (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Eq
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-3.html">
+     Using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+     for a PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-4.html">
+     The biharmonic equation for Stokes flow
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="0-IntroductionToNumericalSolutions.html">
+   Numerical models
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Partial Differential Equations of Groundwater Flow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="#finite-differences">
+     Finite Differences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="2-FiniteDifferences.html">
+     Finite difference operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="3-AdvancedFiniteDifferences.html">
+     Advanced finite difference
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -217,24 +727,27 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="../../_sources/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -253,7 +766,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -263,24 +777,13 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/master?urlpath=tree/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/master?urlpath=tree/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://demon.underworldcloud.org/hub/user-redirect/git-pull?repo=https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook&urlpath=tree/GeodynamicsJupyterBook/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/Underworld-Geodynamics-Education/GeodynamicsJupyterBook/blob/master/Part2-Python/SolveMathProblems/1-GroundwaterFlow-LectureNotes.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
         
         
     </div>
@@ -290,24 +793,45 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
+        
         <div class="tocsection onthispage pt-5 pb-3">
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#how-to-interpret-the-equations">
-   How to interpret the equations
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Partial Differential Equations of Groundwater Flow
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-interpret-the-equations">
+     How to interpret the equations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extension-to-2d-and-3d">
+     Extension to 2D and 3D
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extension-to-2d-and-3d">
-   Extension to 2D and 3D
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-differences">
+   Finite Differences
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#harder-problems">
+     Harder problems
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
         </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -371,9 +895,9 @@
 <p>We can only calculate the changes at this finite set of points, but, if we have write this into a simple computer program, we can calculate this at an awful lot of points. Let’s see if it works !</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">pylab</span> inline
+<span class="o">%</span><span class="n">pylab</span> <span class="n">inline</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    This is a function to calculate the gradient at a point in a long line</span>
@@ -402,17 +926,12 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Populating the interactive namespace from numpy and matplotlib
-</pre></div>
-</div>
-</div>
 </div>
 <p>Let’s set up a bunch of points for <span class="math notranslate nohighlight">\(P_i\)</span> from the diagram we sketched earlier. We start making this <span class="math notranslate nohighlight">\(\sin(x)\)</span> since we know that the derivative should be <span class="math notranslate nohighlight">\(\cos(x)\)</span> and so we can easily check how well it works.</p>
 <a class="reference internal image-reference" href="../../_images/BlockFlux.png"><img alt="../../_images/BlockFlux.png" src="../../_images/BlockFlux.png" style="height: 160px;" /></a>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="n">xP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">2.0</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">hP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span>
@@ -425,22 +944,16 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xP</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">gradx_hP</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1144bb4e0&gt;]
-</pre></div>
-</div>
-<img alt="../../_images/1-GroundwaterFlow-LectureNotes_9_1.png" src="../../_images/1-GroundwaterFlow-LectureNotes_9_1.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hP2</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="o">*</span><span class="mf">3.0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hP2</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="o">*</span><span class="mf">3.0</span><span class="p">)</span>
 <span class="n">gradx_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP2</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -448,23 +961,17 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP2</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">xP</span><span class="o">*</span><span class="mf">3.0</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">)</span>
 <span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">gradx_hP2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11456eda0&gt;]
-</pre></div>
-</div>
-<img alt="../../_images/1-GroundwaterFlow-LectureNotes_11_1.png" src="../../_images/1-GroundwaterFlow-LectureNotes_11_1.png" />
-</div>
 </div>
 <p>How about the second derivative, since we are dealing with a diffusion equation ?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The rate of change with time is proportional to the gradient of the gradient !</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The rate of change with time is proportional to the gradient of the gradient !</span>
 
 <span class="n">grad2x_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP</span><span class="p">)</span>
 <span class="n">grad2x_hP2</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP2</span><span class="p">)</span>
@@ -474,7 +981,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">hP</span><span class="p">)</span>
@@ -494,18 +1001,12 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Error&#39;)
-</pre></div>
-</div>
-<img alt="../../_images/1-GroundwaterFlow-LectureNotes_14_1.png" src="../../_images/1-GroundwaterFlow-LectureNotes_14_1.png" />
-</div>
 </div>
 <p>So, it seems we can calculate reasonably accurate gradients with our little-boxes approximation. We can now try to solve the time-evolution of the pressure with the same function and see what happens.</p>
 <p><strong>Note:</strong> In the previous plots, errors are less than 1% in the second derivative away from the boundary but nearer 5% there. On the other hand, we haven’t even tried to do a clever job of building the interpolation / derivatives.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xP</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xP</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">hP</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">xP</span><span class="p">)</span>
 <span class="n">hP2</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xP</span><span class="p">))</span>
 
@@ -531,7 +1032,7 @@
 <span class="c1">## Timestepping loop </span>
 
 <span class="k">for</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">):</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">time</span><span class="o">%</span><span class="k">50</span>==0):    
+    <span class="k">if</span><span class="p">(</span><span class="n">time</span><span class="o">%</span><span class="mi">50</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>    
         <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
         <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">hP2</span><span class="p">)</span>
 
@@ -551,9 +1052,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../_images/1-GroundwaterFlow-LectureNotes_16_0.png" src="../../_images/1-GroundwaterFlow-LectureNotes_16_0.png" />
-</div>
 </div>
 <p>We can start to obtain results which are clearly “right” in the sense that they evolve quantitatively the way the solutions are supposed to. They act like diffusion solutions – smoothing rapidly fluctuating (short wavelength) regions quickly.</p>
 <div class="section" id="harder-problems">
@@ -563,7 +1061,7 @@
 <p><em>Try changing \(\Delta t\) and then \(\Delta x\)</em> – is that what you expected ?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># delta x = 1/100 ... also try 1/250 </span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># delta x = 1/100 ... also try 1/250 </span>
 
 <span class="n">xP</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>  
 
@@ -603,13 +1101,10 @@
     <span class="n">gradx_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
     <span class="n">grad2x_hP</span> <span class="o">=</span> <span class="n">gradx</span><span class="p">(</span><span class="n">xP</span><span class="p">,</span><span class="n">gradx_hP</span><span class="o">*</span><span class="n">K</span><span class="p">)</span>
       
-    <span class="k">if</span><span class="p">(</span><span class="n">time</span><span class="o">%</span><span class="k">100</span>==0):    
+    <span class="k">if</span><span class="p">(</span><span class="n">time</span><span class="o">%</span><span class="mi">100</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>    
         <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xP</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span><span class="n">hP</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/1-GroundwaterFlow-LectureNotes_19_0.png" src="../../_images/1-GroundwaterFlow-LectureNotes_19_0.png" />
 </div>
 </div>
 </div>
@@ -643,6 +1138,8 @@
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="0-IntroductionToNumericalSolutions.html" title="previous page">Numerical models</a>
+    <a class='right-next' id="next-link" href="2-FiniteDifferences.html" title="next page">Finite difference operations</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -661,7 +1158,10 @@
       </div>
     </div>
 
-    <script src="../../_static/js/index.js"></script>
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
   </body>
 </html>

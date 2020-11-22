@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 
 <html>
@@ -7,16 +6,36 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The game of life &#8212; Geodynamics with Underworld</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -25,8 +44,8 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -41,8 +60,8 @@
     <link rel="next" title="The game of life (Advanced)" href="3-Discussion-TheGameOfLife.html" />
     <link rel="prev" title="Numpy data structures" href="1-IntroductionToNumpy.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -64,39 +83,60 @@
   <h1 class="site-logo" id="site-title">Geodynamics with Underworld</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../FrontPage.html">
    Geodynamics with Underworld
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Introduction and Background
  </span>
 </p>
 <ul class="nav sidenav_l1">
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../../Part0-Introduction/Introduction.html">
    Introduction
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Part0-Introduction/PlateTectonics.html">
+     Plate tectonics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Part0-Introduction/Observations.html">
+     Observations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../Part0-Introduction/Planets.html">
+     Planetary Science
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Mathematical Fluid Dynamics
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part1-FluidDynamics/0-StartHere.html">
+   Content
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../Part1-FluidDynamics/ContinuumMechanics.html">
    Conservation Laws
@@ -123,12 +163,17 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Numerical Modeling
  </span>
 </p>
 <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Part3-NumericalMethods/0-StartHere.html">
+   Content
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../Part3-NumericalMethods/NumericalMethods1.html">
    Numerical Modeling in Solid Earth Dynamics
@@ -155,7 +200,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Python for Geoscientists
  </span>
@@ -163,14 +208,53 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../0-StartHere.html">
-   Python for Earth Scientists
+   Content
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Introduction2Python/1-IntroductionToJupyterNotebooks.html">
+   Jupyter Notebooks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2Python/2-IntroductionToIpython.html">
+     ipython
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2Python/3-PythonDataTypes.html">
+     Python data types
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2Python/4-PythonClasses.html">
+     Classes and objects
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2VersionControl/1-GettingStartedWithGit.html">
+     An introduction to Version Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2VersionControl/2-NextStepsWithGit.html">
+     An introduction to Version Control pt 2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Introduction2VersionControl/3-YourOwnRepositories.html">
+     How to use git for yourself
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="0-NumpyAndScipy.html">
    Numpy and Scipy
   </a>
-  <ul class="current">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="1-IntroductionToNumpy.html">
      Numpy data structures
@@ -229,27 +313,392 @@
     </a>
    </li>
   </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Plotting/1-IntroductionToMatplotlib.html">
    Introduction to matplotlib
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../Mapping/00-Maps_with_Cartopy.html">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../Mapping/0-Maps_with_Cartopy.html">
    Maps with the Cartopy Package
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/0-Preliminaries.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/1-IntroductingCartopy.html">
+     Cartopy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/2-ImagesAndGeoTIFFs.html">
+     Handling images
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/3-WorkingWithRealData.html">
+     Australian magnetic intensity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/4-ContouringGlobalData.html">
+     How to use contours to view global data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/5-WorkingWithPointData.html">
+     Point Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/6-WorkingWithShuttleRadarTopography.html">
+     Cartopy and the Shuttle Radar Topography Map data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/7-WorkingWithOn-DemandMappingServices.html">
+     On demand mapping services
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/8-GlobalPlateMotionsEtc.html">
+     Global Plate Motions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/9-HimalayaRegionMapsAndImages.html">
+     Himalaya Maps (1)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Mapping/9a-HimalayaRegionMapsAndImages-Pt2.html">
+     Himalaya Maps (2)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../SphericalMeshing/0-Stripy.html">
    Triangulations
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/0-Cartesian.html">
+     Cartesian Meshes
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex1-Cartesian-Triangulations.html">
+       Example 1 - Triangulation of arbitrary points
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex2-CartesianGrids.html">
+       Example 2 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       predefined meshes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex3-Interpolation.html">
+       Example 3 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       interpolation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex4-Gradients.html">
+       Example 4 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       gradients
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex5-Smoothing.html">
+       Example 5 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       smoothing operations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex6-Scattered-Data.html">
+       Example 6 - Scattered Data and ‘Heat Maps’
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex7-Refinement-of-Triangulations.html">
+       Example 7 - Refining a triangulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex8-Spline-Tension.html">
+       Example 8 - Spline Tension
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/CartesianTriangulations/Ex9-Voronoi-Diagram.html">
+       Example 9 - Constructing the Voronoi diagram
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/0-Spherical.html">
+     Spherical Meshes
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex1-Spherical-Triangulations.html">
+       Example 1 - Triangulation of arbitrary points on the sphere
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex2-SphericalGrids.html">
+       Example 2 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       predefined meshes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex3-Interpolation.html">
+       Example 3 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       interpolation on the sphere
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex4-Gradients.html">
+       Example 4 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       gradients on the sphere
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex5-Smoothing.html">
+       Example 5 -
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         stripy
+        </span>
+       </code>
+       smoothing operations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex6-Scattered-Data.html">
+       Example 6 - Scattered Data and ‘Heat Maps’
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex7-Refinement-of-Triangulations.html">
+       Example 7 - Refining a triangulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex8-Spline-Tension.html">
+       Example 8 - Spline Tension
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/SphericalTriangulations/Ex9-Voronoi-Diagram.html">
+       Example 9 - Constructing the Voronoi diagram
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/Ex1-Litho1Layers.html">
+       Introduction to the stripy wrapper for litho 1.0
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/Ex2-Litho1Properties.html">
+       Litho 1.0 global sampling
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/Ex3-CrustalRegionalisation.html">
+       Crust 1.0 data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WorkEx1-CratonAverageProperties.html">
+       Properties of the cratons
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WorkEx2-OceanDepthAge.html">
+       Age of the oceans / depth of the oceans
+      </a>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-1.html">
+       A quick look at the depth-age relationship for the seafloor.
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-2.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-3.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-4.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../SphericalMeshing/Litho1pt0/WEx2-Tutorial/Notebook-5.html">
+         A quick look at the depth-age relationship for the seafloor.
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../SympleSympy/StartingWithSympy.html">
+   Getting started with
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     sympy
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../SympleSympy/StartingWithSympy.html#differentiation-integration">
+   Differentiation / Integration
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-2.html">
+     Using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+     for ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-2.html#use-of-the-sympy-equation-module-eq">
+     Use of the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+     equation module (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Eq
+      </span>
+     </code>
+     )
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-3.html">
+     Using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       sympy
+      </span>
+     </code>
+     for a PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SympleSympy/StartingWithSympy-4.html">
+     The biharmonic equation for Stokes flow
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../SolveMathProblems/0-IntroductionToNumericalSolutions.html">
+   Numerical models
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SolveMathProblems/1-GroundwaterFlow-LectureNotes.html">
+     Partial Differential Equations of Groundwater Flow
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SolveMathProblems/1-GroundwaterFlow-LectureNotes.html#finite-differences">
+     Finite Differences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SolveMathProblems/2-FiniteDifferences.html">
+     Finite difference operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SolveMathProblems/3-AdvancedFiniteDifferences.html">
+     Advanced finite difference
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
@@ -278,11 +727,11 @@
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
+        
+<div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
-    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         <a class="dropdown-buttons"
@@ -297,8 +746,8 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    
 </div>
+
         <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -317,7 +766,8 @@
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
                     class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
@@ -334,12 +784,6 @@
                     alt="Interact on binder">Binder</button></a>
         
         
-        <a class="jupyterhub-button" href="https://demon.underworldcloud.org/hub/user-redirect/git-pull?repo=https://github.com/Underworld-Geodynamics-Education/GeodynamicsJupyterBook&urlpath=tree/GeodynamicsJupyterBook/Part2-Python/NumpyAndScipy/2-Application-TheGameOfLife.md&branch=master"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
         
         
     </div>
@@ -349,12 +793,7 @@
 
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            
-        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -529,7 +968,10 @@
       </div>
     </div>
 
-    <script src="../../_static/js/index.js"></script>
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
   </body>
 </html>

@@ -13,11 +13,9 @@ kernelspec:
 
 # How to use git for yourself
 
----
 
   > _I recommend this tutorial: [https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud](https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud) even though it focuses on bitbucket rather than github._
 
----
 
 We saw how git works in collaboration and also how that will cause some interesting things to happen when people work together on a set of files. The rest of this tutorial is a discussion using the team's github site to add files to our shared repository and create individual repositories. 
 
