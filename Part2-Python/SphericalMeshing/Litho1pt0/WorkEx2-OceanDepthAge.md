@@ -71,7 +71,6 @@ longitudes_in_degrees = np.degrees(longitudes_in_radians)
 
 ```{code-cell} ipython3
 # Make an empty array with the same size as the number of mesh points
-crusttype = np.empty(number_of_mesh_points)
 crusttype = np.empty_like(even_mesh.lats)
 
 # Loop and fill the array with crust regionalisation values

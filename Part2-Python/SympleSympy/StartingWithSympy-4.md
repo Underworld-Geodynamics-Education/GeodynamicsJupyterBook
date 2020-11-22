@@ -90,8 +90,6 @@ BH2 = BH1.doit().simplify()
 (BH2 / PSI2).simplify()
 ```
 
-
-
 ```{code-cell} ipython3
 PSI = PSI1 + C * y * sympy.sin(k*x) * sympy.cosh(k*y) + D * y * sympy.sin(k*x) * sympy.sinh(k*y) 
 PSI0 = PSI.factor().collect(sympy.cosh(k*y)).collect(sympy.sinh(k*y))
@@ -104,8 +102,6 @@ BH2 = BH1.doit().simplify()
 BH3 = BH2.factor().collect(sympy.cosh(k*y)).collect(sympy.sinh(k*y))
 BH3 / sympy.sin(k*x)
 ```
-
-
 
 ```{code-cell} ipython3
 
