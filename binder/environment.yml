@@ -3,8 +3,8 @@ channels:
     - conda-forge
     - geo-down-under
 dependencies:
-
-    - compilers
+#    - compilers
+    - gdal 
     - geo-down-under::stripy==2.0.5b2
     - geo-down-under::litho1pt0
     - geo-down-under::quagmire
