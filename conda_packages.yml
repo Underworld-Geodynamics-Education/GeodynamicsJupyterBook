@@ -27,5 +27,6 @@ dependencies:
     - pip:
         - jupyter-book
         - lavavu
+        - cloudstor
 
 
